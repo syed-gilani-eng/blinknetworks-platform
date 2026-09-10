@@ -5,7 +5,6 @@ tools:
   - read
   - search/codebase
   - search/usages
-  - web/fetch
 ---
 
 # BlinkNetworks Architect
