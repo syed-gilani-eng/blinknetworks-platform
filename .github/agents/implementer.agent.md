@@ -54,3 +54,6 @@ Never commit, push, merge, or delete branches unless explicitly requested.
 
 Before implementing an architectural change, review relevant accepted ADRs
 under `docs/adr/` and ensure the implementation is consistent with them.
+
+Before implementing UI or UX changes, review relevant documentation under
+`docs/design/` and ensure implementation is consistent with it.
