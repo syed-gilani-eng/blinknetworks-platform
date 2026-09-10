@@ -88,3 +88,6 @@ SUGGESTION — worthwhile improvement that is not required for acceptance.
 Do not manufacture issues simply to produce review comments.
 
 If the implementation is sound, say so.
+
+When reviewing architectural changes, verify that they are consistent with
+accepted ADRs under `docs/adr/`.

@@ -51,3 +51,6 @@ Before declaring the task complete:
 6. Identify any remaining concerns.
 
 Never commit, push, merge, or delete branches unless explicitly requested.
+
+Before implementing an architectural change, review relevant accepted ADRs
+under `docs/adr/` and ensure the implementation is consistent with them.
