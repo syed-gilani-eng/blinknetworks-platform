@@ -1,0 +1,53 @@
+/*
+  Global design tokens for the BlinkNetworks website.
+  Source of truth: docs/design/design-system.md
+  Keep this file limited to reusable custom properties only.
+*/
+
+:root {
+  /* Color */
+  --color-blink-navy: #071a2d;
+  --color-secondary-navy: #0c2948;
+  --color-blink-blue: #1976e9;
+  --color-network-cyan: #2ac5e8;
+  --color-soft-azure: #eaf5ff;
+  --color-cloud-bg: #f6f9fc;
+  --color-white: #ffffff;
+  --color-text-primary: #132238;
+  --color-text-secondary: #5d6b7a;
+  --color-border: #dde6ee;
+  --color-accent-gradient: linear-gradient(
+    90deg,
+    var(--color-blink-blue),
+    var(--color-network-cyan)
+  );
+
+  /* Typography */
+  --font-family-base: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    Arial, sans-serif;
+  --font-size-body: 1rem;
+  --font-size-h3: 1.375rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h1: 3.625rem;
+
+  /* Space / layout */
+  --container-max-width: 1240px;
+  --container-padding-desktop: 32px;
+  --container-padding-tablet: 24px;
+  --container-padding-mobile: 20px;
+  --space-section-desktop: 112px;
+  --space-section-tablet: 80px;
+  --space-section-mobile: 64px;
+
+  /* Shape */
+  --radius-button: 8px;
+  --radius-card: 16px;
+  --radius-container-lg: 24px;
+  --shadow-sm: 0 1px 2px rgba(7, 26, 45, 0.08);
+  --shadow-md: 0 4px 16px rgba(7, 26, 45, 0.1);
+
+  /* Motion */
+  --duration-fast: 200ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+}
