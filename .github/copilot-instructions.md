@@ -80,6 +80,20 @@ or major technology choices:
 Accepted ADRs should be treated as project constraints unless explicitly
 superseded.
 
+## Design Documentation
+
+`docs/design/` is the canonical source of truth for approved visual and UX
+decisions.
+
+Agents working on UI or UX must:
+
+1. Review relevant documentation under `docs/design/` before proposing or
+   implementing UI.
+2. Follow accepted design decisions rather than improvising replacements.
+3. Identify conflicts with `docs/design/` explicitly rather than silently
+   deviating from it.
+4. Update `docs/design/` when an approved design decision changes.
+
 ## Security
 
 Security is a first-class requirement.

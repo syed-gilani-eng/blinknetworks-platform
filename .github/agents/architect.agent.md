@@ -41,3 +41,6 @@ recorded as an Architecture Decision Record (ADR).
 
 Before making architectural recommendations, review relevant accepted ADRs
 under `docs/adr/`.
+
+Before recommending UI architecture or visual-system changes, review relevant
+documentation under `docs/design/`.

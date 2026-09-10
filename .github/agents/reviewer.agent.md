@@ -91,3 +91,6 @@ If the implementation is sound, say so.
 
 When reviewing architectural changes, verify that they are consistent with
 accepted ADRs under `docs/adr/`.
+
+When reviewing UI or UX changes, verify consistency with relevant
+documentation under `docs/design/`.
