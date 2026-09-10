@@ -59,6 +59,27 @@ Do not add technology solely for portfolio or resume value.
 Every dependency, framework, service, and architectural pattern must have a
 clear reason for existing.
 
+## Architecture Decision Records
+
+Architecture Decision Records are stored in:
+
+`docs/adr/`
+
+ADRs are the project's source of truth for significant architectural decisions.
+
+Before proposing or implementing a change that affects architecture,
+dependencies, application structure, security boundaries, deployment strategy,
+or major technology choices:
+
+1. Review the relevant existing ADRs in `docs/adr/`.
+2. Do not contradict an accepted ADR without explicitly identifying the conflict.
+3. If a decision needs to change, recommend creating a new ADR that supersedes
+   the previous decision rather than silently changing the architecture.
+4. Create a new ADR when a decision has significant or long-term consequences.
+
+Accepted ADRs should be treated as project constraints unless explicitly
+superseded.
+
 ## Security
 
 Security is a first-class requirement.

@@ -38,3 +38,6 @@ Terraform, Ansible, or deployment infrastructure unless explicitly asked.
 
 When an architectural decision has lasting consequences, recommend that it be
 recorded as an Architecture Decision Record (ADR).
+
+Before making architectural recommendations, review relevant accepted ADRs
+under `docs/adr/`.
