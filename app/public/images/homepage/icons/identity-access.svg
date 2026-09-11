@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.1" result="blur" />
+      <feComponentTransfer in="blur" result="blur">
+        <feFuncA type="linear" slope="0.35" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="32" cy="34" r="23" fill="url(#grad)" opacity="0.08" />
+  <circle cx="32" cy="22" r="13" stroke="#2AC5E8" stroke-width="1.6" stroke-dasharray="2 5" opacity="0.55" />
+  <g filter="url(#glow)" stroke="url(#grad)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="22" r="8.5" />
+    <path d="M14 54a18 18 0 0 1 36 0" />
+  </g>
+</svg>

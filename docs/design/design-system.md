@@ -292,6 +292,26 @@ Do not mix unrelated icon families.
 
 Avoid importing an icon library for only one or two icons when a small approved SVG or CSS treatment is sufficient.
 
+### Third-party technology icons
+
+Where the homepage references third-party technologies BlinkNetworks works
+with (e.g. the Technology Strip), do not reproduce, redraw, or approximate
+the vendor's official logo or wordmark. Use small original,
+BlinkNetworks-styled category icons paired with the plain technology name
+as real text. The name — not the icon — is the accessible label; decorative
+icon images use `alt=""`.
+
+Production icon assets for this pattern live under
+`app/public/images/homepage/icons/` (SVG, named for the generic concept —
+e.g. `cloud-infrastructure.svg`, `cybersecurity.svg` — not the vendor
+product name). SVG is preferred over WebP for this line-art icon style
+since it stays crisp at any size/density and needs no build-time image
+tooling. Each icon uses a bolder gradient stroke (Blink Blue → Network
+Cyan) with a soft glow filter, and is placed in a small rounded "glow
+badge" (subtle radial gradient, hairline border, restrained shadow) so the
+set reads as more dimensional/premium and consistent with the Hero, while
+remaining simple, flat, and readable at small sizes.
+
 ---
 
 ## 9. Header / Primary Navigation
