@@ -5,11 +5,13 @@ import Header from "../components/Header.astro";
 interface Props {
   title?: string;
   description?: string;
+  headerVariant?: "light" | "dark";
 }
 
 const {
   title = "BlinkNetworks",
   description = "Managed IT, Microsoft, cloud, networking, and cybersecurity services for Toronto and GTA businesses.",
+  headerVariant = "light",
 } = Astro.props;
 ---
 
@@ -25,7 +27,7 @@ const {
     <title>{title}</title>
   </head>
   <body>
-    <Header />
+    <Header variant={headerVariant} />
     <main>
       <slot />
     </main>

@@ -1,4 +1,15 @@
 ---
+interface Props {
+  variant?: "light" | "dark";
+}
+
+const { variant = "light" }: Props = Astro.props;
+
+const logoSrc =
+  variant === "dark"
+    ? "/brand/blinknetworks-logo-dark-background.png"
+    : "/brand/blinknetworks-logo-light-background.png";
+
 const navItems = [
   { label: "Services", href: "/services/" },
   { label: "Solutions", href: "/solutions/" },
@@ -9,9 +20,17 @@ const navItems = [
 ];
 ---
 
-<header class="site-header" data-nav-enhanced="false">
+<header class="site-header" data-nav-enhanced="false" data-variant={variant}>
   <div class="site-header__inner">
-    <a class="site-header__logo" href="/">BlinkNetworks</a>
+    <a class="site-header__logo" href="/">
+      <img
+        class="site-header__logo-img"
+        src={logoSrc}
+        width="2016"
+        height="422"
+        alt="BlinkNetworks"
+      />
+    </a>
 
     <button
       class="site-header__toggle"
@@ -82,11 +101,21 @@ const navItems = [
   }
 
   .site-header__logo {
-    font-size: 1.125rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: var(--color-blink-navy);
-    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .site-header__logo-img {
+    display: block;
+    height: 34px;
+    width: auto;
+  }
+
+  @media (min-width: 960px) {
+    .site-header__logo-img {
+      height: 40px;
+    }
   }
 
   .visually-hidden {
@@ -224,6 +253,51 @@ const navItems = [
 
     .site-nav__cta {
       margin-top: 0;
+    }
+  }
+
+  /* Dark variant: same Blink Navy as the Hero so the two form one continuous band. */
+  .site-header[data-variant="dark"] {
+    background-color: var(--color-blink-navy);
+    border-bottom-color: transparent;
+  }
+
+  .site-header[data-variant="dark"] .site-header__toggle {
+    background: transparent;
+    border-color: var(--color-white);
+  }
+
+  .site-header[data-variant="dark"] .site-header__toggle-bars span {
+    background: var(--color-white);
+  }
+
+  .site-header[data-variant="dark"] .site-nav__list a {
+    color: var(--color-white);
+  }
+
+  .site-header[data-variant="dark"] .site-nav__list a:hover,
+  .site-header[data-variant="dark"] .site-nav__list a:focus-visible {
+    color: var(--color-network-cyan);
+  }
+
+  /* Blink Blue fails AA for normal-size text/backgrounds; Network Cyan + navy text passes. */
+  .site-header[data-variant="dark"] .site-nav__cta {
+    background-color: var(--color-network-cyan);
+    color: var(--color-blink-navy);
+  }
+
+  .site-header[data-variant="dark"] .site-nav__cta:hover {
+    background-color: var(--color-soft-azure);
+  }
+
+  .site-header[data-variant="dark"] :focus-visible {
+    outline-color: var(--color-network-cyan);
+  }
+
+  @media (max-width: 959px) {
+    .site-header[data-variant="dark"][data-nav-enhanced="true"] .site-nav {
+      background-color: var(--color-blink-navy);
+      border-bottom-color: var(--color-secondary-navy);
     }
   }
 </style>
