@@ -36,8 +36,9 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 3–15 below (Technology Strip through Final CTA) and the Footer are
-**not** implemented yet and remain placeholders for future steps.
+Sections 4–15 below (Business Problem through Final CTA) and the Footer are
+**not** implemented yet and remain placeholders for future steps. Section 3
+(Technology Strip) is implemented — see the Step 6 note below.
 
 ### Hero content (implemented)
 
@@ -94,6 +95,32 @@ CN Tower and hub visible) so it blends into the Hero rather than reading as
 a pasted rectangle. The current desktop (≥960px) grid is
 `0.92fr 1fr` (approximately 48% content / 52% illustration), superseding
 the ~46%/54% split recorded in the Step 5B note.
+
+### Step 6 note: Technology Strip implemented
+
+`TechnologyStrip.astro` renders the compact band directly below the Hero
+(`app/src/pages/index.astro`). It uses a white background with no gap or
+border against the Hero — the color change from Blink Navy to white is the
+only separation — and a visually-hidden `<h2>` ("Technologies we work
+with") since the approved mockup has no visible heading.
+
+Current six technologies (plain text, real BlinkNetworks copy, no vendor
+artwork): Microsoft 365, Azure, Entra ID, Intune, Microsoft Defender,
+VMware. Each item pairs a technology name with a production SVG icon under
+`app/public/images/homepage/icons/` (`productivity-collaboration.svg`,
+`cloud-infrastructure.svg`, `identity-access.svg`, `endpoint-management.svg`,
+`cybersecurity.svg`, `virtualization-operations.svg`). These are original
+geometric concept icons, not reproductions of Microsoft/VMware logos or
+wordmarks. Each icon sits in a small "glow badge" (soft Blink Blue/Network
+Cyan radial gradient, subtle border, restrained shadow) for a more
+dimensional, premium feel consistent with the Hero; the icons themselves
+are decorative (`alt=""`) since the visible text name is the accessible
+label.
+
+Layout: single row, evenly distributed (`justify-content: space-between`)
+at ≥960px; a balanced 3-column/2-row grid at 640–959px; a balanced
+2-column/3-row grid below 640px. Text stays at 16px minimum at every
+breakpoint.
 
 ## Approved Section Order
 
