@@ -1,0 +1,259 @@
+---
+const trustIndicators = [
+  "Microsoft-focused expertise",
+  "Security-first approach",
+  "Local GTA support",
+];
+---
+
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__content">
+      <p class="hero__eyebrow">MANAGED IT SERVICES &middot; TORONTO &amp; GTA</p>
+      <h1 class="hero__heading">
+        <span class="hero__heading-line">Your IT Department.</span>
+        <span class="hero__heading-accent">Without the Overhead.</span>
+      </h1>
+      <p class="hero__lead">
+        Managed IT, Microsoft 365, cybersecurity, cloud and infrastructure
+        services for growing businesses across Toronto and the GTA.
+      </p>
+      <div class="hero__actions">
+        <a class="hero__cta hero__cta--primary" href="/contact/">Book a Free Consultation</a>
+        <a class="hero__cta hero__cta--secondary" href="/services/">Explore Our Services</a>
+      </div>
+      <ul class="hero__trust">
+        {trustIndicators.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <!-- Single production composite: skyline, isometric objects, connections, hub, and mark are baked in. -->
+    <div class="hero__illustration">
+      <img
+        class="hero__illustration-image"
+        src="/images/hero/hero-composite.webp"
+        width="1536"
+        height="1024"
+        alt=""
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-color: var(--color-blink-navy);
+    color: var(--color-white);
+    overflow: hidden;
+  }
+
+  .hero__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  @media (min-width: 640px) {
+    .hero__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 40px 48px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .hero__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 44px 60px;
+      display: grid;
+      grid-template-columns: 0.92fr 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .hero__content {
+      min-width: 0;
+    }
+  }
+
+  .hero__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-network-cyan);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  .hero__heading {
+    margin: 0 0 20px;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    font-weight: 700;
+  }
+
+  @media (min-width: 960px) {
+    .hero__heading {
+      /* Sized to hold "Without the Overhead." on one line within the 48%
+         copy column at typical desktop widths (see docs/design/homepage.md). */
+      font-size: clamp(2.75rem, -0.9rem + 5.7vw, 3.4rem);
+      letter-spacing: -0.01em;
+    }
+
+    .hero__heading-line {
+      display: block;
+    }
+  }
+
+  .hero__heading-accent {
+    display: block;
+    color: var(--color-network-cyan);
+  }
+
+  .hero__lead {
+    margin: 0 0 32px;
+    max-width: 42ch;
+    color: var(--color-soft-azure);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 960px) {
+    .hero__eyebrow {
+      margin-bottom: 8px;
+    }
+
+    .hero__lead {
+      margin-bottom: 24px;
+    }
+
+    .hero__actions {
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 24px;
+    border-radius: var(--radius-button);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease,
+      border-color var(--duration-fast) ease,
+      color var(--duration-fast) ease;
+  }
+
+  /* Blink Blue does not reliably meet AA behind white text; Network Cyan + navy text does. */
+  .hero__cta--primary {
+    background-color: var(--color-network-cyan);
+    color: var(--color-blink-navy);
+    border: 1px solid var(--color-network-cyan);
+  }
+
+  .hero__cta--primary:hover {
+    background-color: var(--color-soft-azure);
+    border-color: var(--color-soft-azure);
+  }
+
+  .hero__cta--secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+  }
+
+  .hero__cta--secondary:hover {
+    border-color: var(--color-network-cyan);
+    color: var(--color-network-cyan);
+  }
+
+  @media (min-width: 960px) {
+    .hero__cta {
+      padding-inline: 20px;
+    }
+  }
+
+  /* Dark background: keep focus rings on the approved brighter accent rather than the default Blink Blue. */
+  .hero :focus-visible {
+    outline-color: var(--color-network-cyan);
+  }
+
+  .hero__trust {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    color: var(--color-soft-azure);
+    font-size: 1rem;
+  }
+
+  .hero__trust li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero__trust li::before {
+    content: "";
+    flex-shrink: 0;
+    width: 6px;
+    height: 10px;
+    border-right: 2px solid var(--color-network-cyan);
+    border-bottom: 2px solid var(--color-network-cyan);
+    transform: rotate(45deg);
+  }
+
+  .hero__illustration {
+    width: 100%;
+    max-width: 400px;
+    margin-inline: auto;
+  }
+
+  /* Composite already bakes in skyline, network, and hub artwork; masked so it blends
+     into the Blink Navy Hero instead of reading as a pasted rectangle. */
+  .hero__illustration-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    mask-image: radial-gradient(92% 90% at 60% 46%, #000 66%, transparent 100%);
+    -webkit-mask-image: radial-gradient(92% 90% at 60% 46%, #000 66%, transparent 100%);
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .hero__illustration {
+      max-width: 600px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .hero__illustration {
+      max-width: none;
+      margin-inline: 0;
+    }
+
+    .hero__illustration-image {
+      /* Center shifted right so the fade favors the left/top/bottom edges while the
+         CN Tower and hub detail on the right stay largely untouched. */
+      mask-image: radial-gradient(88% 82% at 72% 46%, #000 56%, transparent 100%);
+      -webkit-mask-image: radial-gradient(88% 82% at 72% 46%, #000 56%, transparent 100%);
+    }
+  }
+</style>
