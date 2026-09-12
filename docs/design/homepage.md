@@ -36,13 +36,13 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 13–15 below (Technology Stack through Final CTA) and the Footer
-are **not** implemented yet and remain placeholders for future steps.
-Sections 3–12 (Technology Strip, Business Problem, Core Services, Microsoft
-Feature, Automation & AI, Why BlinkNetworks, Systems Thinking /
-Differentiator, How It Works, Who We Help, Pain Points) are implemented —
-see the Step 6, Step 7, Step 8, Step 9, Step 10, Step 11, Step 12, Step 13,
-Step 14, and Step 15 notes below.
+Sections 14–15 below (Insights and Final CTA) and the Footer are **not**
+implemented yet and remain placeholders for future steps. Sections 3–13
+(Technology Strip, Business Problem, Core Services, Microsoft Feature,
+Automation & AI, Why BlinkNetworks, Systems Thinking / Differentiator, How
+It Works, Who We Help, Pain Points, Technology Stack) are implemented — see
+the Step 6, Step 7, Step 8, Step 9, Step 10, Step 11, Step 12, Step 13,
+Step 14, Step 15, and Step 16 notes below.
 
 ### Hero content (implemented)
 
@@ -453,6 +453,52 @@ color reads more clearly against the dark tile/section background.
 Layout: header full-width above a 5-column tile row at ≥960px; header
 above a 3-column tile grid at 640–959px; header above a single-column
 tile stack below 640px. No CTA, matching the approved mockup.
+
+### Step 16 note: Technology Stack implemented
+
+`TechnologyStack.astro` renders directly after Pain Points
+(`app/src/pages/index.astro`), on a `var(--color-cloud-bg)` background —
+the Navy → Cloud color change alone marks the boundary with Pain Points
+above (no border/divider), returning to a light surface as in the
+approved mockup.
+
+Copy (approved, exact, matching the mockup, no lead paragraph, no CTA):
+eyebrow "OUR TECHNOLOGY STACK"; H2 "Trusted technology. Better
+outcomes."
+
+This section groups technology into four operational-layer categories
+rather than repeating the Technology Strip's flat six-item row: Microsoft
+(Microsoft 365, Azure, Entra ID, Intune, Defender, Teams), Cloud &
+Virtualization (Azure, VMware, Citrix, Windows Server, Virtualization),
+Automation & Operations (Power Automate, Automation, Monitoring,
+Infrastructure Management), and Infrastructure (Networking, Servers,
+Firewalls, Wi-Fi, Backup & Continuity). Citrix is an approved plain-text
+technology name (no logo, no partnership/certification wording) grouped
+under Cloud & Virtualization rather than Microsoft. AWS is intentionally
+omitted from this initial implementation to stay consistent with the
+site's Microsoft-first positioning (the same reasoning that already
+excluded AWS from the implemented Technology Strip). The approved
+mockup's Infrastructure category shows specific hardware vendor names
+(e.g. Cisco, HPE, Dell, Fortinet, Ubiquiti); those have not been approved
+as production BlinkNetworks vendor claims, so this category uses generic
+capability wording instead.
+
+Structure: a vertical flow — `<header>` (eyebrow, H2, left-aligned) sits
+above a `<ul>` of four category items, the same "heading above, compact
+items below" pattern used by How It Works, Who We Help, and Pain Points.
+Each `<li>` is a lightweight technology column with no card, border, or
+shadow: an icon + `<h3>` category title row, followed by a single
+middle-dot-separated line of technology names (real text, natural
+wrapping, no per-technology badges or pills). Four existing icons were
+reused rather than creating new assets — `productivity-collaboration.svg`
+(Microsoft), `virtualization-operations.svg` (Cloud & Virtualization),
+`infrastructure-automation.svg` (Automation & Operations), and
+`network-services.svg` (Infrastructure) — rendered at 32px with no glow
+badge, deliberately distinct from the Technology Strip's badged icon
+treatment.
+
+Layout: four columns in one row at ≥960px; a 2×2 grid at 640–959px; a
+single stacked column below 640px. No CTA, matching the approved mockup.
 
 1. Header
 2. Hero
