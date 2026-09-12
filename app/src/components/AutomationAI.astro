@@ -1,0 +1,210 @@
+---
+// Original BlinkNetworks-styled icons (no vendor logos, no official Copilot mark).
+// Assets: app/public/images/homepage/icons/
+const capabilities = [
+  {
+    title: "Workflow Automation",
+    description: "Eliminate manual work and streamline processes.",
+    iconSrc: "/images/homepage/icons/workflow-automation.svg",
+  },
+  {
+    title: "Microsoft Copilot",
+    description: "Put AI to work for your business.",
+    iconSrc: "/images/homepage/icons/copilot-ai.svg",
+  },
+  {
+    title: "Infrastructure Automation",
+    description: "More efficiency. Fewer moving parts.",
+    iconSrc: "/images/homepage/icons/infrastructure-automation.svg",
+  },
+  {
+    title: "Systems Integration",
+    description: "Connect your tools and data for a smarter business.",
+    iconSrc: "/images/homepage/icons/systems-integration.svg",
+  },
+];
+---
+
+<section class="automation-ai" aria-labelledby="automation-ai-heading">
+  <div class="automation-ai__inner">
+    <div class="automation-ai__content">
+      <p class="automation-ai__eyebrow">AUTOMATION & AI</p>
+      <h2 id="automation-ai-heading" class="automation-ai__heading">
+        Automate the repetitive. Focus on what matters.
+      </h2>
+      <p class="automation-ai__lead">
+        Modern tools. Practical solutions. Real results. We help you
+        leverage automation and AI to save time, reduce risk, and empower
+        your team.
+      </p>
+      <a class="automation-ai__cta" href="/services/">Learn More &rarr;</a>
+    </div>
+
+    <ul class="automation-ai__capabilities">
+      {
+        capabilities.map((capability) => (
+          <li class="automation-ai__item">
+            <img
+              class="automation-ai__icon"
+              src={capability.iconSrc}
+              width="36"
+              height="36"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="automation-ai__item-title">{capability.title}</h3>
+            <p class="automation-ai__item-description">{capability.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Blink Navy Microsoft Feature section above. */
+  .automation-ai {
+    background-color: var(--color-white);
+  }
+
+  .automation-ai__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @media (min-width: 640px) {
+    .automation-ai__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .automation-ai__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .automation-ai__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .automation-ai__content {
+      max-width: none;
+    }
+  }
+
+  .automation-ai__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .automation-ai__heading {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .automation-ai__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .automation-ai__lead {
+    margin: 0 0 28px;
+    max-width: 40ch;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .automation-ai__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 20px;
+    border-radius: var(--radius-button);
+    /* Blink Blue does not reliably meet AA behind white text on a light surface; Secondary Navy does. */
+    background-color: var(--color-secondary-navy);
+    color: var(--color-white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease;
+  }
+
+  .automation-ai__cta:hover {
+    background-color: var(--color-blink-navy);
+  }
+
+  .automation-ai__capabilities {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .automation-ai__capabilities {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 24px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .automation-ai__capabilities {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  /* Deliberately lighter than Core Services: no card background, border, or shadow. */
+  .automation-ai__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .automation-ai__icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 14px;
+  }
+
+  .automation-ai__item-title {
+    margin: 0 0 6px;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .automation-ai__item-description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+</style>

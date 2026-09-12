@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="systems-integration-stroke" x1="4" y1="6" x2="36" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+  </defs>
+  <circle cx="9" cy="10" r="4.5" stroke="url(#systems-integration-stroke)" stroke-width="2" />
+  <circle cx="31" cy="10" r="4.5" stroke="url(#systems-integration-stroke)" stroke-width="2" />
+  <circle cx="20" cy="30" r="4.5" stroke="url(#systems-integration-stroke)" stroke-width="2" />
+  <path d="M13 11.5L26 11.5" stroke="url(#systems-integration-stroke)" stroke-width="2" stroke-linecap="round" />
+  <path d="M11.5 14L18 26" stroke="url(#systems-integration-stroke)" stroke-width="2" stroke-linecap="round" />
+  <path d="M28.5 14L22 26" stroke="url(#systems-integration-stroke)" stroke-width="2" stroke-linecap="round" />
+</svg>
