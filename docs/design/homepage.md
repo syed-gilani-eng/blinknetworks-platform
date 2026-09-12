@@ -36,10 +36,10 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 6–15 below (Microsoft Feature through Final CTA) and the Footer are
-**not** implemented yet and remain placeholders for future steps. Sections 3,
-4, and 5 (Technology Strip, Business Problem, Core Services) are
-implemented — see the Step 6, Step 7, and Step 8 notes below.
+Sections 7–15 below (Automation & AI through Final CTA) and the Footer are
+**not** implemented yet and remain placeholders for future steps. Sections 3–6
+(Technology Strip, Business Problem, Core Services, Microsoft Feature) are
+implemented — see the Step 6, Step 7, Step 8, and Step 9 notes below.
 
 ### Hero content (implemented)
 
@@ -185,6 +185,44 @@ Layout: six columns in one row at ≥960px; a 3-column/2-row grid at
 640–959px; a single stacked column below 640px. The "Learn More" link
 color uses `var(--color-secondary-navy)` rather than Blink Blue for the
 same AA-contrast reason documented for the Business Problem CTA.
+
+### Step 9 note: Microsoft Feature implemented
+
+`MicrosoftFeature.astro` renders directly after Core Services
+(`app/src/pages/index.astro`), on a `var(--color-blink-navy)` background —
+the Cloud-surface → Blink Navy color change alone marks the boundary with
+Core Services above (no border/divider), matching the light → dark
+transition pattern in the approved mockup.
+
+Copy (approved, real text, no invented partnership/certification claims):
+eyebrow "MICROSOFT-FIRST"; H2 "Get more from the Microsoft technology you
+already use."; supporting paragraph "We help you unlock the full potential
+of Microsoft 365 with secure, integrated, and expertly managed solutions.";
+CTA "Explore Microsoft Solutions →" to `/services/`.
+
+Structure: a two-column composition at ≥960px (`grid-template-columns:
+0.8fr 1.1fr`, ~42%/58% text/visual, vertically centered, 48px gap) that
+stacks to a single column (content first, image second) at <960px — the
+same pattern used by Business Problem. The right side is a single
+production composite image,
+`app/public/images/microsoft-feature/microsoft-ecosystem.webp`
+(1672×941, ~52KB) — purely decorative (`alt=""`), not assembled from
+separate runtime nodes, lines, or positioned icons. It is rendered with no
+card, border, or shadow treatment so it reads as part of the navy section.
+
+The eyebrow and CTA use Network Cyan (on this dark surface Network Cyan
+provides accessible contrast, consistent with the Hero's dark-surface CTA
+treatment) rather than Blink Blue, for the same AA-contrast reason
+documented for the Hero and Business Problem CTAs.
+
+**Open item:** the current `microsoft-ecosystem.webp` composite renders
+actual Microsoft product marks (the Microsoft 365 tile logo, Azure, Entra
+ID, Intune, Defender, Teams, and Copilot icons) baked into the artwork.
+This asset was not altered as part of this implementation task. If the
+project maintains its earlier decision not to publish official Microsoft
+logos/marks (see Section 8 of `design-system.md`), this production graphic
+should be reviewed and likely replaced with a generic-icon version before
+this section ships publicly.
 
 ## Approved Section Order
 

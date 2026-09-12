@@ -1,0 +1,179 @@
+---
+---
+
+<section class="microsoft-feature" aria-labelledby="microsoft-feature-heading">
+  <div class="microsoft-feature__inner">
+    <div class="microsoft-feature__content">
+      <p class="microsoft-feature__eyebrow">MICROSOFT-FIRST</p>
+      <h2 id="microsoft-feature-heading" class="microsoft-feature__heading">
+        Get more from the Microsoft technology you already use.
+      </h2>
+      <p class="microsoft-feature__lead">
+        We help you unlock the full potential of Microsoft 365 with secure,
+        integrated, and expertly managed solutions.
+      </p>
+      <a class="microsoft-feature__cta" href="/services/">Explore Microsoft Solutions &rarr;</a>
+    </div>
+
+    <!-- Single production composite (Microsoft ecosystem diagram); purely decorative. -->
+    <div class="microsoft-feature__visual">
+      <img
+        class="microsoft-feature__image"
+        src="/images/microsoft-feature/microsoft-ecosystem.webp"
+        width="1672"
+        height="941"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Cloud-surface Core Services section above; overflow:hidden contains the visual's outward atmosphere bleed. */
+  .microsoft-feature {
+    background-color: var(--color-blink-navy);
+    color: var(--color-white);
+    overflow: hidden;
+  }
+
+  .microsoft-feature__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @media (min-width: 640px) {
+    .microsoft-feature__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 48px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .microsoft-feature__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 52px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.1fr;
+      align-items: center;
+      gap: 48px;
+    }
+  }
+
+  .microsoft-feature__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .microsoft-feature__content {
+      max-width: none;
+    }
+  }
+
+  .microsoft-feature__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-network-cyan);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .microsoft-feature__heading {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  @media (min-width: 960px) {
+    .microsoft-feature__heading {
+      font-size: 2.375rem;
+    }
+  }
+
+  .microsoft-feature__lead {
+    margin: 0 0 28px;
+    max-width: 46ch;
+    color: var(--color-soft-azure);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .microsoft-feature__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 20px;
+    border-radius: var(--radius-button);
+    /* Blink Blue does not reliably meet AA behind navy text on this dark surface; Network Cyan does. */
+    background-color: var(--color-network-cyan);
+    color: var(--color-blink-navy);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease;
+  }
+
+  .microsoft-feature__cta:hover {
+    background-color: var(--color-soft-azure);
+  }
+
+  /* Dark background: keep focus rings on the approved brighter accent rather than the default Blink Blue. */
+  .microsoft-feature :focus-visible {
+    outline-color: var(--color-network-cyan);
+  }
+
+  .microsoft-feature__visual {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+  }
+
+  /* Soft navy atmosphere behind the image bridges its dark-blue background into the section's Blink Navy, so the rectangular edge reads as blended rather than pasted. */
+  .microsoft-feature__visual::before {
+    content: "";
+    position: absolute;
+    inset: -8%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(25, 118, 233, 0.22) 0%,
+      rgba(12, 41, 72, 0.28) 55%,
+      rgba(7, 26, 45, 0) 82%
+    );
+  }
+
+  /* Fully visible: no mask/fade across the diagram so every label and node stays readable. */
+  .microsoft-feature__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    opacity: 1;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .microsoft-feature__visual {
+      max-width: 700px;
+      margin-inline: auto;
+    }
+  }
+
+  /* Tighter atmosphere on stacked/narrower widths to avoid excessive glow relative to the smaller graphic. */
+  @media (max-width: 959px) {
+    .microsoft-feature__visual::before {
+      inset: -5%;
+    }
+  }
+</style>
