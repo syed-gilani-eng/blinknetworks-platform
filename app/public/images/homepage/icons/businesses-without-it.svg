@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="businesses-without-it-stroke" x1="6" y1="6" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+  </defs>
+  <rect x="9" y="9" width="15" height="25" rx="1" stroke="url(#businesses-without-it-stroke)" stroke-width="2" />
+  <path d="M24 17H31V34H24" stroke="url(#businesses-without-it-stroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M13 14H15M18 14H20M13 19H15M18 19H20M13 24H15M18 24H20" stroke="url(#businesses-without-it-stroke)" stroke-width="2" stroke-linecap="round" />
+  <path d="M14 34V29H19V34" stroke="url(#businesses-without-it-stroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
