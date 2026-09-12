@@ -1,0 +1,192 @@
+---
+// Original BlinkNetworks-styled icons (no vendor logos, no icon library).
+// Assets: app/public/images/homepage/icons/
+const audiences = [
+  {
+    title: "Businesses Without Internal IT",
+    description: "Get enterprise-grade IT support without the overhead.",
+    iconSrc: "/images/homepage/icons/businesses-without-it.svg",
+  },
+  {
+    title: "Growing Organizations",
+    description: "Scale your IT as you grow with confidence.",
+    iconSrc: "/images/homepage/icons/growing-organizations.svg",
+  },
+  {
+    title: "Small Internal IT Teams",
+    description: "Augment your team with specialized expertise.",
+    iconSrc: "/images/homepage/icons/small-it-teams.svg",
+  },
+  {
+    title: "Multi-Location Businesses",
+    description: "Consistent, secure IT across all your locations.",
+    iconSrc: "/images/homepage/icons/multi-location.svg",
+  },
+];
+---
+
+<section class="who-we-help" aria-labelledby="who-we-help-heading">
+  <div class="who-we-help__inner">
+    <header class="who-we-help__header">
+      <p class="who-we-help__eyebrow">BUILT FOR GROWING BUSINESSES</p>
+      <h2 id="who-we-help-heading" class="who-we-help__heading">
+        IT that scales with you.
+      </h2>
+    </header>
+
+    <ul class="who-we-help__cards">
+      {
+        audiences.map((audience) => (
+          <li class="who-we-help__card">
+            <img
+              class="who-we-help__icon"
+              src={audience.iconSrc}
+              width="28"
+              height="28"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="who-we-help__card-title">{audience.title}</h3>
+            <p class="who-we-help__card-description">{audience.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Cloud How It Works section above. */
+  .who-we-help {
+    background-color: var(--color-white);
+  }
+
+  .who-we-help__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 24px 28px;
+  }
+
+  @media (min-width: 640px) {
+    .who-we-help__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 26px 28px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .who-we-help__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 28px 30px;
+    }
+  }
+
+  .who-we-help__header {
+    margin: 0 0 20px;
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .who-we-help__header {
+      /* Wide enough for "IT that scales with you." to stay on one line at common desktop widths. */
+      max-width: none;
+    }
+  }
+
+  .who-we-help__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .who-we-help__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .who-we-help__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .who-we-help__cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .who-we-help__cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 16px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .who-we-help__cards {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      /* Stretch so all four cards match the height of the tallest (e.g. the longer "Businesses Without Internal IT" copy). */
+      align-items: stretch;
+      gap: 14px;
+    }
+
+    .who-we-help__card {
+      height: 100%;
+    }
+  }
+
+  /* Lighter than Core Services: no icon badge, restrained shadow, compact padding. Two-row internal grid (icon+title, then full-width description) keeps tiles wide and short instead of tall feature cards. */
+  .who-we-help__card {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 8px;
+    align-items: center;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    padding: 14px 16px;
+  }
+
+  .who-we-help__icon {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+    width: 28px;
+    height: 28px;
+  }
+
+  .who-we-help__card-title {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.25;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .who-we-help__card-description {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--color-text-secondary);
+  }
+</style>

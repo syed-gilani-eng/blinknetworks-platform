@@ -36,12 +36,12 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 11–15 below (Who We Help through Final CTA) and the Footer are
+Sections 12–15 below (Pain Points through Final CTA) and the Footer are
 **not** implemented yet and remain placeholders for future steps. Sections
-3–10 (Technology Strip, Business Problem, Core Services, Microsoft Feature,
+3–11 (Technology Strip, Business Problem, Core Services, Microsoft Feature,
 Automation & AI, Why BlinkNetworks, Systems Thinking / Differentiator, How
-It Works) are implemented — see the Step 6, Step 7, Step 8, Step 9, Step
-10, Step 11, Step 12, and Step 13 notes below.
+It Works, Who We Help) are implemented — see the Step 6, Step 7, Step 8,
+Step 9, Step 10, Step 11, Step 12, Step 13, and Step 14 notes below.
 
 ### Hero content (implemented)
 
@@ -375,6 +375,40 @@ chevrons between them; at 640–959px, a 2×2 process grid with chevrons
 hidden; below 640px, a single-column process grid with chevrons hidden.
 The two-row internal card structure (number + icon + title, then a
 full-width description) is identical at all three of these breakpoints.
+
+### Step 14 note: Who We Help implemented
+
+`WhoWeHelp.astro` renders directly after How It Works
+(`app/src/pages/index.astro`), on a plain `var(--color-white)` background —
+the Cloud → White color change alone marks the boundary with How It Works
+above (no border/divider), returning to a light surface as in the approved
+mockup.
+
+Copy (approved, exact, matching the mockup, no lead paragraph, no CTA):
+eyebrow "BUILT FOR GROWING BUSINESSES"; H2 "IT that scales with you."; four
+audience cards — Businesses Without Internal IT ("Get enterprise-grade IT
+support without the overhead."), Growing Organizations ("Scale your IT as
+you grow with confidence."), Small Internal IT Teams ("Augment your team
+with specialized expertise."), and Multi-Location Businesses ("Consistent,
+secure IT across all your locations.").
+
+Structure: a two-column composition at ≥960px
+(`grid-template-columns: 0.7fr 1.3fr`, vertically centered, 32px gap) —
+eyebrow and H2 only (no lead, no CTA) on the left, four compact audience
+cards in one row on the right, in a `<ul>`/`<li>` list. Unlike How It
+Works and Core Services, these cards are deliberately lighter: a plain
+32px icon (no badge), `<h3>` title, and description on a white surface
+with a `var(--color-border)` hairline border, `var(--radius-card)`
+corners, `var(--shadow-sm)` only, and compact `18px 16px` padding — no
+CTA inside each card, matching the approved mockup. Four new SVG icons
+were added to `app/public/images/homepage/icons/`
+(`businesses-without-it.svg`, `growing-organizations.svg`,
+`small-it-teams.svg`, `multi-location.svg`) using the same gradient-stroke
+line-icon language as the existing set.
+
+Layout: four columns in one row at ≥960px; a 2×2 grid at 640–959px; a
+single stacked column below 640px, in that order: eyebrow, heading, then
+the four audience cards.
 
 1. Header
 2. Hero
