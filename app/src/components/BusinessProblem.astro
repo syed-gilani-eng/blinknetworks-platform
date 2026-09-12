@@ -1,0 +1,151 @@
+---
+---
+
+<section class="business-problem" aria-labelledby="business-problem-heading">
+  <div class="business-problem__inner">
+    <div class="business-problem__content">
+      <p class="business-problem__eyebrow">THE CHALLENGE</p>
+      <h2 id="business-problem-heading" class="business-problem__heading">
+        Technology shouldn't become another job you have to manage.
+      </h2>
+      <p class="business-problem__lead">
+        Your business has enough on its plate. We take the complexity out of
+        IT with a strategic, fully managed approach, so you can focus on
+        what you do best.
+      </p>
+      <a class="business-problem__cta" href="/services/">See How We Help &rarr;</a>
+    </div>
+
+    <!-- Single production composite (skyline-free, light-surface illustration); purely decorative. -->
+    <div class="business-problem__visual">
+      <img
+        class="business-problem__image"
+        src="/images/business-problem/business-problem-composite.webp"
+        width="1448"
+        height="1086"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Technology Strip above. */
+  .business-problem {
+    background-color: var(--color-white);
+  }
+
+  .business-problem__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 14px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @media (min-width: 640px) {
+    .business-problem__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 16px 32px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .business-problem__inner {
+      padding-inline: var(--container-padding-desktop);
+      /* Modest top padding plus the Technology Strip's shaded band gives a clear but understated boundary. */
+      padding-block: 20px 36px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.1fr;
+      align-items: center;
+      gap: 48px;
+    }
+  }
+
+  .business-problem__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .business-problem__content {
+      max-width: none;
+    }
+  }
+
+  .business-problem__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .business-problem__heading {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .business-problem__heading {
+      font-size: var(--font-size-h2);
+    }
+  }
+
+  .business-problem__lead {
+    margin: 0 0 28px;
+    max-width: 46ch;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .business-problem__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 24px;
+    border-radius: var(--radius-button);
+    /* Blink Blue does not reliably meet AA behind white text on a light surface; Secondary Navy does. */
+    background-color: var(--color-secondary-navy);
+    color: var(--color-white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease;
+  }
+
+  .business-problem__cta:hover {
+    background-color: var(--color-blink-navy);
+  }
+
+  @media (min-width: 960px) {
+    .business-problem__cta {
+      padding-inline: 20px;
+    }
+  }
+
+  .business-problem__visual {
+    width: 100%;
+  }
+
+  .business-problem__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .business-problem__visual {
+      max-width: 700px;
+      margin-inline: auto;
+    }
+  }
+</style>

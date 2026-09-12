@@ -52,21 +52,22 @@ const technologies = [
     border: 0;
   }
 
-  /* Background change alone marks the boundary with the navy Hero above. */
+  /* Subtle shaded surface distinguishes this band from the Hero above and the white Business Problem section below. */
   .tech-strip {
-    background-color: var(--color-white);
+    background-color: var(--color-cloud-bg);
   }
 
   .tech-strip__inner {
     max-width: var(--container-max-width);
     margin-inline: auto;
     padding-inline: var(--container-padding-mobile);
-    padding-block: 26px;
+    padding-block: 20px 14px;
   }
 
   @media (min-width: 640px) {
     .tech-strip__inner {
       padding-inline: var(--container-padding-tablet);
+      padding-block: 18px 14px;
     }
   }
 
@@ -117,7 +118,7 @@ const technologies = [
     }
   }
 
-  /* Soft glow + glass panel gives the flat glyph a premium, elevated feel. */
+  /* White base keeps the badge visible against the section's own Cloud background. */
   .tech-strip__icon-badge {
     flex-shrink: 0;
     display: flex;
@@ -128,7 +129,7 @@ const technologies = [
     border-radius: 14px;
     background:
       radial-gradient(circle at 32% 28%, rgba(25, 118, 233, 0.1), rgba(42, 197, 232, 0.03) 65%, transparent 80%),
-      var(--color-cloud-bg);
+      var(--color-white);
     border: 1px solid rgba(25, 118, 233, 0.12);
     box-shadow:
       0 4px 10px rgba(7, 26, 45, 0.06),
