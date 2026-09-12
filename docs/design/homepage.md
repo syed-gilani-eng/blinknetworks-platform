@@ -36,12 +36,13 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 12–15 below (Pain Points through Final CTA) and the Footer are
-**not** implemented yet and remain placeholders for future steps. Sections
-3–11 (Technology Strip, Business Problem, Core Services, Microsoft Feature,
-Automation & AI, Why BlinkNetworks, Systems Thinking / Differentiator, How
-It Works, Who We Help) are implemented — see the Step 6, Step 7, Step 8,
-Step 9, Step 10, Step 11, Step 12, Step 13, and Step 14 notes below.
+Sections 13–15 below (Technology Stack through Final CTA) and the Footer
+are **not** implemented yet and remain placeholders for future steps.
+Sections 3–12 (Technology Strip, Business Problem, Core Services, Microsoft
+Feature, Automation & AI, Why BlinkNetworks, Systems Thinking /
+Differentiator, How It Works, Who We Help, Pain Points) are implemented —
+see the Step 6, Step 7, Step 8, Step 9, Step 10, Step 11, Step 12, Step 13,
+Step 14, and Step 15 notes below.
 
 ### Hero content (implemented)
 
@@ -409,6 +410,49 @@ line-icon language as the existing set.
 Layout: four columns in one row at ≥960px; a 2×2 grid at 640–959px; a
 single stacked column below 640px, in that order: eyebrow, heading, then
 the four audience cards.
+
+### Step 15 note: Pain Points implemented
+
+`PainPoints.astro` renders directly after Who We Help
+(`app/src/pages/index.astro`), on a `var(--color-blink-navy)` background —
+the White → Navy color change alone marks the boundary with Who We Help
+above (no border/divider), returning to a dark surface as in the approved
+mockup.
+
+Copy (approved, exact, matching the mockup, no CTA): eyebrow "DOES ANY OF
+THIS SOUND FAMILIAR?"; H2 "You're not alone."; supporting paragraph "We
+help businesses overcome common IT challenges."; five pain points —
+"Constant IT issues disrupting your team", "Security and compliance
+concerns", "Outdated systems holding you back", "Too much time spent
+managing vendors", and "No clear IT strategy for the future".
+
+Structure: a vertical flow — `<header>` (eyebrow, H2, lead, left-aligned,
+unconstrained width) sits above a `<ul>` of five pain-point tiles, the
+same "heading above, compact items below" pattern already used by How It
+Works and Who We Help. This replaced an earlier two-column (heading
+left/tiles right) attempt, which left the tile row too narrow and caused
+excessive text wrapping. Unlike every other multi-item homepage section
+so far, these are deliberately **not** cards or pills: each `<li>` is a
+compact rectangular tile (Secondary Navy fill, a hairline
+`rgba(255,255,255,0.12)` border, `12px` radius, `14px 16px` padding,
+`min-height: 76px`) using an internal `grid-template-columns: 28px
+minmax(0, 1fr)` to place a small 22px line icon beside a single line of
+16px/600-weight white text (natural wrap allowed, no title/description
+split, no shadow, no icon badge circle). With the header now above the
+row, `.pain-points__list` uses the full container width: 1 column below
+640px, 3 columns at 640–959px, and all 5 columns in one row at ≥960px —
+matching the mockup's single horizontal row while wrapping far less than
+the earlier two-column layout. Five new SVG icons were added to
+`app/public/images/homepage/icons/` (`recurring-it-issues.svg`,
+`security-compliance-concerns.svg`, `outdated-systems.svg`,
+`vendor-management-time.svg`, `it-strategy-gap.svg`) as simple single-color
+(Network Cyan) line icons — solid rather than the gradient-stroke recipe
+used for light-surface badges elsewhere, since a single bright accent
+color reads more clearly against the dark tile/section background.
+
+Layout: header full-width above a 5-column tile row at ≥960px; header
+above a 3-column tile grid at 640–959px; header above a single-column
+tile stack below 640px. No CTA, matching the approved mockup.
 
 1. Header
 2. Hero
