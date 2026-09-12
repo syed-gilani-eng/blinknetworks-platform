@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="process-secure-stabilize-stroke" x1="6" y1="4" x2="34" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+  </defs>
+  <path d="M20 5L32 9V18C32 26.284 26.837 32.837 20 35C13.163 32.837 8 26.284 8 18V9L20 5Z" stroke="url(#process-secure-stabilize-stroke)" stroke-width="2" stroke-linejoin="round" />
+  <path d="M14.5 19.5L18.5 23.5L26 15" stroke="url(#process-secure-stabilize-stroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
