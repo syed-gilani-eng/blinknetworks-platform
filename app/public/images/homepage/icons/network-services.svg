@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.1" result="blur" />
+      <feComponentTransfer in="blur" result="blur">
+        <feFuncA type="linear" slope="0.35" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="32" cy="32" r="23" fill="url(#grad)" opacity="0.08" />
+  <g stroke="url(#grad)" stroke-width="3" stroke-linecap="round" filter="url(#glow)">
+    <line x1="32" y1="32" x2="18" y2="18" />
+    <line x1="32" y1="32" x2="46" y2="18" />
+    <line x1="32" y1="32" x2="18" y2="46" />
+    <line x1="32" y1="32" x2="46" y2="46" />
+  </g>
+  <circle cx="32" cy="32" r="6" fill="url(#grad)" />
+  <circle cx="18" cy="18" r="4.5" fill="url(#grad)" opacity="0.9" />
+  <circle cx="46" cy="18" r="4.5" fill="url(#grad)" opacity="0.9" />
+  <circle cx="18" cy="46" r="4.5" fill="url(#grad)" opacity="0.9" />
+  <circle cx="46" cy="46" r="4.5" fill="url(#grad)" opacity="0.9" />
+</svg>

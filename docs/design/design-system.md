@@ -164,7 +164,7 @@ On dark surfaces, prefer:
 - White or Soft Azure for body/navigation text
 - Network Cyan for highly visible focus treatment
 
-On light surfaces, prefer Secondary Navy where Blink Blue does not provide sufficient contrast for normal-size text.
+On light surfaces, prefer Secondary Navy where Blink Blue does not provide sufficient contrast for normal-size text. This applies to both text (e.g. section eyebrows) and button backgrounds (e.g. the Business Problem section's CTA) on white/light sections.
 
 Accessibility takes priority over exact color matching when the visual reference and contrast requirements conflict.
 
@@ -310,7 +310,9 @@ tooling. Each icon uses a bolder gradient stroke (Blink Blue → Network
 Cyan) with a soft glow filter, and is placed in a small rounded "glow
 badge" (subtle radial gradient, hairline border, restrained shadow) so the
 set reads as more dimensional/premium and consistent with the Hero, while
-remaining simple, flat, and readable at small sizes.
+remaining simple, flat, and readable at small sizes. The Core Services
+section reuses this same icon recipe with a circular badge variant (see
+Section 12).
 
 ---
 
@@ -486,6 +488,11 @@ The homepage deliberately alternates:
 - Soft Azure / pale blue treatments
 
 This creates visual rhythm without relying on decorative clutter.
+
+The Core Services section is the first implemented example of this card
+pattern: six equal-height cards (icon badge, H3, description, "Learn
+More →") on a Cloud Background section, each card white with a 1px
+border, `var(--radius-card)`, and `var(--shadow-sm)`.
 
 ---
 

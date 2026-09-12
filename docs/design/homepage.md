@@ -36,9 +36,10 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 4–15 below (Business Problem through Final CTA) and the Footer are
-**not** implemented yet and remain placeholders for future steps. Section 3
-(Technology Strip) is implemented — see the Step 6 note below.
+Sections 6–15 below (Microsoft Feature through Final CTA) and the Footer are
+**not** implemented yet and remain placeholders for future steps. Sections 3,
+4, and 5 (Technology Strip, Business Problem, Core Services) are
+implemented — see the Step 6, Step 7, and Step 8 notes below.
 
 ### Hero content (implemented)
 
@@ -99,10 +100,13 @@ the ~46%/54% split recorded in the Step 5B note.
 ### Step 6 note: Technology Strip implemented
 
 `TechnologyStrip.astro` renders the compact band directly below the Hero
-(`app/src/pages/index.astro`). It uses a white background with no gap or
-border against the Hero — the color change from Blink Navy to white is the
-only separation — and a visually-hidden `<h2>` ("Technologies we work
-with") since the approved mockup has no visible heading.
+(`app/src/pages/index.astro`) on a `var(--color-cloud-bg)` background —
+the color change from Blink Navy to Cloud Background is the only separation
+from the Hero, no gap or border — and a visually-hidden `<h2>` ("Technologies
+we work with") since the approved mockup has no visible heading. The white
+Business Problem section below (see Step 7) begins where this Cloud
+background ends; that subtle Cloud → White change is what separates the two
+sections.
 
 Current six technologies (plain text, real BlinkNetworks copy, no vendor
 artwork): Microsoft 365, Azure, Entra ID, Intune, Microsoft Defender,
@@ -111,16 +115,76 @@ VMware. Each item pairs a technology name with a production SVG icon under
 `cloud-infrastructure.svg`, `identity-access.svg`, `endpoint-management.svg`,
 `cybersecurity.svg`, `virtualization-operations.svg`). These are original
 geometric concept icons, not reproductions of Microsoft/VMware logos or
-wordmarks. Each icon sits in a small "glow badge" (soft Blink Blue/Network
-Cyan radial gradient, subtle border, restrained shadow) for a more
-dimensional, premium feel consistent with the Hero; the icons themselves
-are decorative (`alt=""`) since the visible text name is the accessible
-label.
+wordmarks. Each icon sits in a small "glow badge" (white base surface, soft
+Blink Blue/Network Cyan radial tint, subtle border, restrained shadow — the
+white base keeps the badge visible against the strip's own Cloud
+background) for a more dimensional, premium feel consistent with the Hero;
+the icons themselves are decorative (`alt=""`) since the visible text name
+is the accessible label.
 
 Layout: single row, evenly distributed (`justify-content: space-between`)
 at ≥960px; a balanced 3-column/2-row grid at 640–959px; a balanced
 2-column/3-row grid below 640px. Text stays at 16px minimum at every
 breakpoint.
+
+### Step 7 note: Business Problem implemented
+
+`BusinessProblem.astro` renders directly below the Technology Strip
+(`app/src/pages/index.astro`), on a plain white background with no border
+or divider — the same "whitespace-only" transition pattern used between
+the Hero and the Technology Strip.
+
+Copy (approved, real text, no invented claims): eyebrow "THE CHALLENGE";
+H2 "Technology shouldn't become another job you have to manage."; supporting
+paragraph "Your business has enough on its plate. We take the complexity out
+of IT with a strategic, fully managed approach, so you can focus on what you
+do best."; CTA "See How We Help →" to `/services/`.
+
+Structure: a two-column composition at ≥960px (`grid-template-columns:
+0.8fr 1.1fr`, ~42%/58% text/visual, vertically centered, 48px gap) that
+stacks to a single column (content first, image second) at <960px. The
+right side is a single production composite image,
+`app/public/images/business-problem/business-problem-composite.webp`
+(1448×1086, ~41KB) — purely decorative (`alt=""`), not assembled from
+separate icons, pills, or connection lines. It is rendered with no card,
+border, or shadow treatment so it reads as part of the white section.
+
+The eyebrow uses `var(--color-secondary-navy)` rather than Blink Blue, and
+the CTA uses a Secondary Navy background rather than Blink Blue, because
+Blink Blue does not reliably meet WCAG AA for text/button labels at this
+size on a white background (see design-system.md Section 4).
+
+### Step 8 note: Core Services implemented
+
+`CoreServices.astro` renders directly below Business Problem
+(`app/src/pages/index.astro`), on a `var(--color-cloud-bg)` background —
+the color change alone marks the boundary with the white Business Problem
+section above (no border/divider).
+
+Centered eyebrow "OUR SERVICES" and H2 "Complete IT services for a
+stronger, more secure business." sit above a list of six white service
+cards: Managed IT & Help Desk, Microsoft 365 & Endpoint Management,
+Cybersecurity, Cloud & Infrastructure, Network Services, and Backup &
+Business Continuity, each with a short description and a "Learn More →"
+link. All six links currently point to `/services/` (no individual service
+subpages exist yet); each gets an `aria-label="Learn more about {title}"`
+since the visible link text repeats across cards.
+
+Each card uses a circular icon badge (46px, soft-azure radial-gradient
+surface, hairline border, restrained shadow — the same restrained
+dimensional family as the Technology Strip's badges, adapted to a circle
+for this section) at 26px icon size. Three new icons were added to
+`app/public/images/homepage/icons/`: `managed-it-support.svg`,
+`network-services.svg`, `business-continuity.svg` (same gradient-stroke +
+restrained glow-filter recipe as the existing icon set). Cybersecurity,
+Cloud & Infrastructure, and Microsoft 365 & Endpoint Management reuse the
+existing `cybersecurity.svg`, `cloud-infrastructure.svg`, and
+`productivity-collaboration.svg` icons.
+
+Layout: six columns in one row at ≥960px; a 3-column/2-row grid at
+640–959px; a single stacked column below 640px. The "Learn More" link
+color uses `var(--color-secondary-navy)` rather than Blink Blue for the
+same AA-contrast reason documented for the Business Problem CTA.
 
 ## Approved Section Order
 

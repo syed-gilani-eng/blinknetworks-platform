@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.1" result="blur" />
+      <feComponentTransfer in="blur" result="blur">
+        <feFuncA type="linear" slope="0.35" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="32" cy="32" r="23" fill="url(#grad)" opacity="0.08" />
+  <path
+    d="M16 20c0-3.3 7.2-6 16-6s16 2.7 16 6v24c0 3.3-7.2 6-16 6s-16-2.7-16-6V20Z"
+    filter="url(#glow)"
+    stroke="url(#grad)"
+    stroke-width="3.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path d="M16 20c0 3.3 7.2 6 16 6s16-2.7 16-6" stroke="url(#grad)" stroke-width="2.6" stroke-linecap="round" opacity="0.85" />
+  <path d="M16 32c0 3.3 7.2 6 16 6s16-2.7 16-6" stroke="url(#grad)" stroke-width="2.6" stroke-linecap="round" opacity="0.85" />
+  <path d="M42 44a9 9 0 1 0-2.6 6.3" stroke="url(#grad)" stroke-width="2.8" stroke-linecap="round" fill="none" opacity="0.9" />
+  <path d="M39 47.5 39.4 50.3 42 49.6" stroke="url(#grad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9" />
+</svg>
