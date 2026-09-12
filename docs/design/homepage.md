@@ -36,11 +36,12 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 8–15 below (Why BlinkNetworks through Final CTA) and the Footer are
-**not** implemented yet and remain placeholders for future steps. Sections 3–7
-(Technology Strip, Business Problem, Core Services, Microsoft Feature,
-Automation & AI) are implemented — see the Step 6, Step 7, Step 8, Step 9,
-and Step 10 notes below.
+Sections 9–15 below (Systems Thinking / Differentiator through Final CTA)
+and the Footer are **not** implemented yet and remain placeholders for
+future steps. Sections 3–8 (Technology Strip, Business Problem, Core
+Services, Microsoft Feature, Automation & AI, Why BlinkNetworks) are
+implemented — see the Step 6, Step 7, Step 8, Step 9, Step 10, and Step 11
+notes below.
 
 ### Hero content (implemented)
 
@@ -261,7 +262,39 @@ Layout: four columns in one row at ≥960px; a 2×2 grid at 640–959px; a
 single stacked column below 640px, in that order: content first, then the
 capability list.
 
+### Step 11 note: Why BlinkNetworks implemented
 
+`WhyBlinkNetworks.astro` renders directly after Automation & AI
+(`app/src/pages/index.astro`), on a `var(--color-soft-azure)` background —
+the White → Soft Azure color change alone marks the boundary with
+Automation & AI above (no border/divider). This is the first homepage
+section to use Soft Azure as a full section background rather than a badge
+fill.
+
+Copy (approved, no lead paragraph, no CTA): eyebrow "WHY BLINKNETWORKS";
+H2 "A different kind of IT partner."; four differentiators — Business
+First ("We align IT with your business goals."), One Accountable Partner
+("End-to-end support, no finger pointing."), Proactive by Design ("Prevent
+issues before they impact your business."), and Built for SMBs
+("Right-sized solutions for growing businesses."). **The approved mockup's
+eyebrow for this section duplicated "MICROSOFT-FIRST" from the Microsoft
+Feature section above it; this was a clear section-labeling error in the
+mockup and was corrected to "WHY BLINKNETWORKS" for production**, matching
+the section's own name and its `/why-blinknetworks/` nav destination.
+
+Structure: a two-column composition at ≥960px (`grid-template-columns:
+0.8fr 1.2fr`, vertically centered, 40px gap) — eyebrow and H2 only (no
+lead, no CTA) on the left, four differentiator items on the right. Like
+Automation & AI, each item is deliberately lightweight: a plain icon,
+`<h3>` title, and description with no card background, border, or shadow.
+Four new SVG icons were added to `app/public/images/homepage/icons/`
+(`business-first.svg`, `accountable-partner.svg`, `proactive-design.svg`,
+`built-for-smbs.svg`) using the same gradient-stroke line-icon language as
+the existing set, rendered directly (no glow badge).
+
+Layout: four columns in one row at ≥960px; a 2×2 grid at 640–959px; a
+single stacked column below 640px, in that order: eyebrow, heading, then
+the four differentiators.
 
 1. Header
 2. Hero

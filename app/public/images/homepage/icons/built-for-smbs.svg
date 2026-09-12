@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="built-for-smbs-stroke" x1="4" y1="6" x2="36" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+  </defs>
+  <circle cx="15" cy="13" r="5" stroke="url(#built-for-smbs-stroke)" stroke-width="2" />
+  <circle cx="27" cy="15" r="4.5" stroke="url(#built-for-smbs-stroke)" stroke-width="2" />
+  <path d="M5 34C5 27.373 9.477 23 15 23C19.03 23 22.516 25.26 24.09 28.5" stroke="url(#built-for-smbs-stroke)" stroke-width="2" stroke-linecap="round" />
+  <path d="M22 24.5C23.24 23.55 24.86 23 26.5 23C31.194 23 35 26.8 35 31.5V34" stroke="url(#built-for-smbs-stroke)" stroke-width="2" stroke-linecap="round" />
+</svg>
