@@ -1,0 +1,178 @@
+---
+// Original BlinkNetworks-styled icons (no vendor logos, no icon library).
+// Assets: app/public/images/homepage/icons/
+const differentiators = [
+  {
+    title: "Business First",
+    description: "We align IT with your business goals.",
+    iconSrc: "/images/homepage/icons/business-first.svg",
+  },
+  {
+    title: "One Accountable Partner",
+    description: "End-to-end support, no finger pointing.",
+    iconSrc: "/images/homepage/icons/accountable-partner.svg",
+  },
+  {
+    title: "Proactive by Design",
+    description: "Prevent issues before they impact your business.",
+    iconSrc: "/images/homepage/icons/proactive-design.svg",
+  },
+  {
+    title: "Built for SMBs",
+    description: "Right-sized solutions for growing businesses.",
+    iconSrc: "/images/homepage/icons/built-for-smbs.svg",
+  },
+];
+---
+
+<section class="why-blinknetworks" aria-labelledby="why-blinknetworks-heading">
+  <div class="why-blinknetworks__inner">
+    <div class="why-blinknetworks__content">
+      <p class="why-blinknetworks__eyebrow">WHY BLINKNETWORKS</p>
+      <h2 id="why-blinknetworks-heading" class="why-blinknetworks__heading">
+        A different kind of IT partner.
+      </h2>
+    </div>
+
+    <ul class="why-blinknetworks__items">
+      {
+        differentiators.map((item) => (
+          <li class="why-blinknetworks__item">
+            <img
+              class="why-blinknetworks__icon"
+              src={item.iconSrc}
+              width="36"
+              height="36"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="why-blinknetworks__item-title">{item.title}</h3>
+            <p class="why-blinknetworks__item-description">{item.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the white Automation & AI section above. */
+  .why-blinknetworks {
+    background-color: var(--color-soft-azure);
+  }
+
+  .why-blinknetworks__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  @media (min-width: 640px) {
+    .why-blinknetworks__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .why-blinknetworks__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .why-blinknetworks__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .why-blinknetworks__content {
+      max-width: none;
+    }
+  }
+
+  .why-blinknetworks__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .why-blinknetworks__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .why-blinknetworks__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .why-blinknetworks__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .why-blinknetworks__items {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 24px;
+      row-gap: 28px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .why-blinknetworks__items {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  /* Deliberately lightweight, matching Automation & AI: no card background, border, or shadow. */
+  .why-blinknetworks__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .why-blinknetworks__icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 14px;
+  }
+
+  .why-blinknetworks__item-title {
+    margin: 0 0 6px;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .why-blinknetworks__item-description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+</style>
