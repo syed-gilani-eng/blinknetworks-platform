@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="infrastructure-automation-stroke" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+  </defs>
+  <rect x="6" y="7" width="20" height="7" rx="2" stroke="url(#infrastructure-automation-stroke)" stroke-width="2" />
+  <rect x="6" y="18" width="20" height="7" rx="2" stroke="url(#infrastructure-automation-stroke)" stroke-width="2" />
+  <circle cx="11" cy="10.5" r="1.1" fill="url(#infrastructure-automation-stroke)" />
+  <circle cx="11" cy="21.5" r="1.1" fill="url(#infrastructure-automation-stroke)" />
+  <path
+    d="M33.2 27.6L34.6 26.2L33.4 24.1L31.6 24.6C31.3 24.3 30.9 24 30.5 23.8L30.1 22H27.7L27.3 23.8C26.9 24 26.5 24.3 26.2 24.6L24.4 24.1L23.2 26.2L24.6 27.6C24.55 28 24.55 28.4 24.6 28.8L23.2 30.2L24.4 32.3L26.2 31.8C26.5 32.1 26.9 32.4 27.3 32.6L27.7 34.4H30.1L30.5 32.6C30.9 32.4 31.3 32.1 31.6 31.8L33.4 32.3L34.6 30.2L33.2 28.8C33.25 28.4 33.25 28 33.2 27.6Z"
+    stroke="url(#infrastructure-automation-stroke)"
+    stroke-width="1.6"
+    stroke-linejoin="round"
+  />
+  <circle cx="28.9" cy="28.2" r="2.2" stroke="url(#infrastructure-automation-stroke)" stroke-width="1.6" />
+</svg>

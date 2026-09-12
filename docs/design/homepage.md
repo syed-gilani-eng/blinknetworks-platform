@@ -36,10 +36,11 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 7–15 below (Automation & AI through Final CTA) and the Footer are
-**not** implemented yet and remain placeholders for future steps. Sections 3–6
-(Technology Strip, Business Problem, Core Services, Microsoft Feature) are
-implemented — see the Step 6, Step 7, Step 8, and Step 9 notes below.
+Sections 8–15 below (Why BlinkNetworks through Final CTA) and the Footer are
+**not** implemented yet and remain placeholders for future steps. Sections 3–7
+(Technology Strip, Business Problem, Core Services, Microsoft Feature,
+Automation & AI) are implemented — see the Step 6, Step 7, Step 8, Step 9,
+and Step 10 notes below.
 
 ### Hero content (implemented)
 
@@ -224,7 +225,43 @@ logos/marks (see Section 8 of `design-system.md`), this production graphic
 should be reviewed and likely replaced with a generic-icon version before
 this section ships publicly.
 
-## Approved Section Order
+### Step 10 note: Automation & AI implemented
+
+`AutomationAI.astro` renders directly after Microsoft Feature
+(`app/src/pages/index.astro`), on a plain `var(--color-white)` background —
+the Blink Navy → White color change alone marks the boundary with Microsoft
+Feature above (no border/divider), returning to a light surface as in the
+approved mockup.
+
+Copy (approved, exact, no invented claims): eyebrow "AUTOMATION & AI"; H2
+"Automate the repetitive. Focus on what matters."; supporting paragraph
+"Modern tools. Practical solutions. Real results. We help you leverage
+automation and AI to save time, reduce risk, and empower your team."; CTA
+"Learn More →" to `/services/` (same temporary-route pattern used by
+Business Problem, Core Services, and Microsoft Feature — no dedicated
+automation/AI page exists yet).
+
+Structure: a two-column composition at ≥960px (`grid-template-columns:
+0.8fr 1.2fr`, vertically centered, 40px gap) — content (eyebrow, H2, lead,
+CTA) on the left, four capability items on the right. Unlike Core Services,
+the four capability items (Workflow Automation, Microsoft Copilot,
+Infrastructure Automation, Systems Integration) are deliberately
+lightweight: a plain icon, `<h3>` title, and description with no card
+background, border, or shadow, so the section reads as visibly lighter and
+more compact than Core Services. Four new SVG icons were added to
+`app/public/images/homepage/icons/` (`workflow-automation.svg`,
+`copilot-ai.svg`, `infrastructure-automation.svg`,
+`systems-integration.svg`) using the same gradient-stroke line-icon
+language as the existing set, rendered directly (no glow badge). For
+Microsoft Copilot, `copilot-ai.svg` is an original generic AI
+sparkle/assistant symbol — not the official Microsoft Copilot logo — per
+the vendor-logo policy in `design-system.md` Section 8.
+
+Layout: four columns in one row at ≥960px; a 2×2 grid at 640–959px; a
+single stacked column below 640px, in that order: content first, then the
+capability list.
+
+
 
 1. Header
 2. Hero

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="copilot-ai-stroke" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M20 5C20.8 11.2 22 15 25.5 18.5C29 22 33 23.2 35 24C33 24.8 29 26 25.5 29.5C22 33 20.8 36.8 20 43M20 5C19.2 11.2 18 15 14.5 18.5C11 22 7 23.2 5 24C7 24.8 11 26 14.5 29.5C18 33 19.2 36.8 20 43"
+    stroke="url(#copilot-ai-stroke)"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    transform="translate(0 -3) scale(1 0.86)"
+  />
+  <circle cx="31" cy="9" r="2.25" stroke="url(#copilot-ai-stroke)" stroke-width="2" />
+</svg>
