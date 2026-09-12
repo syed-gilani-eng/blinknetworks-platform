@@ -1,0 +1,231 @@
+---
+// Category-level icons only (no per-technology badges, no vendor logos).
+// Reused generic SVGs: app/public/images/homepage/icons/
+const categories = [
+  {
+    title: "Microsoft",
+    iconSrc: "/images/homepage/icons/productivity-collaboration.svg",
+    technologies: [
+      "Microsoft 365",
+      "Azure",
+      "Entra ID",
+      "Intune",
+      "Defender",
+      "Teams",
+    ],
+  },
+  {
+    title: "Cloud & Virtualization",
+    iconSrc: "/images/homepage/icons/virtualization-operations.svg",
+    technologies: [
+      "Azure",
+      "VMware",
+      "Citrix",
+      "Windows Server",
+      "Virtualization",
+    ],
+  },
+  {
+    title: "Automation & Operations",
+    iconSrc: "/images/homepage/icons/infrastructure-automation.svg",
+    technologies: [
+      "Power Automate",
+      "Automation",
+      "Monitoring",
+      "Infrastructure Management",
+    ],
+  },
+  {
+    title: "Infrastructure",
+    iconSrc: "/images/homepage/icons/network-services.svg",
+    technologies: [
+      "Networking",
+      "Servers",
+      "Firewalls",
+      "Wi-Fi",
+      "Backup & Continuity",
+    ],
+  },
+];
+---
+
+<section class="technology-stack" aria-labelledby="technology-stack-heading">
+  <div class="technology-stack__inner">
+    <header class="technology-stack__header">
+      <p class="technology-stack__eyebrow">OUR TECHNOLOGY STACK</p>
+      <h2 id="technology-stack-heading" class="technology-stack__heading">
+        Trusted technology. Better outcomes.
+      </h2>
+    </header>
+
+    <ul class="technology-stack__categories">
+      {
+        categories.map((category) => (
+          <li class="technology-stack__category">
+            <div class="technology-stack__category-header">
+              <img
+                class="technology-stack__icon"
+                src={category.iconSrc}
+                width="32"
+                height="32"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <h3 class="technology-stack__category-title">
+                {category.title}
+              </h3>
+            </div>
+            <ul class="technology-stack__technology-list">
+              {
+                category.technologies.map((technology) => (
+                  <li class="technology-stack__technology">{technology}</li>
+                ))
+              }
+            </ul>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Blink Navy Pain Points section above. */
+  .technology-stack {
+    background-color: var(--color-cloud-bg);
+  }
+
+  .technology-stack__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 28px 32px;
+  }
+
+  @media (min-width: 640px) {
+    .technology-stack__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 30px 34px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .technology-stack__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 30px 34px;
+    }
+  }
+
+  .technology-stack__header {
+    margin-bottom: 22px;
+  }
+
+  @media (min-width: 960px) {
+    .technology-stack__header {
+      margin-bottom: 26px;
+    }
+  }
+
+  .technology-stack__eyebrow {
+    margin: 0 0 10px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .technology-stack__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .technology-stack__heading {
+      font-size: var(--font-size-h2);
+    }
+  }
+
+  .technology-stack__categories {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  @media (min-width: 640px) {
+    .technology-stack__categories {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .technology-stack__categories {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+  }
+
+  /* Lightweight panel: hairline border only, lighter than a Core Services card. */
+  .technology-stack__category {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 18px 18px 20px;
+  }
+
+  .technology-stack__category-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .technology-stack__icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+
+  .technology-stack__category-title {
+    margin: 0;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .technology-stack__technology-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Individual shaded tag — modest rounded rectangle, not a pill. */
+  .technology-stack__technology {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 6px 10px;
+    background-color: var(--color-soft-azure);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+  }
+</style>
