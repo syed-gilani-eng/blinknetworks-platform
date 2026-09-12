@@ -36,12 +36,12 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 10–15 below (How It Works through Final CTA) and the Footer are
+Sections 11–15 below (Who We Help through Final CTA) and the Footer are
 **not** implemented yet and remain placeholders for future steps. Sections
-3–9 (Technology Strip, Business Problem, Core Services, Microsoft Feature,
-Automation & AI, Why BlinkNetworks, Systems Thinking / Differentiator) are
-implemented — see the Step 6, Step 7, Step 8, Step 9, Step 10, Step 11, and
-Step 12 notes below.
+3–10 (Technology Strip, Business Problem, Core Services, Microsoft Feature,
+Automation & AI, Why BlinkNetworks, Systems Thinking / Differentiator, How
+It Works) are implemented — see the Step 6, Step 7, Step 8, Step 9, Step
+10, Step 11, Step 12, and Step 13 notes below.
 
 ### Hero content (implemented)
 
@@ -323,6 +323,58 @@ part of the white section.
 
 Layout: content (eyebrow, H2, lead, CTA) on the left, illustration on the
 right, in that order at every breakpoint.
+
+### Step 13 note: How It Works implemented
+
+`HowItWorks.astro` renders directly after Bigger Picture
+(`app/src/pages/index.astro`), on a `var(--color-cloud-bg)` background —
+the White → Cloud color change alone marks the boundary with Bigger
+Picture above (no border/divider), matching the approved mockup's pale
+cool surface for this section.
+
+Copy (approved, exact, matching the mockup, no lead paragraph, no CTA):
+eyebrow "HOW IT WORKS"; H2 "A simple process. Real results."; four ordered
+stages — Assess ("Understand your needs, risks and opportunities."),
+Secure & Stabilize ("Address immediate risks and strengthen your
+foundation."), Modernize ("Implement the right solutions to enable
+growth."), and Manage & Improve ("Ongoing support, monitoring and
+strategic guidance.").
+
+Structure: an `<ol>` of four `<li>` steps (no non-`<li>` children, so
+sequence remains programmatically determinate independent of the visible
+number). Each step is a compact, wide, shallow process tile — deliberately
+lower and more horizontal than a Core Services card — using a two-row
+internal CSS grid (`grid-template-columns: 40px 30px minmax(0, 1fr);
+grid-template-rows: auto auto;`): row 1 holds the numbered circle
+(`grid-column: 1; grid-row: 1;`), the icon (`grid-column: 2; grid-row: 1;`),
+and the title (`grid-column: 3; grid-row: 1;`); row 2 holds the description,
+spanning the full card width (`grid-column: 1 / -1; grid-row: 2;`) so it
+gets nearly the entire card's horizontal space rather than being squeezed
+into a third column. White surface, `var(--color-border)` hairline border,
+`var(--radius-card)` corners, `var(--shadow-sm)` only, and tight `14px 16px`
+padding. The numbered circle (40px, Blink Blue fill, white number,
+`aria-hidden="true"` since the ordered list already conveys sequence) sits
+beside a small 28px line-art icon. `.how-it-works__steps` uses
+`align-items: start` so the row does not stretch every card to the height
+of the tallest one. This two-row internal structure is used consistently
+across every breakpoint — there is no separate mobile card-layout override.
+Four new SVG icons were added to `app/public/images/homepage/icons/`
+(`process-assess.svg`, `process-secure-stabilize.svg`,
+`process-modernize.svg`, `process-manage-monitor-improve.svg`) using the
+same gradient-stroke line-icon language as the existing set.
+
+Desktop (≥960px) connectors between cards are implemented as a CSS-only
+`::after` chevron on each non-last `.how-it-works__step` (a rotated
+bordered box in the brighter `var(--color-blink-blue)` tone, sized to sit
+in the reduced card gap) — no connector markup, no image, no JavaScript.
+Connectors are not rendered at all below 960px (the pseudo-element's
+`content` is only set inside the ≥960px media query).
+
+Responsive behavior: at ≥960px, four process cards in one row with CSS
+chevrons between them; at 640–959px, a 2×2 process grid with chevrons
+hidden; below 640px, a single-column process grid with chevrons hidden.
+The two-row internal card structure (number + icon + title, then a
+full-width description) is identical at all three of these breakpoints.
 
 1. Header
 2. Hero

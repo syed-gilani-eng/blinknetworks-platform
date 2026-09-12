@@ -1,0 +1,223 @@
+---
+// Original BlinkNetworks-styled icons (no vendor logos, no icon library).
+// Assets: app/public/images/homepage/icons/
+const steps = [
+  {
+    title: "Assess",
+    description: "Understand your needs, risks and opportunities.",
+    iconSrc: "/images/homepage/icons/process-assess.svg",
+  },
+  {
+    title: "Secure & Stabilize",
+    description: "Address immediate risks and strengthen your foundation.",
+    iconSrc: "/images/homepage/icons/process-secure-stabilize.svg",
+  },
+  {
+    title: "Modernize",
+    description: "Implement the right solutions to enable growth.",
+    iconSrc: "/images/homepage/icons/process-modernize.svg",
+  },
+  {
+    title: "Manage & Improve",
+    description: "Ongoing support, monitoring and strategic guidance.",
+    iconSrc: "/images/homepage/icons/process-manage-monitor-improve.svg",
+  },
+];
+---
+
+<section class="how-it-works" aria-labelledby="how-it-works-heading">
+  <div class="how-it-works__inner">
+    <header class="how-it-works__header">
+      <p class="how-it-works__eyebrow">HOW IT WORKS</p>
+      <h2 id="how-it-works-heading" class="how-it-works__heading">
+        A simple process. Real results.
+      </h2>
+    </header>
+
+    <ol class="how-it-works__steps">
+      {
+        steps.map((step, index) => (
+          <li class="how-it-works__step">
+            <div class="how-it-works__step-number" aria-hidden="true">
+              {index + 1}
+            </div>
+            <img
+              class="how-it-works__step-icon"
+              src={step.iconSrc}
+              width="28"
+              height="28"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="how-it-works__step-title">{step.title}</h3>
+            <p class="how-it-works__step-description">{step.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the white Bigger Picture section above. */
+  .how-it-works {
+    background-color: var(--color-cloud-bg);
+  }
+
+  .how-it-works__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 24px 28px;
+  }
+
+  @media (min-width: 640px) {
+    .how-it-works__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 24px 28px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .how-it-works__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 24px 28px;
+    }
+  }
+
+  .how-it-works__header {
+    margin: 0 0 18px;
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .how-it-works__header {
+      /* Wide enough for the heading to stay on one line at common desktop widths. */
+      max-width: none;
+    }
+  }
+
+  .how-it-works__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .how-it-works__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .how-it-works__heading {
+      /* Slightly under the shared H2 token so "A simple process. Real results." stays on one line. */
+      font-size: 2.25rem;
+    }
+  }
+
+  .how-it-works__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Cards size to their own content; a tall Step 4 must not stretch the rest of the row. */
+    align-items: start;
+    gap: 20px;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .how-it-works__steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .how-it-works__steps {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 36px;
+    }
+  }
+
+  /* Lighter than Core Services: same surface/border/radius, but a smaller shadow and no icon badge. */
+  .how-it-works__step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 40px 30px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 8px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    padding: 14px 16px;
+  }
+
+  /* Desktop-only decorative chevron linking each card to the next, drawn from the card's own border. */
+  @media (min-width: 960px) {
+    .how-it-works__step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: 14px;
+      height: 14px;
+      margin-left: 11px;
+      transform: translateY(-50%) rotate(45deg);
+      border-top: 3px solid var(--color-blink-blue);
+      border-right: 3px solid var(--color-blink-blue);
+      pointer-events: none;
+    }
+  }
+
+  .how-it-works__step-number {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-blink-blue);
+    color: var(--color-white);
+    font-size: 0.9375rem;
+    font-weight: 700;
+  }
+
+  .how-it-works__step-icon {
+    grid-column: 2;
+    grid-row: 1;
+    width: 28px;
+    height: 28px;
+  }
+
+  .how-it-works__step-title {
+    grid-column: 3;
+    grid-row: 1;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.25;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .how-it-works__step-description {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+  }
+</style>
