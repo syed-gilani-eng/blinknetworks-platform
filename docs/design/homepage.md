@@ -36,12 +36,12 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 9–15 below (Systems Thinking / Differentiator through Final CTA)
-and the Footer are **not** implemented yet and remain placeholders for
-future steps. Sections 3–8 (Technology Strip, Business Problem, Core
-Services, Microsoft Feature, Automation & AI, Why BlinkNetworks) are
-implemented — see the Step 6, Step 7, Step 8, Step 9, Step 10, and Step 11
-notes below.
+Sections 10–15 below (How It Works through Final CTA) and the Footer are
+**not** implemented yet and remain placeholders for future steps. Sections
+3–9 (Technology Strip, Business Problem, Core Services, Microsoft Feature,
+Automation & AI, Why BlinkNetworks, Systems Thinking / Differentiator) are
+implemented — see the Step 6, Step 7, Step 8, Step 9, Step 10, Step 11, and
+Step 12 notes below.
 
 ### Hero content (implemented)
 
@@ -296,6 +296,34 @@ Layout: four columns in one row at ≥960px; a 2×2 grid at 640–959px; a
 single stacked column below 640px, in that order: eyebrow, heading, then
 the four differentiators.
 
+### Step 12 note: The Bigger Picture (Systems Thinking / Differentiator) implemented
+
+`BiggerPicture.astro` renders directly after Why BlinkNetworks
+(`app/src/pages/index.astro`), on a plain `var(--color-white)` background —
+the Soft Azure → White color change alone marks the boundary with Why
+BlinkNetworks above (no border/divider), matching this section's role as
+Section 9 ("Systems Thinking / Differentiator") in the approved section
+order.
+
+Copy (approved, exact, no invented claims): eyebrow "THE BIGGER PICTURE";
+H2 "We see more than the individual technology."; supporting paragraph "IT
+works best when everything works together. We take a holistic approach,
+aligning people, process and technology to drive real business outcomes.";
+CTA "Learn More →" to `/services/` (same temporary-route pattern used by
+the other homepage sections without a dedicated page yet).
+
+Structure: a two-column composition at ≥960px (`grid-template-columns:
+0.8fr 1.1fr`, vertically centered, 48px gap) that stacks to a single column
+(content first, image second) below 960px — the same pattern used by
+Business Problem. The right side is a single production composite image,
+`app/public/images/bigger-picture/bigger-picture-stack.webp` (2172×724,
+~70KB) — purely decorative (`alt=""`), not assembled from separate icons
+or shapes. It is rendered with no card, border, or shadow so it reads as
+part of the white section.
+
+Layout: content (eyebrow, H2, lead, CTA) on the left, illustration on the
+right, in that order at every breakpoint.
+
 1. Header
 2. Hero
 3. Technology Strip
@@ -304,7 +332,7 @@ the four differentiators.
 6. Microsoft Feature
 7. Automation & AI
 8. Why BlinkNetworks
-9. Systems Thinking / Differentiator
+9. The Bigger Picture (Systems Thinking / Differentiator)
 10. How It Works
 11. Who We Help
 12. Pain Points

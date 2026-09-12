@@ -1,0 +1,150 @@
+---
+---
+
+<section class="bigger-picture" aria-labelledby="bigger-picture-heading">
+  <div class="bigger-picture__inner">
+    <div class="bigger-picture__content">
+      <p class="bigger-picture__eyebrow">THE BIGGER PICTURE</p>
+      <h2 id="bigger-picture-heading" class="bigger-picture__heading">
+        We see more than the individual technology.
+      </h2>
+      <p class="bigger-picture__lead">
+        IT works best when everything works together. We take a holistic
+        approach, aligning people, process and technology to drive real
+        business outcomes.
+      </p>
+      <a class="bigger-picture__cta" href="/services/">Learn More &rarr;</a>
+    </div>
+
+    <!-- Single production composite (technology, people & process, business outcomes); purely decorative. -->
+    <div class="bigger-picture__visual">
+      <img
+        class="bigger-picture__image"
+        src="/images/bigger-picture/bigger-picture-stack.webp"
+        width="2172"
+        height="724"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Soft Azure Why BlinkNetworks section above. */
+  .bigger-picture {
+    background-color: var(--color-white);
+  }
+
+  .bigger-picture__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @media (min-width: 640px) {
+    .bigger-picture__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .bigger-picture__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.1fr;
+      align-items: center;
+      gap: 48px;
+    }
+  }
+
+  .bigger-picture__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .bigger-picture__content {
+      max-width: none;
+    }
+  }
+
+  .bigger-picture__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .bigger-picture__heading {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .bigger-picture__heading {
+      font-size: var(--font-size-h2);
+    }
+  }
+
+  .bigger-picture__lead {
+    margin: 0 0 28px;
+    max-width: 46ch;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .bigger-picture__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 24px;
+    border-radius: var(--radius-button);
+    /* Blink Blue does not reliably meet AA behind white text on a light surface; Secondary Navy does. */
+    background-color: var(--color-secondary-navy);
+    color: var(--color-white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease;
+  }
+
+  .bigger-picture__cta:hover {
+    background-color: var(--color-blink-navy);
+  }
+
+  @media (min-width: 960px) {
+    .bigger-picture__cta {
+      padding-inline: 20px;
+    }
+  }
+
+  .bigger-picture__visual {
+    width: 100%;
+  }
+
+  .bigger-picture__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .bigger-picture__visual {
+      max-width: 500px;
+      margin-inline: auto;
+    }
+  }
+</style>
