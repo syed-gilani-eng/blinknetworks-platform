@@ -1,0 +1,182 @@
+---
+// Original BlinkNetworks-styled icons (no vendor logos, no icon library).
+// Assets: app/public/images/homepage/icons/
+const painPoints = [
+  {
+    text: "Constant IT issues disrupting your team",
+    iconSrc: "/images/homepage/icons/recurring-it-issues.svg",
+  },
+  {
+    text: "Security and compliance concerns",
+    iconSrc: "/images/homepage/icons/security-compliance-concerns.svg",
+  },
+  {
+    text: "Outdated systems holding you back",
+    iconSrc: "/images/homepage/icons/outdated-systems.svg",
+  },
+  {
+    text: "Too much time spent managing vendors",
+    iconSrc: "/images/homepage/icons/vendor-management-time.svg",
+  },
+  {
+    text: "No clear IT strategy for the future",
+    iconSrc: "/images/homepage/icons/it-strategy-gap.svg",
+  },
+];
+---
+
+<section class="pain-points" aria-labelledby="pain-points-heading">
+  <div class="pain-points__inner">
+    <header class="pain-points__header">
+      <p class="pain-points__eyebrow">DOES ANY OF THIS SOUND FAMILIAR?</p>
+      <h2 id="pain-points-heading" class="pain-points__heading">
+        You're not alone.
+      </h2>
+      <p class="pain-points__lead">
+        We help businesses overcome common IT challenges.
+      </p>
+    </header>
+
+    <ul class="pain-points__list">
+      {
+        painPoints.map((point) => (
+          <li class="pain-points__chip">
+            <img
+              class="pain-points__icon"
+              src={point.iconSrc}
+              width="22"
+              height="22"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <span>{point.text}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the white Who We Help section above. */
+  .pain-points {
+    background-color: var(--color-blink-navy);
+    color: var(--color-white);
+  }
+
+  .pain-points__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @media (min-width: 640px) {
+    .pain-points__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 32px 36px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .pain-points__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 26px 30px;
+      gap: 22px;
+    }
+  }
+
+  .pain-points__header {
+    max-width: none;
+  }
+
+  .pain-points__eyebrow {
+    margin: 0 0 10px;
+    color: var(--color-network-cyan);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .pain-points__heading {
+    margin: 0 0 16px;
+    font-size: 2rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  @media (min-width: 960px) {
+    .pain-points__heading {
+      font-size: 2.375rem;
+    }
+  }
+
+  .pain-points__lead {
+    margin: 0;
+    max-width: 50ch;
+    color: var(--color-soft-azure);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .pain-points__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 640px) {
+    .pain-points__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  /* Header now sits above the row, so all five tiles can share the full container width in one row. */
+  @media (min-width: 960px) {
+    .pain-points__list {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+  }
+
+  /* Compact rectangular tile, not a pill or card: no shadow, icon+text on one row. */
+  .pain-points__chip {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    min-height: 76px;
+    background-color: var(--color-secondary-navy);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+
+  .pain-points__icon {
+    flex-shrink: 0;
+    display: block;
+    width: 22px;
+    height: 22px;
+  }
+
+  .pain-points__chip span {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-white);
+  }
+
+  /* Dark background: keep focus rings on the approved brighter accent rather than the default Blink Blue. */
+  .pain-points :focus-visible {
+    outline-color: var(--color-network-cyan);
+  }
+</style>
