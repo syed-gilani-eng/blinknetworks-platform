@@ -1,0 +1,164 @@
+---
+---
+
+<section class="final-cta" aria-labelledby="final-cta-heading">
+  <div class="final-cta__inner">
+    <div class="final-cta__content">
+      <p class="final-cta__eyebrow">LET'S TALK</p>
+      <h2 id="final-cta-heading" class="final-cta__heading">
+        Not sure what your business needs?
+      </h2>
+      <p class="final-cta__lead">
+        Get expert advice, a clearer roadmap, and no pressure.
+      </p>
+    </div>
+
+    <div class="final-cta__action">
+      <a class="final-cta__cta" href="/contact/">Book a Free Consultation</a>
+      <p class="final-cta__caption">
+        A smarter, simpler way to move your business forward.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Reused Hero skyline photo behind the pseudo-element: low-opacity atmosphere, never a live <img>. */
+  .final-cta {
+    position: relative;
+    background-color: var(--color-blink-navy);
+    color: var(--color-white);
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/images/hero/hero-skyline.webp");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+    opacity: 0.14;
+    mask-image: linear-gradient(to left, #000 0%, transparent 55%);
+    -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 55%);
+  }
+
+  .final-cta__inner {
+    position: relative;
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .final-cta__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .final-cta__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 44px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .final-cta__content {
+    min-width: 0;
+  }
+
+  @media (min-width: 960px) {
+    .final-cta__content {
+      max-width: 700px;
+    }
+  }
+
+  .final-cta__eyebrow {
+    margin: 0 0 12px;
+    color: var(--color-network-cyan);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .final-cta__heading {
+    margin: 0 0 12px;
+    font-size: 2rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  @media (min-width: 960px) {
+    .final-cta__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .final-cta__lead {
+    margin: 0;
+    max-width: 52ch;
+    color: var(--color-soft-azure);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+
+  .final-cta__action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 960px) {
+    .final-cta__action {
+      flex-shrink: 0;
+      align-items: flex-end;
+      text-align: right;
+    }
+  }
+
+  /* Blink Blue does not reliably meet AA behind white text; Network Cyan + navy text does (matches Hero primary CTA). */
+  .final-cta__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 18px;
+    border-radius: var(--radius-button);
+    background-color: var(--color-network-cyan);
+    color: var(--color-blink-navy);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease;
+  }
+
+  .final-cta__cta:hover,
+  .final-cta__cta:focus-visible {
+    background-color: var(--color-soft-azure);
+  }
+
+  .final-cta__caption {
+    margin: 8px 0 0;
+    max-width: 32ch;
+    color: var(--color-network-cyan);
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  /* Dark background: keep focus rings on the approved brighter accent rather than the default Blink Blue. */
+  .final-cta :focus-visible {
+    outline-color: var(--color-network-cyan);
+  }
+</style>

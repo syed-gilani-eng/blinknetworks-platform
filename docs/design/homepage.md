@@ -36,13 +36,14 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Section 15 below (Final CTA) and the Footer are **not** implemented yet
-and remain placeholders for future steps. Sections 3–14 (Technology
+The Footer is the only homepage section that is **not** implemented yet
+and remains a placeholder for a future step. Sections 3–15 (Technology
 Strip, Business Problem, Core Services, Microsoft Feature, Automation &
 AI, Why BlinkNetworks, Systems Thinking / Differentiator, How It Works,
-Who We Help, Pain Points, Technology Stack, Insights) are implemented —
-see the Step 6, Step 7, Step 8, Step 9, Step 10, Step 11, Step 12, Step
-13, Step 14, Step 15, Step 16, and Step 17 notes below.
+Who We Help, Pain Points, Technology Stack, Insights, Final CTA) are
+implemented — see the Step 6, Step 7, Step 8, Step 9, Step 10, Step 11,
+Step 12, Step 13, Step 14, Step 15, Step 16, Step 17, and Step 18 notes
+below.
 
 ### Hero content (implemented)
 
@@ -547,6 +548,46 @@ three columns in one row at ≥960px; a single stacked column at both
 tablet grid, so tablet and mobile share the same one-column layout to
 avoid an orphaned card). `align-items: stretch` on the grid keeps all
 three cards equal height at ≥960px.
+
+### Step 18 note: Final CTA implemented
+
+`FinalCTA.astro` renders directly after Insights (`app/src/pages/index.astro`),
+on a `var(--color-blink-navy)` background — the White → Navy color change
+alone marks the boundary with Insights above (no border/divider), giving
+the closing band a strong visual transition ahead of the still-unimplemented
+Footer.
+
+Copy (approved, exact, matching the mockup): eyebrow "LET'S TALK"; H2 "Not
+sure what your business needs?"; supporting paragraph "Get expert advice, a
+clearer roadmap, and no pressure."; primary CTA "Book a Free Consultation"
+(no arrow, matching the Hero's primary CTA exactly) to `/contact/`; a short
+supporting caption beneath the CTA, "A smarter, simpler way to move your
+business forward." There is no secondary CTA, matching the approved mockup.
+The mockup renders its button in Blink Blue; production uses Network Cyan
+background + Blink Navy text instead (same AA-contrast substitution already
+documented for the Header and Hero dark-surface CTAs — Blink Blue does not
+reliably meet AA behind button text).
+
+The section reuses the existing `app/public/images/hero/hero-skyline.webp`
+asset (no new image was generated) as a subtly decorative background,
+applied via a `::before` pseudo-element rather than a live `<img>`: right-
+positioned, `opacity: 0.14`, and masked with a linear gradient that fades
+it out toward the left edge so it sits behind the copy without competing
+with it or producing a visible hard edge.
+
+Structure: a compact horizontal band — content (eyebrow, H2, lead,
+`max-width: 700px`) on the left, the CTA and its caption
+(`flex-shrink: 0`, right-aligned) on the right, on one row at ≥960px
+(`justify-content: space-between`, `align-items: center`, 40px gap) padded
+`44px` block. Below 960px both blocks stack in a single left-aligned
+column (36px block padding below 640px, 40px at 640–959px, 44px at
+≥960px) — deliberately compact, well under the homepage's general
+104–120px section-spacing guide, so the section reads as a strong closing
+band rather than another full content section. The CTA keeps a 44px
+minimum touch target at every breakpoint.
+
+With this step, the Footer is the only homepage section remaining
+unimplemented.
 
 1. Header
 2. Hero
