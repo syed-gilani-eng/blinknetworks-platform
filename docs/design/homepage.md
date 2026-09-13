@@ -36,14 +36,13 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-The Footer is the only homepage section that is **not** implemented yet
-and remains a placeholder for a future step. Sections 3–15 (Technology
-Strip, Business Problem, Core Services, Microsoft Feature, Automation &
-AI, Why BlinkNetworks, Systems Thinking / Differentiator, How It Works,
-Who We Help, Pain Points, Technology Stack, Insights, Final CTA) are
-implemented — see the Step 6, Step 7, Step 8, Step 9, Step 10, Step 11,
-Step 12, Step 13, Step 14, Step 15, Step 16, Step 17, and Step 18 notes
-below.
+All homepage sections are now implemented, including the Footer. Sections
+3–16 (Technology Strip, Business Problem, Core Services, Microsoft
+Feature, Automation & AI, Why BlinkNetworks, Systems Thinking /
+Differentiator, How It Works, Who We Help, Pain Points, Technology Stack,
+Insights, Final CTA, Footer) are implemented — see the Step 6, Step 7,
+Step 8, Step 9, Step 10, Step 11, Step 12, Step 13, Step 14, Step 15,
+Step 16, Step 17, Step 18, and Step 19 notes below.
 
 ### Hero content (implemented)
 
@@ -586,8 +585,103 @@ column (36px block padding below 640px, 40px at 640–959px, 44px at
 band rather than another full content section. The CTA keeps a 44px
 minimum touch target at every breakpoint.
 
-With this step, the Footer is the only homepage section remaining
-unimplemented.
+### Step 19 note: Footer implemented
+
+`Footer.astro` renders in `BaseLayout.astro` (as `<Footer />` immediately
+after `<main><slot /></main>`), not in `index.astro` — it is shared site
+chrome, the same architectural role as `Header.astro`, so it will apply to
+every current and future page rather than being homepage-specific. On the
+homepage this places it directly after Final CTA.
+
+Background is `var(--color-white)` — the approved mockup's Footer band is
+a light surface, not Blink Navy/Secondary Navy. The Blink Navy Final CTA
+→ White Footer color change alone marks the boundary (no extra divider
+needed at the top), the same "color change alone" transition pattern used
+at every other section boundary on the homepage.
+
+Logo: the approved light-background production asset,
+`app/public/brand/blinknetworks-logo-light-background.png` (intrinsic
+2016×422), rendered at 190px wide with its aspect ratio preserved, linking
+to `/`, `alt="BlinkNetworks"`.
+
+Brand description (exact, reused from the approved Hero lead copy, no new
+copy invented): "Managed IT, Microsoft 365, cybersecurity, cloud and
+infrastructure services for growing businesses across Toronto and the
+GTA."
+
+Structure: a five-column grid at ≥960px — Brand, Services, Company,
+Contact, Follow Us (`grid-template-columns: minmax(280px, 1.5fr)
+minmax(170px, 1fr) minmax(150px, 0.8fr) minmax(190px, 1fr) minmax(110px,
+0.6fr)`, 28px gap) — followed by a hairline `var(--color-border)` divider
+and a left-aligned copyright row. Services, Company, and Follow Us are
+marked up as `<nav aria-labelledby="...">` with a visible `<p>` label (not
+an `<h2>`/`<h3>`) referenced via `aria-labelledby`, keeping the page
+heading outline free of chrome-only labels; Contact is a plain grouped
+`<div>` since none of its rows are navigation links other than the
+tel/mailto anchors. All list items use real `<ul>`/`<li>` markup.
+
+Services links (all six, matching the exact names already established in
+`CoreServices.astro`): Managed IT & Help Desk, Microsoft 365 & Endpoint
+Management, Cybersecurity, Cloud & Infrastructure, Network Services, and
+Backup & Business Continuity — all temporarily targeting `/services/`
+(same no-dedicated-subpages-yet pattern used elsewhere on the homepage).
+
+Company links: About (`/about/`), Why BlinkNetworks
+(`/why-blinknetworks/`), Solutions (`/solutions/`), Insights
+(`/insights/`), and Contact (`/contact/`) — all existing forward-reference
+routes already used by the Header. "Our Approach", which appears in the
+mockup, was deliberately **not** added since no approved route exists for
+it.
+
+Contact column: a compact icon + text list — "Toronto, ON / Serving the
+GTA" (plain text, reusing the already-approved Toronto/GTA positioning),
+a phone row (`tel:+14165550123`, displayed as "(416) 555-0123"), and an
+email row (`mailto:hello@blinknetworks.com`). Each row uses a small
+18×18px original line-art icon (`app/public/images/homepage/icons/
+location-pin.svg`, `phone.svg`, `email.svg` — new, decorative, `alt=""`,
+Secondary Navy stroke, no gradient/glow badge, deliberately lighter than
+the homepage's other icon treatments). The Footer's own "Book a Free
+Consultation" CTA button was **removed** — the Final CTA section
+immediately above the Footer already owns consultation conversion, so the
+Footer stays informational/navigational rather than duplicating that
+call to action.
+
+**The phone number and email address are temporary placeholder values,**
+not verified production contact details. They must be replaced with real,
+approved BlinkNetworks contact information before public launch.
+
+A fifth column, Follow Us, was added with a single LinkedIn entry: a small
+original line-art "in"-style icon (`app/public/images/homepage/icons/
+linkedin.svg`, decorative, `alt=""`, Secondary Navy stroke, not a
+reproduction of LinkedIn's official logo/brand color) plus the visible
+text "LinkedIn", linking to `href="#"`. **This is a temporary placeholder
+link** — no approved production LinkedIn company URL exists yet. No other
+social networks (Facebook, Instagram, X, YouTube) were added.
+
+**BEFORE PUBLIC LAUNCH:**
+- replace the placeholder phone number `(416) 555-0123`
+- verify/replace the placeholder production email address
+- replace the LinkedIn placeholder `href="#"` with the real company profile URL
+
+A newsletter signup and Privacy Policy/Terms of Service links remain
+omitted (no form-handling implementation and no legal pages exist yet).
+
+Copyright: `© {currentYear} BlinkNetworks. All rights reserved.`, where
+`currentYear` is computed once in the component's Astro frontmatter via
+`new Date().getFullYear()` at build time — no client-side JavaScript.
+
+Responsive behavior: the five-column grid becomes a 2-column grid at
+640–959px with the brand block spanning the full width above it
+(`grid-column: 1 / -1`), and Services/Company/Contact/Follow Us reflowing
+into that 2-column grid without cramped narrow columns; below 640px
+everything stacks into a single left-aligned column in the order logo,
+description, Services, Company, Contact, Follow Us, divider, copyright.
+No accordions; all content remains visible and semantic at every
+breakpoint. Links keep a 15px minimum size and the tel/mailto/LinkedIn
+rows remain comfortably tappable throughout.
+
+With this step, all homepage sections — including the Footer — are now
+implemented.
 
 1. Header
 2. Hero
