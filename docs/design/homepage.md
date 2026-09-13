@@ -36,13 +36,13 @@ Implemented so far:
   blends into the Blink Navy Hero. See Step 5F note below — it supersedes
   the layered approach described in the Step 5B/5C notes.
 
-Sections 14–15 below (Insights and Final CTA) and the Footer are **not**
-implemented yet and remain placeholders for future steps. Sections 3–13
-(Technology Strip, Business Problem, Core Services, Microsoft Feature,
-Automation & AI, Why BlinkNetworks, Systems Thinking / Differentiator, How
-It Works, Who We Help, Pain Points, Technology Stack) are implemented — see
-the Step 6, Step 7, Step 8, Step 9, Step 10, Step 11, Step 12, Step 13,
-Step 14, Step 15, and Step 16 notes below.
+Section 15 below (Final CTA) and the Footer are **not** implemented yet
+and remain placeholders for future steps. Sections 3–14 (Technology
+Strip, Business Problem, Core Services, Microsoft Feature, Automation &
+AI, Why BlinkNetworks, Systems Thinking / Differentiator, How It Works,
+Who We Help, Pain Points, Technology Stack, Insights) are implemented —
+see the Step 6, Step 7, Step 8, Step 9, Step 10, Step 11, Step 12, Step
+13, Step 14, Step 15, Step 16, and Step 17 notes below.
 
 ### Hero content (implemented)
 
@@ -499,6 +499,54 @@ treatment.
 
 Layout: four columns in one row at ≥960px; a 2×2 grid at 640–959px; a
 single stacked column below 640px. No CTA, matching the approved mockup.
+
+### Step 17 note: Insights implemented
+
+`Insights.astro` renders directly after Technology Stack
+(`app/src/pages/index.astro`), on a plain `var(--color-white)` background
+— the Cloud → White color change alone marks the boundary with Technology
+Stack above (no border/divider), continuing the alternating rhythm ahead
+of the still-unimplemented Blink Navy Final CTA.
+
+Copy (approved, exact): eyebrow "INSIGHTS"; H2 "Latest insights and
+resources."; supporting paragraph "Practical advice, industry trends and
+IT best practices."; one section-level CTA "View All Articles →" to
+`/insights/` (a temporary-route target, matching the Header's existing
+"Insights" nav link and the pattern already used by other homepage CTAs
+that point to not-yet-built pages).
+
+Three article cards (category, title — exact, no dates): Cybersecurity
+("5 Cybersecurity Essentials for Growing Businesses"), Microsoft 365
+("What's New in Microsoft 365 (and Why It Matters)"), and Managed IT
+("Is It Time for a Managed IT Provider?"). Dates were deliberately omitted
+— the approved mockup shows placeholder dates for articles that have not
+actually been published, and fabricating current dates would misrepresent
+unpublished content. Cards are not individually clickable; no article
+pages exist yet, so no per-article URLs were invented. "View All
+Articles" is the only active link in this section.
+
+Each card is a single `<article>` that reads primarily as an editorial
+image thumbnail (`aspect-ratio: 16/9`, `object-fit: cover`,
+`var(--radius-card)`, hairline border) rather than a separate white body
+underneath. Category and title are real HTML (`<p>` + `<h3>`) absolutely
+positioned over the image behind a bottom-weighted dark gradient overlay
+(transparent at the top, `rgba(7, 26, 45, 0.88)` toward the bottom) so
+white/Network-Cyan text stays readable without excessively darkening the
+artwork. Three new production images were added,
+`app/public/images/insights/cybersecurity-essentials.webp`,
+`microsoft-365-insights.webp`, and `managed-it-provider.webp` — a
+coordinated navy/blue/cyan editorial series (laptop/security console,
+cloud/productivity workspace, Toronto skyline with network overlays) with
+no baked-in text, no official Microsoft/Windows logos, and no vendor
+marks; images are decorative (`alt=""`) since category and title remain
+real text.
+
+Layout: header (eyebrow, H2, lead, CTA) full-width above a card row —
+three columns in one row at ≥960px; a single stacked column at both
+640–959px and below 640px (three items do not split evenly into a 2-column
+tablet grid, so tablet and mobile share the same one-column layout to
+avoid an orphaned card). `align-items: stretch` on the grid keeps all
+three cards equal height at ≥960px.
 
 1. Header
 2. Hero
