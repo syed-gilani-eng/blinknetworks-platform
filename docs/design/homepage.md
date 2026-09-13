@@ -548,6 +548,16 @@ tablet grid, so tablet and mobile share the same one-column layout to
 avoid an orphaned card). `align-items: stretch` on the grid keeps all
 three cards equal height at ≥960px.
 
+### Polish batch note: Insights CTA height and desktop alignment
+
+`.insights__cta` ("View All Articles →") now uses the site's standard
+44px `min-height` (previously 40px), matching every other homepage CTA.
+At the ≥1200px two-column composite layout, `.insights__inner` uses
+`align-items: end` (previously `center`) so the intro column's CTA sits
+closer to the card row's bottom edge. The cards' shallow aspect-ratio and
+shape are unchanged; a small gap between the CTA and the card row's
+bottom edge remains an accepted trade-off.
+
 ### Step 18 note: Final CTA implemented
 
 `FinalCTA.astro` renders directly after Insights (`app/src/pages/index.astro`),
