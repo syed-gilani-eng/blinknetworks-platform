@@ -96,7 +96,8 @@ const articles = [
       padding-block: 26px 26px;
       display: grid;
       grid-template-columns: minmax(400px, 0.9fr) minmax(0, 2.1fr);
-      align-items: center;
+      /* End-aligned (not center) so the CTA sits closer to the card row's bottom edge. */
+      align-items: end;
       gap: 24px;
     }
   }
@@ -171,7 +172,7 @@ const articles = [
   .insights__cta {
     display: inline-flex;
     align-items: center;
-    min-height: 40px;
+    min-height: 44px;
     padding: 9px 16px;
     border-radius: var(--radius-button);
     background-color: var(--color-secondary-navy);
