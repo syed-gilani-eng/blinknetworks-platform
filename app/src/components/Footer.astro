@@ -1,0 +1,277 @@
+---
+const currentYear = new Date().getFullYear();
+
+const serviceLinks = [
+  { label: "Managed IT & Help Desk", href: "/services/" },
+  { label: "Microsoft 365 & Endpoint Management", href: "/services/" },
+  { label: "Cybersecurity", href: "/services/" },
+  { label: "Cloud & Infrastructure", href: "/services/" },
+  { label: "Network Services", href: "/services/" },
+  { label: "Backup & Business Continuity", href: "/services/" },
+];
+
+const companyLinks = [
+  { label: "About", href: "/about/" },
+  { label: "Why BlinkNetworks", href: "/why-blinknetworks/" },
+  { label: "Solutions", href: "/solutions/" },
+  { label: "Insights", href: "/insights/" },
+  { label: "Contact", href: "/contact/" },
+];
+
+// Temporary placeholder values approved for initial build only; replace before public launch (see docs/design/homepage.md).
+const placeholderPhone = "(416) 555-0123";
+const placeholderEmail = "hello@blinknetworks.com";
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="/">
+          <img
+            src="/brand/blinknetworks-logo-light-background.png"
+            width="2016"
+            height="422"
+            alt="BlinkNetworks"
+          />
+        </a>
+        <p class="site-footer__description">
+          Managed IT, Microsoft 365, cybersecurity, cloud and infrastructure
+          services for growing businesses across Toronto and the GTA.
+        </p>
+      </div>
+
+      <nav class="site-footer__group" aria-labelledby="footer-services-heading">
+        <p id="footer-services-heading" class="site-footer__heading">Services</p>
+        <ul>
+          {
+            serviceLinks.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav class="site-footer__group" aria-labelledby="footer-company-heading">
+        <p id="footer-company-heading" class="site-footer__heading">Company</p>
+        <ul>
+          {
+            companyLinks.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="site-footer__group">
+        <p class="site-footer__heading">Contact</p>
+        <ul class="site-footer__contact-list">
+          <li>
+            <img src="/images/homepage/icons/location-pin.svg" width="18" height="18" alt="" />
+            <span>Toronto, ON<br />Serving the GTA</span>
+          </li>
+          <li>
+            <img src="/images/homepage/icons/phone.svg" width="18" height="18" alt="" />
+            <a href="tel:+14165550123">{placeholderPhone}</a>
+          </li>
+          <li>
+            <img src="/images/homepage/icons/email.svg" width="18" height="18" alt="" />
+            <a href="mailto:hello@blinknetworks.com">{placeholderEmail}</a>
+          </li>
+        </ul>
+      </div>
+
+      <nav class="site-footer__group" aria-labelledby="footer-follow-heading">
+        <p id="footer-follow-heading" class="site-footer__heading">Follow Us</p>
+        <ul class="site-footer__social-list">
+          <li>
+            <!-- Placeholder: no approved production LinkedIn URL yet; replace href before public launch. -->
+            <a class="site-footer__social-link" href="#">
+              <img src="/images/homepage/icons/linkedin.svg" width="18" height="18" alt="" />
+              <span>LinkedIn</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">
+        &copy; {currentYear} BlinkNetworks. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-white);
+    color: var(--color-text-primary);
+  }
+
+  .site-footer__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px 24px;
+  }
+
+  @media (min-width: 640px) {
+    .site-footer__inner {
+      padding-inline: var(--container-padding-tablet);
+    }
+  }
+
+  @media (min-width: 960px) {
+    .site-footer__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 52px 24px;
+    }
+  }
+
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px 24px;
+    }
+
+    .site-footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .site-footer__grid {
+      grid-template-columns:
+        minmax(280px, 1.5fr)
+        minmax(170px, 1fr)
+        minmax(150px, 0.8fr)
+        minmax(190px, 1fr)
+        minmax(110px, 0.6fr);
+      gap: 28px;
+    }
+  }
+
+  .site-footer__logo img {
+    display: block;
+    width: 190px;
+    height: auto;
+  }
+
+  .site-footer__description {
+    margin: 14px 0 0;
+    max-width: 360px;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+  }
+
+  .site-footer__heading {
+    margin: 0 0 14px;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .site-footer__group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .site-footer__group a {
+    text-decoration: none;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .site-footer__group a:hover,
+  .site-footer__group a:focus-visible {
+    color: var(--color-secondary-navy);
+  }
+
+  .site-footer__contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .site-footer__contact-list li {
+    display: grid;
+    grid-template-columns: 18px minmax(0, 1fr);
+    align-items: start;
+    gap: 10px;
+  }
+
+  .site-footer__contact-list img {
+    margin-top: 2px;
+  }
+
+  .site-footer__contact-list span,
+  .site-footer__contact-list a {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+  }
+
+  .site-footer__contact-list a {
+    text-decoration: none;
+    transition: color var(--duration-fast) ease;
+  }
+
+  .site-footer__contact-list a:hover,
+  .site-footer__contact-list a:focus-visible {
+    color: var(--color-secondary-navy);
+  }
+
+  .site-footer__social-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-footer__social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .site-footer__social-link:hover,
+  .site-footer__social-link:focus-visible {
+    color: var(--color-secondary-navy);
+  }
+
+  .site-footer__bottom {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .site-footer__copyright {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+</style>
