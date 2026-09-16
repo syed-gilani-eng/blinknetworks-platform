@@ -193,13 +193,12 @@ makes no claim of guaranteed measurable improvement despite its heading
 language. The Practical AI Adoption section does not claim proprietary AI
 models, guaranteed outcomes, or vague enterprise-scale "AI transformation."
 
-## Homepage CTA Update Deferred
+## Homepage CTA Update
 
-The homepage `AutomationAI.astro` CTA continues to point to `/contact/` in
-this branch. Updating it to `/solutions/#practical-ai-adoption` is
-intentionally deferred to a small, separate follow-up branch after this
-page has shipped and passed review; `AutomationAI.astro` and
-`ServicesAIFeature.astro` were not modified as part of this task.
+The homepage `AutomationAI.astro` "Discuss Your AI Goals" CTA now links to
+`#practical-ai-adoption` on `/solutions/`, pointing directly at this page's
+Featured Practical AI Adoption section (`SolutionsAIFeature.astro`).
+`ServicesAIFeature.astro` was not modified as part of this task.
 
 ## Framework and Dependency Confirmation
 

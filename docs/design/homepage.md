@@ -245,13 +245,13 @@ Copy (approved, exact, no invented claims): eyebrow "AI & AUTOMATION"; H2
 "Practical AI. Purposefully adopted."; supporting paragraph "We help
 growing businesses identify useful AI opportunities, automate repetitive
 work and introduce AI securely—without unnecessary complexity or
-disruption."; CTA "Discuss Your AI Goals" to `/contact/`.
+disruption."; CTA "Discuss Your AI Goals" to
+`/solutions/#practical-ai-adoption`.
 
-`/contact/` is an intentional temporary forward route — the Contact page
-has not been built yet, matching the same forward-reference pattern already
-used elsewhere on the homepage (Header, Hero, Footer). Once the Solutions
-page exists, this CTA should point to `/solutions/#practical-ai-adoption`
-instead; a source comment on the CTA documents this planned change.
+The CTA links to the Practical AI Adoption section
+(`#practical-ai-adoption`) on the now-shipped Solutions page
+(`SolutionsAIFeature.astro`); a source comment on the CTA documents this
+cross-page link.
 
 Structure: a two-column composition at ≥960px (`grid-template-columns:
 0.8fr 1.2fr`, vertically centered, 40px gap) — content (eyebrow, H2, lead,
