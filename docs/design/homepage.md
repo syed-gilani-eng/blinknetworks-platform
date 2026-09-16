@@ -661,35 +661,31 @@ section rather than a separate route), Solutions (`/solutions/`), Insights
 already used by the Header. "Our Approach", which appears in the mockup,
 was deliberately **not** added since no approved route exists for it.
 
-Contact column: a compact icon + text list — "Toronto, ON / Serving the
-GTA" (plain text, reusing the already-approved Toronto/GTA positioning),
-a phone row (`tel:+14165550123`, displayed as "(416) 555-0123"), and an
-email row (`mailto:hello@blinknetworks.com`). Each row uses a small
-18×18px original line-art icon (`app/public/images/homepage/icons/
-location-pin.svg`, `phone.svg`, `email.svg` — new, decorative, `alt=""`,
-Secondary Navy stroke, no gradient/glow badge, deliberately lighter than
-the homepage's other icon treatments). The Footer's own "Book a Free
-Consultation" CTA button was **removed** — the Final CTA section
-immediately above the Footer already owns consultation conversion, so the
-Footer stays informational/navigational rather than duplicating that
-call to action.
+Contact column: a compact icon + text list — "Etobicoke, Ontario / Serving
+Toronto & the GTA" (headquarters plus the already-approved Toronto/GTA
+service-area positioning), a phone row (`tel:+19057037895`, displayed as
+"(905) 703-7895"), and an email row (`mailto:hello@blinknetworks.com`).
+Each row uses a small 18×18px original line-art icon (`app/public/images/
+homepage/icons/location-pin.svg`, `phone.svg`, `email.svg` — new,
+decorative, `alt=""`, Secondary Navy stroke, no gradient/glow badge,
+deliberately lighter than the homepage's other icon treatments). The
+Footer's own "Book a Free Consultation" CTA button was **removed** — the
+Final CTA section immediately above the Footer already owns consultation
+conversion, so the Footer stays informational/navigational rather than
+duplicating that call to action.
 
-**The phone number and email address are temporary placeholder values,**
-not verified production contact details. They must be replaced with real,
-approved BlinkNetworks contact information before public launch.
+The phone number, email address and headquarters location are verified,
+approved BlinkNetworks contact details.
 
 A fifth column, Follow Us, was added with a single LinkedIn entry: a small
 original line-art "in"-style icon (`app/public/images/homepage/icons/
 linkedin.svg`, decorative, `alt=""`, Secondary Navy stroke, not a
 reproduction of LinkedIn's official logo/brand color) plus the visible
-text "LinkedIn", linking to `href="#"`. **This is a temporary placeholder
-link** — no approved production LinkedIn company URL exists yet. No other
-social networks (Facebook, Instagram, X, YouTube) were added.
-
-**BEFORE PUBLIC LAUNCH:**
-- replace the placeholder phone number `(416) 555-0123`
-- verify/replace the placeholder production email address
-- replace the LinkedIn placeholder `href="#"` with the real company profile URL
+text "LinkedIn", linking to the approved BlinkNetworks company page
+(`https://www.linkedin.com/company/blinknetworks/`), opening in a new tab
+with `rel="noopener noreferrer"` and an `aria-label` identifying the
+destination. No other social networks (Facebook, Instagram, X, YouTube)
+were added.
 
 A newsletter signup and Privacy Policy/Terms of Service links remain
 omitted (no form-handling implementation and no legal pages exist yet).

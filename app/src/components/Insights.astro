@@ -197,12 +197,13 @@ const articles = (
     min-width: 0;
   }
 
-  /* Short, wide editorial banner: the card's own aspect-ratio controls its height, never the intro column. */
+  /* Height-driven (not aspect-ratio) so a full three-line title always fits; the grid stretches all three <li> to match the tallest card. */
   .insight-card {
     position: relative;
     display: flex;
     align-items: flex-end;
-    aspect-ratio: 16 / 9;
+    height: 100%;
+    min-height: 240px;
     min-width: 0;
     overflow: hidden;
     border-radius: var(--radius-card);
@@ -212,9 +213,9 @@ const articles = (
     color: inherit;
   }
 
-  @media (min-width: 760px) {
+  @media (min-width: 960px) {
     .insight-card {
-      aspect-ratio: 2.35 / 1;
+      min-height: 220px;
     }
   }
 
@@ -226,15 +227,15 @@ const articles = (
     object-fit: cover;
   }
 
-  /* Restrained dark gradient keeps overlaid text readable without excessively darkening the artwork. */
+  /* Full-card navy wash (not just the bottom) so white text stays readable over the brightest image areas. */
   .insight-card__overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      to top,
-      rgba(7, 26, 45, 0.95) 0%,
-      rgba(7, 26, 45, 0.62) 50%,
-      rgba(7, 26, 45, 0.1) 100%
+      180deg,
+      rgba(5, 29, 55, 0.72) 0%,
+      rgba(5, 29, 55, 0.82) 55%,
+      rgba(5, 29, 55, 0.94) 100%
     );
   }
 
@@ -264,7 +265,7 @@ const articles = (
     word-break: normal;
   }
 
-  /* Small additive excerpt line; clamped so it never pushes card height beyond the fixed aspect-ratio. */
+  /* Clamped for visual consistency; the card's min-height (not this clamp) is what keeps titles from being pushed out. */
   .insight-card__excerpt {
     display: -webkit-box;
     -webkit-box-orient: vertical;
