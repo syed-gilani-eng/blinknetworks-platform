@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AboutHero from "../../components/AboutHero.astro";
+import AboutPurpose from "../../components/AboutPurpose.astro";
+import AboutPerspective from "../../components/AboutPerspective.astro";
+import AboutValues from "../../components/AboutValues.astro";
+import AboutProcess from "../../components/AboutProcess.astro";
+import AboutLocalUnderstanding from "../../components/AboutLocalUnderstanding.astro";
+import AboutWhoWeHelp from "../../components/AboutWhoWeHelp.astro";
+import FinalCTA from "../../components/FinalCTA.astro";
+---
+
+<BaseLayout
+	title="About BlinkNetworks | BlinkNetworks"
+	description="Meet BlinkNetworks, a Canadian-owned technology partner providing practical guidance, secure solutions and accountable support to growing businesses across Toronto and the GTA."
+	headerVariant="dark"
+>
+	<AboutHero />
+	<AboutPurpose />
+	<AboutPerspective />
+	<AboutValues />
+	<AboutProcess />
+	<AboutLocalUnderstanding />
+	<AboutWhoWeHelp />
+	<FinalCTA
+		heading="Let's build a technology partnership that works."
+		lead="Tell us what your organization needs today and where you want to go next."
+		ctaLabel="Book a Consultation"
+		ctaHref="/contact/"
+		caption=""
+	/>
+</BaseLayout>

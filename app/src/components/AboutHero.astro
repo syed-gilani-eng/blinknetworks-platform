@@ -1,0 +1,185 @@
+---
+---
+
+<section class="about-hero" aria-labelledby="about-hero-heading">
+  <div class="about-hero__inner">
+    <div class="about-hero__content">
+      <p class="about-hero__eyebrow">ABOUT BLINKNETWORKS</p>
+      <h1 id="about-hero-heading" class="about-hero__heading">
+        A technology partner you can rely on
+      </h1>
+      <p class="about-hero__lead">
+        Canadian-owned and focused on growing businesses across Toronto and
+        the GTA, BlinkNetworks brings practical guidance, secure solutions
+        and accountable support.
+      </p>
+      <div class="about-hero__actions">
+        <a class="about-hero__cta about-hero__cta--primary" href="/contact/">Start a Conversation</a>
+        <a class="about-hero__cta about-hero__cta--secondary" href="#how-we-work">How We Work</a>
+      </div>
+    </div>
+
+    <!-- Approved production hero illustration; decorative, since the adjacent copy communicates the page meaning. -->
+    <div class="about-hero__visual">
+      <img
+        class="about-hero__image"
+        src="/images/about/about-hero.webp"
+        width="1536"
+        height="1024"
+        alt=""
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-hero {
+    background-color: var(--color-blink-navy);
+    color: var(--color-white);
+    overflow: hidden;
+  }
+
+  .about-hero__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  @media (min-width: 640px) {
+    .about-hero__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 40px 48px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .about-hero__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 56px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .about-hero__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .about-hero__content {
+      max-width: none;
+    }
+  }
+
+  .about-hero__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-network-cyan);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-hero__heading {
+    margin: 0 0 20px;
+    font-size: 2.25rem;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+
+  @media (min-width: 960px) {
+    .about-hero__heading {
+      font-size: var(--font-size-h2);
+    }
+  }
+
+  .about-hero__lead {
+    margin: 0 0 32px;
+    max-width: 48ch;
+    color: var(--color-soft-azure);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .about-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .about-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 24px;
+    border-radius: var(--radius-button);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease,
+      border-color var(--duration-fast) ease,
+      color var(--duration-fast) ease;
+  }
+
+  /* Blink Blue does not reliably meet AA behind white text; Network Cyan + navy text does. */
+  .about-hero__cta--primary {
+    background-color: var(--color-network-cyan);
+    color: var(--color-blink-navy);
+    border: 1px solid var(--color-network-cyan);
+  }
+
+  .about-hero__cta--primary:hover {
+    background-color: var(--color-soft-azure);
+    border-color: var(--color-soft-azure);
+  }
+
+  .about-hero__cta--secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+  }
+
+  .about-hero__cta--secondary:hover {
+    border-color: var(--color-network-cyan);
+    color: var(--color-network-cyan);
+  }
+
+  /* Dark background: keep focus rings on the approved brighter accent rather than the default Blink Blue. */
+  .about-hero :focus-visible {
+    outline-color: var(--color-network-cyan);
+  }
+
+  /* Decorative only; visible at every breakpoint, sized so it never overpowers the heading or CTAs. */
+  .about-hero__visual {
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .about-hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (min-width: 960px) {
+    .about-hero__visual {
+      max-width: none;
+      align-self: center;
+    }
+
+    .about-hero__image {
+      max-width: 460px;
+      margin-inline: auto;
+    }
+  }
+</style>
