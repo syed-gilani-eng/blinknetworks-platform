@@ -151,9 +151,11 @@ const reasonOptions = [
         />
 
         <p class="contact-form__privacy">
-          Information submitted through this form will be used only to
-          respond to your inquiry. Please do not include passwords or other
-          sensitive information.
+          Information submitted through this form will be used to review
+          and respond to your inquiry and handled as described in our
+          <a href="/privacy/">Privacy Policy</a>. Please do not include
+          passwords, financial information, or other sensitive
+          information.
         </p>
 
         <button type="submit" class="contact-form__submit" data-fs-submit-btn>
@@ -355,6 +357,17 @@ const reasonOptions = [
     color: var(--color-text-secondary);
     font-size: 0.875rem;
     line-height: 1.5;
+  }
+
+  .contact-form__privacy a {
+    color: var(--color-secondary-navy);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .contact-form__privacy a:hover,
+  .contact-form__privacy a:focus-visible {
+    color: var(--color-blink-navy);
   }
 
   .contact-form__submit {
