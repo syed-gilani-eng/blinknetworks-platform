@@ -1,0 +1,316 @@
+---
+// Reused existing homepage icons (same six used by CoreServices.astro): app/public/images/homepage/icons/
+// Illustrations: app/public/images/services/ — alternating light/dark visual rhythm is baked into
+// each production image; no tint overlay is applied here.
+const services = [
+  {
+    title: "Managed IT & Help Desk",
+    description: "Reliable, responsive support that keeps your team productive.",
+    iconSrc: "/images/homepage/icons/managed-it-support.svg",
+    imageSrc: "/images/services/managed-it-help-desk.webp",
+    imageWidth: 1518,
+    imageHeight: 1036,
+    capabilities: [
+      "Help desk and end-user support",
+      "Proactive monitoring and maintenance",
+      "Device and IT asset coordination",
+      "Remote and onsite support",
+    ],
+  },
+  {
+    title: "Microsoft 365 & Endpoint Management",
+    description: "Secure, well-managed Microsoft 365 and devices for how your team works.",
+    iconSrc: "/images/homepage/icons/productivity-collaboration.svg",
+    imageSrc: "/images/services/microsoft-365-endpoint-management.webp",
+    imageWidth: 1514,
+    imageHeight: 1039,
+    capabilities: [
+      "Microsoft 365 administration",
+      "Endpoint management with Microsoft Intune",
+      "Identity and access management",
+      "Collaboration and productivity support",
+    ],
+  },
+  {
+    title: "Cybersecurity",
+    description: "Layered protection to reduce risk and keep your business secure.",
+    iconSrc: "/images/homepage/icons/cybersecurity.svg",
+    imageSrc: "/images/services/cybersecurity.webp",
+    imageWidth: 1514,
+    imageHeight: 1039,
+    capabilities: [
+      "Endpoint and email protection",
+      "Threat monitoring and response",
+      "Identity and access protection",
+      "Security awareness guidance",
+    ],
+  },
+  {
+    title: "Cloud & Infrastructure",
+    description: "Modern, scalable infrastructure that supports how your business grows.",
+    iconSrc: "/images/homepage/icons/cloud-infrastructure.svg",
+    imageSrc: "/images/services/cloud-infrastructure.webp",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    capabilities: [
+      "Cloud and virtualization support",
+      "Server and infrastructure management",
+      "Infrastructure planning and migration",
+      "Performance and capacity monitoring",
+    ],
+  },
+  {
+    title: "Network Services",
+    description: "Reliable, secure networking that keeps your business connected.",
+    iconSrc: "/images/homepage/icons/network-services.svg",
+    imageSrc: "/images/services/network-services.webp",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    capabilities: [
+      "Network design and management",
+      "Business Wi-Fi and connectivity",
+      "Firewall and network security",
+      "Monitoring and troubleshooting",
+    ],
+  },
+  {
+    title: "Backup & Business Continuity",
+    description: "Keep your business running and your data protected.",
+    iconSrc: "/images/homepage/icons/business-continuity.svg",
+    imageSrc: "/images/services/backup-business-continuity.webp",
+    imageWidth: 1514,
+    imageHeight: 1039,
+    capabilities: [
+      "Managed backup and recovery",
+      "Business continuity planning",
+      "Disaster-recovery readiness",
+      "Data-protection guidance",
+    ],
+  },
+];
+---
+
+<section
+  id="services-list"
+  class="services-list"
+  aria-labelledby="services-list-heading"
+>
+  <div class="services-list__inner">
+    <div class="services-list__header">
+      <h2 id="services-list-heading" class="services-list__heading">
+        What we manage for your business.
+      </h2>
+      <p class="services-list__lead">
+        Six core areas of support, each tailored to keep your business
+        secure, productive and ready to grow.
+      </p>
+    </div>
+
+    <ul class="services-list__grid">
+      {
+        services.map((service) => (
+          <li class="services-list__card">
+            <div class="services-list__card-image">
+              <img
+                src={service.imageSrc}
+                width={service.imageWidth}
+                height={service.imageHeight}
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="services-list__card-body">
+              <div class="services-list__card-heading">
+                <img
+                  class="services-list__icon"
+                  src={service.iconSrc}
+                  width="24"
+                  height="24"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="services-list__title">{service.title}</h3>
+              </div>
+              <p class="services-list__description">{service.description}</p>
+              <ul class="services-list__capabilities">
+                {service.capabilities.map((capability) => (
+                  <li>{capability}</li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the white Introductory Value section above. */
+  .services-list {
+    background-color: var(--color-cloud-bg);
+    /* Keeps the heading clear of the sticky/tall header when reached via the Hero's anchor CTA. */
+    scroll-margin-top: 96px;
+  }
+
+  .services-list__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 40px;
+  }
+
+  @media (min-width: 640px) {
+    .services-list__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 44px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .services-list__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 48px;
+    }
+  }
+
+  .services-list__header {
+    max-width: 62ch;
+    margin: 0 0 32px;
+  }
+
+  .services-list__heading {
+    margin: 0 0 16px;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .services-list__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .services-list__lead {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  /* Mobile/tablet: one entry per row. Desktop: two entries per row (three rows for six services). */
+  .services-list__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 960px) {
+    .services-list__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+  }
+
+  /* overflow: hidden clips the illustration to the card's own radius-card corners; no separate image radius needed. */
+  .services-list__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  /* Tablet and up: image ~42%, content ~58%, matching the approved mockup proportions. */
+  @media (min-width: 640px) {
+    .services-list__card {
+      grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+      align-items: center;
+    }
+  }
+
+  /* Fixed ratio (rather than stretching to row height) keeps every illustration proportioned identically. */
+  .services-list__card-image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+
+  .services-list__card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .services-list__card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px;
+  }
+
+  .services-list__card-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .services-list__icon {
+    flex-shrink: 0;
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  .services-list__title {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .services-list__description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+
+  .services-list__capabilities {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .services-list__capabilities li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    color: var(--color-text-secondary);
+  }
+
+  .services-list__capabilities li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-blink-blue);
+  }
+</style>
