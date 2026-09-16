@@ -21,16 +21,18 @@ across Toronto and the GTA.
 1. Services Hero (`ServicesHero.astro`)
 2. Introductory Value (`ServicesIntro.astro`)
 3. Detailed Services (`ServicesList.astro`, anchor `#services-list`)
-4. How We Work (`ServicesProcess.astro`)
-5. Why BlinkNetworks (`ServicesWhyBlink.astro`)
-6. Final Consultation CTA (shared `FinalCTA.astro`, page-specific copy)
-7. Footer (shared `Footer.astro`, unchanged)
+4. Featured AI Service (`ServicesAIFeature.astro`)
+5. How We Work (`ServicesProcess.astro`)
+6. Why BlinkNetworks (`ServicesWhyBlink.astro`)
+7. Final Consultation CTA (shared `FinalCTA.astro`, page-specific copy)
+8. Footer (shared `Footer.astro`, unchanged)
 
 ## Components Created
 
 - `app/src/components/ServicesHero.astro`
 - `app/src/components/ServicesIntro.astro`
 - `app/src/components/ServicesList.astro`
+- `app/src/components/ServicesAIFeature.astro`
 - `app/src/components/ServicesProcess.astro`
 - `app/src/components/ServicesWhyBlink.astro`
 
@@ -85,6 +87,48 @@ Each service card also keeps its existing small homepage SVG icon
 `business-continuity.svg`) as a 24px accent beside the service heading — the
 illustration is the primary visual, the icon is a semantic heading accent.
 
+## Featured AI Service
+
+`ServicesAIFeature.astro` renders directly after Detailed Services and
+before How We Work, on a full-width `var(--color-blink-navy)` background —
+the Cloud → Navy → White color changes alone mark the boundaries with the
+sections above and below (no border/divider). It is a standalone section,
+not a seventh `ServicesList` card, so the six approved service cards and
+their grid are untouched.
+
+Copy (approved, exact, no invented claims): eyebrow "FEATURED SERVICE"; H2
+"AI Enablement & Automation"; supporting paragraph "Adopt useful AI and
+automation securely, with a practical plan built around your people,
+processes and existing technology."; five capabilities — AI readiness and
+use-case assessment, Microsoft 365 Copilot planning and rollout, Workflow
+automation and system integration, Security, governance and
+responsible-use guidance, and User training, adoption and ongoing
+optimization; CTA "Discuss Your AI Goals" to `/contact/`. The copy makes no
+claim that BlinkNetworks develops proprietary AI models, guarantees
+results, or performs vague enterprise-scale "AI transformation."
+
+The section reuses the existing homepage `copilot-ai.svg` icon (40px,
+unbadged, decorative, `alt=""`) as a single section marker above the
+eyebrow — no new icon or raster image was created, and the asset itself
+was not modified.
+
+Structure: a two-column composition at ≥960px (`grid-template-columns:
+0.8fr 1.2fr`, vertically centered, 40px gap) — icon, eyebrow, H2, lead, and
+CTA on the left; the five capabilities on the right as a plain `<ul>/<li>`
+list (no per-item icons, no cards, no borders) in two equal columns
+(`repeat(2, minmax(0, 1fr))`), preserving semantic source order so the
+fifth capability naturally falls into the first position of the second
+row. Below 960px the section stacks to a single column (content first,
+then capabilities); the capability list itself is two columns from 640px
+up and a single column below 640px. The CTA reproduces the existing
+primary dark-surface button recipe (Network Cyan background, Blink Navy
+text, Network Cyan border, Soft Azure hover, 44px minimum height, existing
+button radius) locally in this component's own scoped styles rather than
+importing it from `Hero.astro`.
+
+`/contact/` is an intentional forward route for this CTA — see "Forward
+Reference to `/contact/`" below.
+
 ## Hero Image
 
 `app/public/images/services/services-hero.webp` (1942×809), served at
@@ -134,15 +178,23 @@ below 640px.
 differentiators in one row on the right); 2×2 grid at 640–959px; single
 column below 640px.
 
+**Featured AI Service** — two-column layout at ≥960px (icon/eyebrow/H2/lead/CTA
+left, two-column capability list right); single stacked column below
+960px, with the capability list itself switching from two columns to one
+at 640px.
+
 ## Accessibility Decisions
 
 - Exactly one `<h1>` on the page (Services Hero); sequential `<h2>` per
-  section; `<h3>` for every card/step/theme/differentiator title.
+  section; `<h3>` for every card/step/theme/differentiator title (the
+  Featured AI Service section has one `<h2>` and no `<h3>`s, since its five
+  capabilities are plain list text, matching the same no-heading pattern
+  already used for each service card's own capability sub-list).
 - All decorative images (`alt=""`); no image repeats information already
   conveyed by adjacent text.
 - Visible focus states reuse the site's existing `:focus-visible` treatment,
-  with the Network Cyan override on dark sections (Hero, Final CTA),
-  consistent with the rest of the site.
+  with the Network Cyan override on dark sections (Hero, Final CTA, and now
+  the Featured AI Service), consistent with the rest of the site.
 - `#services-list` has `scroll-margin-top: 96px` so the Hero's secondary CTA
   anchor link doesn't hide the heading behind the header.
 - No new motion was introduced; the site-wide `prefers-reduced-motion` rule
@@ -156,14 +208,17 @@ statistics, customer counts, or vendor status appear anywhere on the page.
 Canadian-owned/Toronto-GTA positioning uses existing approved language, with
 no flags, maple-leaf decoration, or exaggerated national imagery. All
 contact information and the footer are the existing shared, unmodified
-`Footer.astro`.
+`Footer.astro`. The Featured AI Service copy does not claim BlinkNetworks
+develops proprietary AI models, guarantees outcomes, or performs vague
+enterprise-scale "AI transformation."
 
 ## Forward Reference to `/contact/`
 
-The primary Hero CTA, and the Final CTA, link to `/contact/`, which does not
-yet exist as a built route. This mirrors the same forward-reference pattern
-already used across the homepage (Header, Hero, Footer) and is not a gap
-introduced by this page.
+The primary Hero CTA, the Final CTA, and the Featured AI Service CTA
+("Discuss Your AI Goals") all link to `/contact/`, which does not yet exist
+as a built route. This mirrors the same forward-reference pattern already
+used across the homepage (Header, Hero, Footer) and is not a gap introduced
+by this page.
 
 ## Visual-Review Decisions
 
@@ -183,11 +238,13 @@ introduced by this page.
 
 No new framework, UI library, CSS framework, or npm dependency was
 introduced. The page uses only Astro, plain CSS, and the existing design
-tokens in `app/src/styles/tokens.css`.
+tokens in `app/src/styles/tokens.css`. The Featured AI Service reuses the
+existing `copilot-ai.svg` icon; no raster image was generated for it.
 
 ## ADR Confirmation
 
 No new Architecture Decision Record was required. This page stays within
 [ADR-0001](../adr/0001-use-astro-for-website.md)'s decision (Astro, `/app`
 isolation, no new framework or infrastructure) and introduces no new
-architectural pattern beyond normal component and prop additions.
+architectural pattern beyond normal component and prop additions. The
+Featured AI Service addition follows the same reasoning.
