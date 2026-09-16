@@ -1,0 +1,123 @@
+---
+---
+
+<section class="insights-hero" aria-labelledby="insights-hero-heading">
+  <div class="insights-hero__inner">
+    <div class="insights-hero__content">
+      <p class="insights-hero__eyebrow">INSIGHTS</p>
+      <h1 id="insights-hero-heading" class="insights-hero__heading">
+        Practical IT insights for growing businesses
+      </h1>
+      <p class="insights-hero__lead">
+        Clear guidance on managed IT, Microsoft 365, cybersecurity, cloud and
+        infrastructure&mdash;written for organizations across Toronto and the
+        GTA.
+      </p>
+    </div>
+
+    <!-- Approved production hero illustration (transparent background); decorative, adjacent copy communicates the page meaning. -->
+    <div class="insights-hero__visual">
+      <img
+        class="insights-hero__image"
+        src="/images/insights/insights-hero.webp"
+        width="1536"
+        height="1024"
+        alt=""
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .insights-hero {
+    background-color: var(--color-blink-navy);
+    color: var(--color-white);
+    overflow: hidden;
+  }
+
+  .insights-hero__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  @media (min-width: 640px) {
+    .insights-hero__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 40px 48px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .insights-hero__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 56px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .insights-hero__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .insights-hero__content {
+      max-width: none;
+    }
+  }
+
+  .insights-hero__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-network-cyan);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .insights-hero__heading {
+    margin: 0 0 20px;
+    font-size: 2.25rem;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+
+  @media (min-width: 960px) {
+    .insights-hero__heading {
+      font-size: var(--font-size-h2);
+    }
+  }
+
+  .insights-hero__lead {
+    margin: 0;
+    max-width: 48ch;
+    color: var(--color-soft-azure);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  /* Decorative only; visible at every breakpoint, sized so it never overpowers the heading. */
+  .insights-hero__visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .insights-hero__image {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+  }
+
+  .insights-hero :focus-visible {
+    outline-color: var(--color-network-cyan);
+  }
+</style>

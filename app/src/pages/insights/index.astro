@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import InsightsHero from "../../components/InsightsHero.astro";
+import FeaturedInsight from "../../components/FeaturedInsight.astro";
+import InsightsTopics from "../../components/InsightsTopics.astro";
+import LatestInsights from "../../components/LatestInsights.astro";
+import FinalCTA from "../../components/FinalCTA.astro";
+
+const entries = await getCollection("insights", ({ data }) => !data.draft);
+
+// Build-time safeguard: the hub is only valid with exactly one featured, non-draft article.
+const featuredEntries = entries.filter((entry) => entry.data.featured);
+if (featuredEntries.length !== 1) {
+  throw new Error(
+    `Insights hub requires exactly one non-draft featured article, found ${featuredEntries.length}.`
+  );
+}
+const [featured] = featuredEntries;
+
+const latest = entries
+  .filter((entry) => !entry.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="Insights | BlinkNetworks"
+  description="Practical IT insights for growing businesses across Toronto and the GTA: managed IT, Microsoft 365, cybersecurity, cloud and infrastructure guidance."
+  headerVariant="dark"
+>
+  <InsightsHero />
+  <FeaturedInsight entry={featured} />
+  <InsightsTopics />
+  <LatestInsights entries={latest} />
+  <FinalCTA
+    eyebrow="NEED PRACTICAL GUIDANCE?"
+    heading="Turn useful information into the right technology decisions."
+    lead="Let's discuss your organization's priorities and find practical next steps."
+    ctaLabel="Book a Consultation"
+    ctaHref="/contact/"
+    caption=""
+  />
+</BaseLayout>

@@ -1,0 +1,208 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { insightsCategoryLabels } from "../lib/insightsCategoryLabels";
+
+interface Props {
+  entries: CollectionEntry<"insights">[];
+}
+
+const { entries } = Astro.props;
+---
+
+<section class="latest-insights" aria-labelledby="latest-insights-heading">
+  <div class="latest-insights__inner">
+    <div class="latest-insights__header">
+      <p class="latest-insights__eyebrow">LATEST INSIGHTS</p>
+      <h2 id="latest-insights-heading" class="latest-insights__heading">
+        Guidance you can put to work.
+      </h2>
+    </div>
+
+    <ul class="latest-insights__grid">
+      {
+        entries.map((entry) => (
+          <li>
+            <a class="latest-insights__card" href={`/insights/${entry.id}/`}>
+              <div class="latest-insights__image-wrap">
+                <img
+                  class="latest-insights__image"
+                  src={entry.data.image}
+                  width="1536"
+                  height="1024"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="latest-insights__body">
+                <p class="latest-insights__category">
+                  {insightsCategoryLabels[entry.data.category]}
+                </p>
+                <h3 class="latest-insights__title">{entry.data.title}</h3>
+                <p class="latest-insights__description">
+                  {entry.data.description}
+                </p>
+                <span class="latest-insights__cta">Read article &rarr;</span>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Cloud topic section above. */
+  .latest-insights {
+    background-color: var(--color-white);
+  }
+
+  .latest-insights__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+  }
+
+  @media (min-width: 640px) {
+    .latest-insights__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .latest-insights__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 48px;
+    }
+  }
+
+  .latest-insights__header {
+    max-width: 680px;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+
+  .latest-insights__eyebrow {
+    margin: 0 0 12px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .latest-insights__heading {
+    margin: 0;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .latest-insights__heading {
+      font-size: 2rem;
+    }
+  }
+
+  .latest-insights__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .latest-insights__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 960px) {
+    .latest-insights__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  .latest-insights__grid > li {
+    display: flex;
+  }
+
+  .latest-insights__card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Some approved source images carry an alpha channel; this background keeps every image visually consistent. */
+  .latest-insights__image-wrap {
+    background-color: var(--color-soft-azure);
+    aspect-ratio: 3 / 2;
+  }
+
+  .latest-insights__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .latest-insights__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+  }
+
+  .latest-insights__category {
+    margin: 0 0 8px;
+    color: var(--color-blink-blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .latest-insights__title {
+    margin: 0 0 8px;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .latest-insights__description {
+    margin: 0 0 16px;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .latest-insights__cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 600;
+    color: var(--color-secondary-navy);
+  }
+
+  .latest-insights__card:hover .latest-insights__cta,
+  .latest-insights__card:focus-visible .latest-insights__cta {
+    color: var(--color-blink-navy);
+    text-decoration: underline;
+  }
+</style>

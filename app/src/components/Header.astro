@@ -23,6 +23,15 @@ const navItems = [
 // so active-state works automatically for this and every future route without further changes.
 const withTrailingSlash = (path: string) => (path.endsWith("/") ? path : `${path}/`);
 const currentPath = withTrailingSlash(Astro.url.pathname);
+
+// Exact match for "/" (a prefix match would incorrectly activate Home on every route);
+// prefix match elsewhere so a section nav item stays active on its own nested routes.
+const isNavItemActive = (href: string) => {
+  const normalizedHref = withTrailingSlash(href);
+  return normalizedHref === "/"
+    ? currentPath === "/"
+    : currentPath === normalizedHref || currentPath.startsWith(normalizedHref);
+};
 ---
 
 <header class="site-header" data-nav-enhanced="false" data-variant={variant}>
@@ -62,7 +71,7 @@ const currentPath = withTrailingSlash(Astro.url.pathname);
       <ul class="site-nav__list">
         {
           navItems.map((item) => {
-            const isActive = withTrailingSlash(item.href) === currentPath;
+            const isActive = isNavItemActive(item.href);
             return (
               <li>
                 <a href={item.href} aria-current={isActive ? "page" : undefined}>

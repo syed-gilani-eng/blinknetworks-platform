@@ -1,0 +1,41 @@
+---
+---
+
+<nav class="article-breadcrumb" aria-label="Breadcrumb">
+  <a href="/insights/">&larr; Back to Insights</a>
+</nav>
+
+<style>
+  .article-breadcrumb {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 20px 0;
+  }
+
+  @media (min-width: 640px) {
+    .article-breadcrumb {
+      padding-inline: var(--container-padding-tablet);
+    }
+  }
+
+  @media (min-width: 960px) {
+    .article-breadcrumb {
+      padding-inline: var(--container-padding-desktop);
+    }
+  }
+
+  .article-breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 600;
+    color: var(--color-secondary-navy);
+    text-decoration: none;
+  }
+
+  .article-breadcrumb a:hover,
+  .article-breadcrumb a:focus-visible {
+    text-decoration: underline;
+  }
+</style>
