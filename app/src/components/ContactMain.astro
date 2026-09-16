@@ -1,0 +1,459 @@
+---
+const steps = [
+  {
+    title: "Tell us what's happening",
+    description: "We'll listen to what's happening in your business and technology environment.",
+    iconSrc: "/images/homepage/icons/process-assess.svg",
+  },
+  {
+    title: "We review your needs",
+    description: "We'll help identify priorities, risks and the outcomes that matter.",
+    iconSrc: "/images/homepage/icons/process-plan.svg",
+  },
+  {
+    title: "We discuss practical next steps",
+    description: "We'll recommend a practical way forward, without pressure or assumptions.",
+    iconSrc: "/images/homepage/icons/process-modernize.svg",
+  },
+];
+
+const reasonOptions = [
+  "Managed IT & Help Desk",
+  "Microsoft 365 & Endpoint Management",
+  "Cybersecurity",
+  "Cloud & Infrastructure",
+  "Network Services",
+  "Backup & Business Continuity",
+  "General inquiry / not sure",
+];
+---
+
+<section class="contact-main">
+  <div class="contact-main__inner">
+    <div class="contact-main__form-col">
+      <h2 id="contact-form-heading" class="contact-main__form-heading">Start a conversation</h2>
+      <p class="contact-main__form-lead">
+        Share a few details and we&rsquo;ll have the right conversation about
+        your technology needs.
+      </p>
+
+      <div class="contact-main__status" aria-live="polite" aria-atomic="true">
+        <div data-fs-success class="contact-main__success">
+          Thanks for reaching out. Your message has been received.
+        </div>
+        <div data-fs-error class="contact-main__form-error">
+          We couldn&rsquo;t send your message. Please check your connection
+          and try again.
+        </div>
+      </div>
+
+      <form
+        id="contact-form"
+        class="contact-form"
+        action="https://formspree.io/f/xeaojrng"
+        method="POST"
+        aria-labelledby="contact-form-heading"
+        novalidate
+      >
+        <div class="contact-form__row">
+          <div class="contact-form__field">
+            <label for="name">Full name <span class="contact-form__hint">(required)</span></label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autocomplete="name"
+              required
+              data-fs-field
+              aria-describedby="name-error"
+            />
+            <span id="name-error" data-fs-error="name" class="contact-form__field-error"></span>
+          </div>
+
+          <div class="contact-form__field">
+            <label for="email">Work email <span class="contact-form__hint">(required)</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              required
+              data-fs-field
+              aria-describedby="email-error"
+            />
+            <span id="email-error" data-fs-error="email" class="contact-form__field-error"></span>
+          </div>
+        </div>
+
+        <div class="contact-form__row">
+          <div class="contact-form__field">
+            <label for="organization">Company or organization <span class="contact-form__hint">(optional)</span></label>
+            <input
+              type="text"
+              id="organization"
+              name="organization"
+              autocomplete="organization"
+              data-fs-field
+              aria-describedby="organization-error"
+            />
+            <span id="organization-error" data-fs-error="organization" class="contact-form__field-error"></span>
+          </div>
+
+          <div class="contact-form__field">
+            <label for="phone">Phone number <span class="contact-form__hint">(optional)</span></label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              autocomplete="tel"
+              data-fs-field
+              aria-describedby="phone-error"
+            />
+            <span id="phone-error" data-fs-error="phone" class="contact-form__field-error"></span>
+          </div>
+        </div>
+
+        <div class="contact-form__field">
+          <label for="reason">What can we help with? <span class="contact-form__hint">(required)</span></label>
+          <select
+            id="reason"
+            name="reason"
+            required
+            data-fs-field
+            aria-describedby="reason-error"
+          >
+            <option value="">Select an option</option>
+            {reasonOptions.map((option) => <option value={option}>{option}</option>)}
+          </select>
+          <span id="reason-error" data-fs-error="reason" class="contact-form__field-error"></span>
+        </div>
+
+        <div class="contact-form__field">
+          <label for="message">Message <span class="contact-form__hint">(required)</span></label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            data-fs-field
+            aria-describedby="message-error"
+          ></textarea>
+          <span id="message-error" data-fs-error="message" class="contact-form__field-error"></span>
+        </div>
+
+        <!-- Formspree honeypot field; hidden from visitors. -->
+        <input
+          type="text"
+          name="_gotcha"
+          class="contact-form__honeypot"
+          tabindex="-1"
+          autocomplete="off"
+        />
+
+        <p class="contact-form__privacy">
+          Information submitted through this form will be used only to
+          respond to your inquiry. Please do not include passwords or other
+          sensitive information.
+        </p>
+
+        <button type="submit" class="contact-form__submit" data-fs-submit-btn>
+          Send My Message
+        </button>
+      </form>
+    </div>
+
+    <aside class="contact-expect" aria-labelledby="contact-expect-heading">
+      <p class="contact-expect__eyebrow">WHAT TO EXPECT</p>
+      <h2 id="contact-expect-heading" class="contact-expect__heading">A clear first conversation.</h2>
+      <ol class="contact-expect__steps">
+        {
+          steps.map((step) => (
+            <li class="contact-expect__step">
+              <img
+                class="contact-expect__icon"
+                src={step.iconSrc}
+                width="32"
+                height="32"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <h3 class="contact-expect__step-title">{step.title}</h3>
+              <p class="contact-expect__step-description">{step.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<script>
+  // Explicit ESM subpath: the package's "browser" field otherwise resolves to
+  // the non-modular dist/global.js CDN bundle, which doesn't export initForm.
+  import { initForm } from "@formspree/ajax/dist/index.mjs";
+
+  const form = document.querySelector<HTMLFormElement>("#contact-form");
+
+  if (form) {
+    initForm({
+      formElement: form,
+      formId: "xeaojrng",
+      useDefaultStyles: false,
+    });
+  }
+</script>
+
+<style>
+  .contact-main {
+    background-color: var(--color-cloud-bg);
+  }
+
+  .contact-main__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  @media (min-width: 640px) {
+    .contact-main__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 44px 52px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .contact-main__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 52px 60px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      align-items: start;
+      gap: 40px;
+    }
+  }
+
+  .contact-main__form-heading {
+    margin: 0 0 12px;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .contact-main__form-lead {
+    margin: 0 0 24px;
+    max-width: 52ch;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .contact-main__status > [data-fs-success]:not([data-fs-active]),
+  .contact-main__status > [data-fs-error]:not([data-fs-active]) {
+    display: none;
+  }
+
+  .contact-main__success,
+  .contact-main__form-error {
+    margin: 0 0 20px;
+    padding: 14px 16px;
+    border-radius: var(--radius-button);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .contact-main__success {
+    background-color: var(--color-soft-azure);
+    color: var(--color-secondary-navy);
+  }
+
+  .contact-main__form-error {
+    background-color: #fdecec;
+    color: #7a1f1f;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-form__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 640px) {
+    .contact-form__row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .contact-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .contact-form__field label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .contact-form__hint {
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+
+  .contact-form__field input,
+  .contact-form__field select,
+  .contact-form__field textarea {
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    background-color: var(--color-white);
+    color: var(--color-text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+  }
+
+  .contact-form__field textarea {
+    min-height: 128px;
+    resize: vertical;
+  }
+
+  .contact-form__field input[aria-invalid="true"],
+  .contact-form__field select[aria-invalid="true"],
+  .contact-form__field textarea[aria-invalid="true"] {
+    border-color: #b3261e;
+  }
+
+  .contact-form__field-error {
+    display: none;
+    color: #b3261e;
+    font-size: 0.875rem;
+  }
+
+  .contact-form__field-error[data-fs-active] {
+    display: block;
+  }
+
+  .contact-form__honeypot {
+    display: none;
+  }
+
+  .contact-form__privacy {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .contact-form__submit {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 24px;
+    border: none;
+    border-radius: var(--radius-button);
+    background-color: var(--color-network-cyan);
+    color: var(--color-blink-navy);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--duration-fast) ease;
+  }
+
+  .contact-form__submit:hover,
+  .contact-form__submit:focus-visible {
+    background-color: var(--color-secondary-navy);
+    color: var(--color-white);
+  }
+
+  .contact-form__submit:disabled {
+    background-color: var(--color-border);
+    color: var(--color-text-secondary);
+    cursor: not-allowed;
+  }
+
+  .contact-expect {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    padding: 24px 20px;
+  }
+
+  @media (min-width: 640px) {
+    .contact-expect {
+      padding: 28px 24px;
+    }
+  }
+
+  .contact-expect__eyebrow {
+    margin: 0 0 12px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact-expect__heading {
+    margin: 0 0 20px;
+    font-size: 1.375rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .contact-expect__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-expect__step {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    column-gap: 12px;
+    row-gap: 4px;
+  }
+
+  .contact-expect__icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 32px;
+    height: 32px;
+  }
+
+  .contact-expect__step-title {
+    grid-column: 2;
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .contact-expect__step-description {
+    grid-column: 2;
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+</style>

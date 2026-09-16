@@ -1,0 +1,80 @@
+---
+---
+
+<section class="contact-reassurance" aria-labelledby="contact-reassurance-heading">
+  <div class="contact-reassurance__inner">
+    <p class="contact-reassurance__eyebrow">A PRACTICAL START</p>
+    <h2 id="contact-reassurance-heading" class="contact-reassurance__heading">
+      You don&rsquo;t need to have everything figured out.
+    </h2>
+    <p class="contact-reassurance__lead">
+      Bring us the challenge. We&rsquo;ll have a clear conversation, offer
+      practical recommendations, and leave the next step up to you&mdash;no
+      pressure.
+    </p>
+  </div>
+</section>
+
+<style>
+  /* Restrained, text-only band (no icons/cards): matches the approved mockup's minimal closing tone. */
+  .contact-reassurance {
+    background-color: var(--color-blink-navy);
+    color: var(--color-white);
+  }
+
+  .contact-reassurance__inner {
+    max-width: 760px;
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px;
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .contact-reassurance__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 44px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .contact-reassurance__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 52px;
+    }
+  }
+
+  .contact-reassurance__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-network-cyan);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact-reassurance__heading {
+    margin: 0 0 16px;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  @media (min-width: 960px) {
+    .contact-reassurance__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .contact-reassurance__lead {
+    margin: 0;
+    color: var(--color-soft-azure);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .contact-reassurance :focus-visible {
+    outline-color: var(--color-network-cyan);
+  }
+</style>
