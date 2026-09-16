@@ -1,0 +1,235 @@
+---
+// New page-specific illustrations (contained, not full-bleed): app/public/images/solutions/
+// Icons reused from app/public/images/homepage/icons/ — no new icon assets.
+const solutions = [
+  {
+    title: "Secure Hybrid Work",
+    description:
+      "Give your team secure, dependable access to the tools and information they need\u2014wherever work happens.",
+    imageSrc: "/images/solutions/secure-hybrid-work.webp",
+    iconSrc: "/images/homepage/icons/identity-access.svg",
+  },
+  {
+    title: "Microsoft 365 Modernization",
+    description: "Create a more secure, organized and productive Microsoft 365 environment.",
+    imageSrc: "/images/solutions/microsoft-365-modernization.webp",
+    iconSrc: "/images/homepage/icons/productivity-collaboration.svg",
+  },
+  {
+    title: "Cybersecurity Readiness",
+    description: "Reduce risk with layered protection, clear priorities and practical security improvements.",
+    imageSrc: "/images/solutions/cybersecurity-readiness.webp",
+    iconSrc: "/images/homepage/icons/cybersecurity.svg",
+  },
+  {
+    title: "Cloud Modernization",
+    description: "Move to flexible cloud services with a roadmap designed around your operations.",
+    imageSrc: "/images/solutions/cloud-modernization.webp",
+    iconSrc: "/images/homepage/icons/virtualization-operations.svg",
+  },
+  {
+    title: "Reliable Infrastructure",
+    description: "Build a stable technology foundation that supports performance, connectivity and growth.",
+    imageSrc: "/images/solutions/reliable-infrastructure.webp",
+    iconSrc: "/images/homepage/icons/infrastructure-automation.svg",
+  },
+  {
+    title: "Business Continuity",
+    description: "Protect critical data and keep your organization moving when disruptions occur.",
+    imageSrc: "/images/solutions/business-continuity.webp",
+    iconSrc: "/images/homepage/icons/business-continuity.svg",
+  },
+];
+---
+
+<section
+  id="solutions-list"
+  class="solutions-list"
+  aria-labelledby="solutions-list-heading"
+>
+  <div class="solutions-list__inner">
+    <div class="solutions-list__header">
+      <p class="solutions-list__eyebrow">OUR SOLUTIONS</p>
+      <h2 id="solutions-list-heading" class="solutions-list__heading">
+        Better outcomes through practical technology.
+      </h2>
+    </div>
+
+    <ul class="solutions-list__grid">
+      {
+        solutions.map((solution) => (
+          <li class="solutions-list__card">
+            <div class="solutions-list__card-image">
+              <img
+                src={solution.imageSrc}
+                width="800"
+                height="600"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="solutions-list__card-body">
+              <div class="solutions-list__card-heading">
+                <img
+                  class="solutions-list__icon"
+                  src={solution.iconSrc}
+                  width="24"
+                  height="24"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="solutions-list__title">{solution.title}</h3>
+              </div>
+              <p class="solutions-list__description">{solution.description}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the white Introduction section above. */
+  .solutions-list {
+    background-color: var(--color-cloud-bg);
+    /* Keeps the heading clear of the header when reached via the Hero's anchor CTA. */
+    scroll-margin-top: 96px;
+  }
+
+  .solutions-list__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+  }
+
+  @media (min-width: 640px) {
+    .solutions-list__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .solutions-list__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+    }
+  }
+
+  .solutions-list__header {
+    max-width: 62ch;
+    margin: 0 0 32px;
+  }
+
+  .solutions-list__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .solutions-list__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .solutions-list__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  /* Deliberately different from Services: 3-up desktop grid, not 2-up. */
+  .solutions-list__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .solutions-list__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 960px) {
+    .solutions-list__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+  }
+
+  /* Top-to-bottom anatomy (image above content), unlike Services' image-left/content-right split. */
+  .solutions-list__card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  /* Contained tile, not full-bleed cover: generous whitespace around the illustration. */
+  .solutions-list__card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 24px 0;
+  }
+
+  .solutions-list__card-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+    object-fit: contain;
+  }
+
+  .solutions-list__card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 24px 24px;
+  }
+
+  .solutions-list__card-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .solutions-list__icon {
+    flex-shrink: 0;
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  .solutions-list__title {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .solutions-list__description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+</style>

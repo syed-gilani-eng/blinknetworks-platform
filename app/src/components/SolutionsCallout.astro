@@ -1,0 +1,105 @@
+---
+---
+
+<section class="solutions-callout" aria-labelledby="solutions-callout-heading">
+  <div class="solutions-callout__inner">
+    <div class="solutions-callout__content">
+      <h2 id="solutions-callout-heading" class="solutions-callout__heading">
+        Not sure which solution fits?
+      </h2>
+      <p class="solutions-callout__lead">
+        Start with a conversation. We&rsquo;ll help you identify the right
+        priorities and a practical path forward.
+      </p>
+    </div>
+
+    <div class="solutions-callout__action">
+      <a class="solutions-callout__cta" href="/contact/">Talk to an Expert</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Blink Navy Why BlinkNetworks section above. */
+  .solutions-callout {
+    background-color: var(--color-soft-azure);
+  }
+
+  .solutions-callout__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .solutions-callout__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 32px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .solutions-callout__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 36px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+  }
+
+  .solutions-callout__content {
+    min-width: 0;
+  }
+
+  @media (min-width: 960px) {
+    .solutions-callout__content {
+      max-width: 640px;
+    }
+  }
+
+  .solutions-callout__heading {
+    margin: 0 0 8px;
+    font-size: 1.625rem;
+    line-height: 1.25;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .solutions-callout__lead {
+    margin: 0;
+    max-width: 56ch;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .solutions-callout__action {
+    flex-shrink: 0;
+  }
+
+  .solutions-callout__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 20px;
+    border-radius: var(--radius-button);
+    background-color: var(--color-secondary-navy);
+    color: var(--color-white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease;
+  }
+
+  .solutions-callout__cta:hover,
+  .solutions-callout__cta:focus-visible {
+    background-color: var(--color-blink-navy);
+  }
+</style>

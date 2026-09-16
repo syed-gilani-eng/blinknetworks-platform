@@ -1,0 +1,215 @@
+---
+// Reused existing process icons (no new assets): app/public/images/homepage/icons/
+const steps = [
+  {
+    title: "Understand",
+    description: "Learn how your business works and where technology is getting in the way.",
+    iconSrc: "/images/homepage/icons/process-assess.svg",
+  },
+  {
+    title: "Design",
+    description: "Create a practical solution aligned with your needs, risks and budget.",
+    iconSrc: "/images/homepage/icons/process-plan.svg",
+  },
+  {
+    title: "Deliver",
+    description: "Implement carefully with clear communication and minimal disruption.",
+    iconSrc: "/images/homepage/icons/process-modernize.svg",
+  },
+  {
+    title: "Improve",
+    description: "Measure, support and refine as your organization evolves.",
+    iconSrc: "/images/homepage/icons/process-manage-monitor-improve.svg",
+  },
+];
+---
+
+<section class="solutions-process" aria-labelledby="solutions-process-heading">
+  <div class="solutions-process__inner">
+    <header class="solutions-process__header">
+      <p class="solutions-process__eyebrow">HOW WE SOLVE</p>
+      <h2 id="solutions-process-heading" class="solutions-process__heading">
+        A solution shaped around your organization.
+      </h2>
+    </header>
+
+    <ol class="solutions-process__steps">
+      {
+        steps.map((step, index) => (
+          <li class="solutions-process__step">
+            <div class="solutions-process__step-number" aria-hidden="true">
+              {index + 1}
+            </div>
+            <img
+              class="solutions-process__step-icon"
+              src={step.iconSrc}
+              width="28"
+              height="28"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="solutions-process__step-title">{step.title}</h3>
+            <p class="solutions-process__step-description">{step.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Blink Navy Featured Solution above. */
+  .solutions-process {
+    background-color: var(--color-white);
+  }
+
+  .solutions-process__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+  }
+
+  @media (min-width: 640px) {
+    .solutions-process__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .solutions-process__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+    }
+  }
+
+  .solutions-process__header {
+    margin: 0 0 24px;
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .solutions-process__header {
+      max-width: none;
+    }
+  }
+
+  .solutions-process__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .solutions-process__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .solutions-process__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .solutions-process__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 20px;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .solutions-process__steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .solutions-process__steps {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 36px;
+    }
+  }
+
+  .solutions-process__step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 40px 30px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 8px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    padding: 14px 16px;
+  }
+
+  /* Desktop-only connector between steps; a 2x2 layout would misleadingly imply a two-step process. */
+  @media (min-width: 960px) {
+    .solutions-process__step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 100%;
+      width: 36px;
+      height: 2px;
+      background-color: var(--color-border);
+      transform: translateX(-2px);
+    }
+  }
+
+  .solutions-process__step-number {
+    grid-row: 1;
+    grid-column: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-blink-blue);
+    color: var(--color-white);
+    font-size: 1.0625rem;
+    font-weight: 700;
+  }
+
+  .solutions-process__step-icon {
+    grid-row: 1;
+    grid-column: 2;
+    width: 28px;
+    height: 28px;
+  }
+
+  .solutions-process__step-title {
+    grid-row: 1;
+    grid-column: 3;
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .solutions-process__step-description {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+</style>

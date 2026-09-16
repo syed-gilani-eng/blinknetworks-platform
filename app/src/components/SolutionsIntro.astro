@@ -1,0 +1,163 @@
+---
+// Reused existing homepage icons (no new assets): app/public/images/homepage/icons/
+const themes = [
+  {
+    title: "Business-Aligned",
+    description: "Technology shaped around your goals and priorities.",
+    iconSrc: "/images/homepage/icons/business-first.svg",
+  },
+  {
+    title: "Security by Design",
+    description: "Protection built into every recommendation.",
+    iconSrc: "/images/homepage/icons/cybersecurity.svg",
+  },
+  {
+    title: "Ready to Evolve",
+    description: "Flexible solutions that grow with your organization.",
+    iconSrc: "/images/homepage/icons/growing-organizations.svg",
+  },
+];
+---
+
+<section class="solutions-intro" aria-labelledby="solutions-intro-heading">
+  <div class="solutions-intro__inner">
+    <div class="solutions-intro__header">
+      <h2 id="solutions-intro-heading" class="solutions-intro__heading">
+        Solve today&rsquo;s challenges. Prepare for what&rsquo;s next.
+      </h2>
+      <p class="solutions-intro__lead">
+        We bring together people, processes and technology to create
+        solutions that fit the way your organization works.
+      </p>
+    </div>
+
+    <ul class="solutions-intro__themes">
+      {
+        themes.map((theme) => (
+          <li class="solutions-intro__theme">
+            <img
+              class="solutions-intro__icon"
+              src={theme.iconSrc}
+              width="36"
+              height="36"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="solutions-intro__theme-title">{theme.title}</h3>
+            <p class="solutions-intro__theme-description">{theme.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Blink Navy Hero above. */
+  .solutions-intro {
+    background-color: var(--color-white);
+  }
+
+  .solutions-intro__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+  }
+
+  @media (min-width: 640px) {
+    .solutions-intro__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .solutions-intro__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .solutions-intro__header {
+    max-width: 62ch;
+    margin: 0 0 32px;
+  }
+
+  @media (min-width: 960px) {
+    .solutions-intro__header {
+      max-width: none;
+      margin: 0;
+    }
+  }
+
+  .solutions-intro__heading {
+    margin: 0 0 16px;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .solutions-intro__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .solutions-intro__lead {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .solutions-intro__themes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  @media (min-width: 640px) {
+    .solutions-intro__themes {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  .solutions-intro__theme {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .solutions-intro__icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 14px;
+  }
+
+  .solutions-intro__theme-title {
+    margin: 0 0 6px;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .solutions-intro__theme-description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+</style>
