@@ -298,7 +298,8 @@ issues before they impact your business."), and Built for SMBs
 eyebrow for this section duplicated "MICROSOFT-FIRST" from the Microsoft
 Feature section above it; this was a clear section-labeling error in the
 mockup and was corrected to "WHY BLINKNETWORKS" for production**, matching
-the section's own name and its `/why-blinknetworks/` nav destination.
+the section's own name and its `/#why-blinknetworks` nav anchor to this
+same Homepage section.
 
 Structure: a two-column composition at ≥960px (`grid-template-columns:
 0.8fr 1.2fr`, vertically centered, 40px gap) — eyebrow and H2 only (no
@@ -654,11 +655,11 @@ Backup & Business Continuity — all temporarily targeting `/services/`
 (same no-dedicated-subpages-yet pattern used elsewhere on the homepage).
 
 Company links: About (`/about/`), Why BlinkNetworks
-(`/why-blinknetworks/`), Solutions (`/solutions/`), Insights
-(`/insights/`), and Contact (`/contact/`) — all existing forward-reference
-routes already used by the Header. "Our Approach", which appears in the
-mockup, was deliberately **not** added since no approved route exists for
-it.
+(`/#why-blinknetworks`, an anchor to this same page's Why BlinkNetworks
+section rather than a separate route), Solutions (`/solutions/`), Insights
+(`/insights/`), and Contact (`/contact/`) — all existing destinations
+already used by the Header. "Our Approach", which appears in the mockup,
+was deliberately **not** added since no approved route exists for it.
 
 Contact column: a compact icon + text list — "Toronto, ON / Serving the
 GTA" (plain text, reusing the already-approved Toronto/GTA positioning),
@@ -742,7 +743,8 @@ user scrolls through the section order above.
 - Logo/wordmark → `/`
 - Services → `/services/`
 - Solutions → `/solutions/`
-- Why BlinkNetworks → `/why-blinknetworks/`
+- Why BlinkNetworks → `/#why-blinknetworks` (anchor to the Homepage's own
+  Why BlinkNetworks section, not a separate route)
 - Insights → `/insights/`
 - About → `/about/`
 - Contact → `/contact/`

@@ -25,7 +25,7 @@ const differentiators = [
 ];
 ---
 
-<section class="why-blinknetworks" aria-labelledby="why-blinknetworks-heading">
+<section id="why-blinknetworks" class="why-blinknetworks" aria-labelledby="why-blinknetworks-heading">
   <div class="why-blinknetworks__inner">
     <div class="why-blinknetworks__content">
       <p class="why-blinknetworks__eyebrow">WHY BLINKNETWORKS</p>
@@ -60,6 +60,8 @@ const differentiators = [
   /* Background change alone marks the boundary with the white Automation & AI section above. */
   .why-blinknetworks {
     background-color: var(--color-soft-azure);
+    /* Keeps the heading clear of the header when reached via the nav's anchor link. */
+    scroll-margin-top: 96px;
   }
 
   .why-blinknetworks__inner {
