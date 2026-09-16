@@ -687,8 +687,11 @@ with `rel="noopener noreferrer"` and an `aria-label` identifying the
 destination. No other social networks (Facebook, Instagram, X, YouTube)
 were added.
 
-A newsletter signup and Privacy Policy/Terms of Service links remain
-omitted (no form-handling implementation and no legal pages exist yet).
+A newsletter signup remains omitted (no form-handling implementation
+exists for it). The Company column now links to the Privacy Policy
+(`/privacy/`, see [docs/design/privacy.md](./privacy.md)); Terms of Service
+remain deferred since the site does not yet offer accounts, purchases, or
+online service contracts.
 
 Copyright: `© {currentYear} BlinkNetworks. All rights reserved.`, where
 `currentYear` is computed once in the component's Astro frontmatter via

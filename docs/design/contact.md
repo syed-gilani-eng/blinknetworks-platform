@@ -168,10 +168,14 @@ when reaching the field.
   `.contact-form__honeypot { display: none; }` and removed from the tab
   order with `tabindex="-1"`.
 - Privacy notice: a plain, non-interactive paragraph directly above the
-  submit button ("Information submitted through this form will be used
-  only to respond to your inquiry. Please do not include passwords or
-  other sensitive information.") — not a required checkbox, and does not
-  claim a Privacy Policy route exists.
+  submit button ("Information submitted through this form will be used to
+  review and respond to your inquiry and handled as described in our
+  Privacy Policy. Please do not include passwords, financial information,
+  or other sensitive information.") — not a required checkbox. "Privacy
+  Policy" links to `/privacy/` (see
+  [docs/design/privacy.md](./privacy.md)), which documents what the
+  Contact form collects and that submissions are processed by Formspree,
+  including possible processing outside Canada.
 - No marketing-consent checkbox; no newsletter subscription; no sensitive
   data is collected.
 - CAPTCHA was not added initially, per approved direction; rely on
@@ -179,6 +183,9 @@ when reaching the field.
 - **Recommendation for later:** enable Formspree's production-domain
   restriction only once the site has a real deployed domain. Enabling it
   during local development would block `localhost` submissions entirely.
+- Terms of Service remain deferred: the current site is informational only
+  (no user accounts, purchases, or online service contracts), so there is
+  no operative agreement for Terms of Service to govern yet.
 
 ## Icon Mapping
 
