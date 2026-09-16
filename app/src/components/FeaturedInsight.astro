@@ -1,0 +1,173 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { insightsCategoryLabels } from "../lib/insightsCategoryLabels";
+
+interface Props {
+  entry: CollectionEntry<"insights">;
+}
+
+const { entry } = Astro.props;
+const categoryLabel = insightsCategoryLabels[entry.data.category];
+---
+
+<section class="featured-insight" aria-labelledby="featured-insight-heading">
+  <div class="featured-insight__inner">
+    <p class="featured-insight__eyebrow">FEATURED INSIGHT</p>
+
+    <a class="featured-insight__card" href={`/insights/${entry.id}/`}>
+      <div class="featured-insight__image-wrap">
+        <img
+          class="featured-insight__image"
+          src={entry.data.image}
+          width="1536"
+          height="1024"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="featured-insight__content">
+        <p class="featured-insight__category">{categoryLabel}</p>
+        <h2 id="featured-insight-heading" class="featured-insight__title">
+          {entry.data.title}
+        </h2>
+        <p class="featured-insight__description">{entry.data.description}</p>
+        <span class="featured-insight__cta">Read the guide &rarr;</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the dark Insights hero above. */
+  .featured-insight {
+    background-color: var(--color-white);
+  }
+
+  .featured-insight__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 28px;
+  }
+
+  @media (min-width: 640px) {
+    .featured-insight__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 32px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .featured-insight__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 36px;
+    }
+  }
+
+  .featured-insight__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .featured-insight__card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @media (min-width: 960px) {
+    .featured-insight__card {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  /* Some approved source images carry an alpha channel; this background keeps every image visually consistent. */
+  .featured-insight__image-wrap {
+    background-color: var(--color-soft-azure);
+    aspect-ratio: 3 / 2;
+  }
+
+  @media (min-width: 960px) {
+    .featured-insight__image-wrap {
+      flex: 0 0 42%;
+      aspect-ratio: auto;
+    }
+  }
+
+  .featured-insight__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .featured-insight__content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  @media (min-width: 960px) {
+    .featured-insight__content {
+      padding: 32px 40px;
+      justify-content: center;
+    }
+  }
+
+  .featured-insight__category {
+    margin: 0 0 8px;
+    color: var(--color-blink-blue);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .featured-insight__title {
+    margin: 0 0 12px;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .featured-insight__title {
+      font-size: 1.75rem;
+    }
+  }
+
+  .featured-insight__description {
+    margin: 0 0 16px;
+    max-width: 60ch;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .featured-insight__cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 600;
+    color: var(--color-secondary-navy);
+  }
+
+  .featured-insight__card:hover .featured-insight__cta,
+  .featured-insight__card:focus-visible .featured-insight__cta {
+    color: var(--color-blink-navy);
+    text-decoration: underline;
+  }
+</style>

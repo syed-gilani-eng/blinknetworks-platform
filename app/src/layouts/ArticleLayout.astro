@@ -1,0 +1,85 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  image: string;
+  imageAlt: string;
+  publishedDate: Date;
+  updatedDate?: Date;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  image,
+  imageAlt,
+  publishedDate,
+  updatedDate,
+} = Astro.props;
+
+const canonicalURL = new URL(canonicalPath, Astro.site);
+const imageURL = new URL(image, Astro.site);
+const logoURL = new URL(
+  "/brand/blinknetworks-logo-light-background.png",
+  Astro.site
+);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description,
+  image: imageURL.toString(),
+  datePublished: publishedDate.toISOString(),
+  ...(updatedDate ? { dateModified: updatedDate.toISOString() } : {}),
+  author: {
+    "@type": "Organization",
+    name: "BlinkNetworks",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "BlinkNetworks",
+    logo: {
+      "@type": "ImageObject",
+      url: logoURL.toString(),
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonicalURL.toString(),
+  },
+};
+
+// Escapes '<' so a value containing "</script>" can't terminate the script element early.
+const serializedJsonLd = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+---
+
+<BaseLayout title={`${title} | BlinkNetworks`} description={description}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta
+      property="article:published_time"
+      content={publishedDate.toISOString()}
+    />
+    {
+      updatedDate && (
+        <meta
+          property="article:modified_time"
+          content={updatedDate.toISOString()}
+        />
+      )
+    }
+    <script type="application/ld+json" set:html={serializedJsonLd} />
+  </Fragment>
+  <slot />
+</BaseLayout>
