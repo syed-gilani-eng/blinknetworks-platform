@@ -235,33 +235,50 @@ the Blink Navy → White color change alone marks the boundary with Microsoft
 Feature above (no border/divider), returning to a light surface as in the
 approved mockup.
 
-Copy (approved, exact, no invented claims): eyebrow "AUTOMATION & AI"; H2
-"Automate the repetitive. Focus on what matters."; supporting paragraph
-"Modern tools. Practical solutions. Real results. We help you leverage
-automation and AI to save time, reduce risk, and empower your team."; CTA
-"Learn More →" to `/services/` (same temporary-route pattern used by
-Business Problem, Core Services, and Microsoft Feature — no dedicated
-automation/AI page exists yet).
+**Revised for the homepage AI-positioning update** (see
+`feat/homepage-ai-positioning`): the section keeps its position, white
+background, outer spacing, and two-column desktop layout, but the copy and
+item set were refined to give AI a clear, credible, non-duplicated homepage
+message rather than adding a separate AI section.
+
+Copy (approved, exact, no invented claims): eyebrow "AI & AUTOMATION"; H2
+"Practical AI. Purposefully adopted."; supporting paragraph "We help
+growing businesses identify useful AI opportunities, automate repetitive
+work and introduce AI securely—without unnecessary complexity or
+disruption."; CTA "Discuss Your AI Goals" to `/contact/`.
+
+`/contact/` is an intentional temporary forward route — the Contact page
+has not been built yet, matching the same forward-reference pattern already
+used elsewhere on the homepage (Header, Hero, Footer). Once the Solutions
+page exists, this CTA should point to `/solutions/#practical-ai-adoption`
+instead; a source comment on the CTA documents this planned change.
 
 Structure: a two-column composition at ≥960px (`grid-template-columns:
 0.8fr 1.2fr`, vertically centered, 40px gap) — content (eyebrow, H2, lead,
-CTA) on the left, four capability items on the right. Unlike Core Services,
-the four capability items (Workflow Automation, Microsoft Copilot,
-Infrastructure Automation, Systems Integration) are deliberately
-lightweight: a plain icon, `<h3>` title, and description with no card
-background, border, or shadow, so the section reads as visibly lighter and
-more compact than Core Services. Four new SVG icons were added to
-`app/public/images/homepage/icons/` (`workflow-automation.svg`,
-`copilot-ai.svg`, `infrastructure-automation.svg`,
-`systems-integration.svg`) using the same gradient-stroke line-icon
-language as the existing set, rendered directly (no glow badge). For
-Microsoft Copilot, `copilot-ai.svg` is an original generic AI
-sparkle/assistant symbol — not the official Microsoft Copilot logo — per
-the vendor-logo policy in `design-system.md` Section 8.
+CTA) on the left, three theme items on the right. Like the previous
+four-capability version, each item is deliberately lightweight: a plain
+icon, `<h3>` title, and description with no card background, border, or
+shadow. The three themes — Start With the Right Use Cases (reusing
+`process-assess.svg`), Security and Governance First (reusing
+`cybersecurity.svg`), and Adoption That Lasts (reusing
+`process-manage-monitor-improve.svg`) — reuse existing production icons; no
+new icon assets were added. `copilot-ai.svg` and `workflow-automation.svg`
+/ `infrastructure-automation.svg` / `systems-integration.svg` are no longer
+referenced by this section but remain on disk — `copilot-ai.svg` in
+particular is retained for the later Services ("AI Enablement &
+Automation") and Solutions ("Practical AI Adoption") pages.
 
-Layout: four columns in one row at ≥960px; a 2×2 grid at 640–959px; a
+Layout: three columns in one row at both ≥960px and 640–959px (three items
+divide evenly at both breakpoints, so there is no intermediate 2×2 grid); a
 single stacked column below 640px, in that order: content first, then the
-capability list.
+theme list.
+
+This revision introduces no new dependency and required no new ADR — it
+stays within [ADR-0001](../adr/0001-use-astro-for-website.md) (Astro,
+`/app` isolation) and
+[ADR-0002](../adr/0002-use-plain-css-design-tokens.md) (plain CSS + design
+tokens), changing only copy, item data, and the existing component's own
+grid rules.
 
 ### Step 11 note: Why BlinkNetworks implemented
 

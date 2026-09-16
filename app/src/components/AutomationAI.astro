@@ -1,26 +1,22 @@
 ---
 // Original BlinkNetworks-styled icons (no vendor logos, no official Copilot mark).
+// copilot-ai.svg is intentionally unused here; retained on disk for the Services/Solutions AI pages.
 // Assets: app/public/images/homepage/icons/
-const capabilities = [
+const themes = [
   {
-    title: "Workflow Automation",
-    description: "Eliminate manual work and streamline processes.",
-    iconSrc: "/images/homepage/icons/workflow-automation.svg",
+    title: "Start With the Right Use Cases",
+    description: "Focus on genuine business needs and measurable value.",
+    iconSrc: "/images/homepage/icons/process-assess.svg",
   },
   {
-    title: "Microsoft Copilot",
-    description: "Put AI to work for your business.",
-    iconSrc: "/images/homepage/icons/copilot-ai.svg",
+    title: "Security and Governance First",
+    description: "Protect organizational data and establish responsible-use practices.",
+    iconSrc: "/images/homepage/icons/cybersecurity.svg",
   },
   {
-    title: "Infrastructure Automation",
-    description: "More efficiency. Fewer moving parts.",
-    iconSrc: "/images/homepage/icons/infrastructure-automation.svg",
-  },
-  {
-    title: "Systems Integration",
-    description: "Connect your tools and data for a smarter business.",
-    iconSrc: "/images/homepage/icons/systems-integration.svg",
+    title: "Adoption That Lasts",
+    description: "Prepare employees, improve workflows and expand at a manageable pace.",
+    iconSrc: "/images/homepage/icons/process-manage-monitor-improve.svg",
   },
 ];
 ---
@@ -28,33 +24,34 @@ const capabilities = [
 <section class="automation-ai" aria-labelledby="automation-ai-heading">
   <div class="automation-ai__inner">
     <div class="automation-ai__content">
-      <p class="automation-ai__eyebrow">AUTOMATION & AI</p>
+      <p class="automation-ai__eyebrow">AI & AUTOMATION</p>
       <h2 id="automation-ai-heading" class="automation-ai__heading">
-        Automate the repetitive. Focus on what matters.
+        Practical AI. Purposefully adopted.
       </h2>
       <p class="automation-ai__lead">
-        Modern tools. Practical solutions. Real results. We help you
-        leverage automation and AI to save time, reduce risk, and empower
-        your team.
+        We help growing businesses identify useful AI opportunities,
+        automate repetitive work and introduce AI securely&mdash;without
+        unnecessary complexity or disruption.
       </p>
-      <a class="automation-ai__cta" href="/services/">Learn More &rarr;</a>
+      <!-- Temporary forward route (Contact page not yet built); becomes /solutions/#practical-ai-adoption once Solutions ships. -->
+      <a class="automation-ai__cta" href="/contact/">Discuss Your AI Goals</a>
     </div>
 
     <ul class="automation-ai__capabilities">
       {
-        capabilities.map((capability) => (
+        themes.map((theme) => (
           <li class="automation-ai__item">
             <img
               class="automation-ai__icon"
-              src={capability.iconSrc}
+              src={theme.iconSrc}
               width="36"
               height="36"
               alt=""
               loading="lazy"
               decoding="async"
             />
-            <h3 class="automation-ai__item-title">{capability.title}</h3>
-            <p class="automation-ai__item-description">{capability.description}</p>
+            <h3 class="automation-ai__item-title">{theme.title}</h3>
+            <p class="automation-ai__item-description">{theme.description}</p>
           </li>
         ))
       }
@@ -167,14 +164,14 @@ const capabilities = [
 
   @media (min-width: 640px) and (max-width: 959px) {
     .automation-ai__capabilities {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 28px 24px;
     }
   }
 
   @media (min-width: 960px) {
     .automation-ai__capabilities {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
     }
   }
