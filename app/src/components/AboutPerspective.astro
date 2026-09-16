@@ -1,0 +1,136 @@
+---
+---
+
+<section class="about-perspective" aria-labelledby="about-perspective-heading">
+  <div class="about-perspective__inner">
+    <div class="about-perspective__content">
+      <p class="about-perspective__eyebrow">WHY BLINKNETWORKS</p>
+      <h2 id="about-perspective-heading" class="about-perspective__heading">
+        Business understanding meets technical capability.
+      </h2>
+      <p class="about-perspective__paragraph">
+        Technology decisions affect people, operations, security and
+        growth. That is why we look beyond individual tools and consider
+        how the full environment supports the business.
+      </p>
+      <p class="about-perspective__paragraph">
+        Our perspective brings together managed IT, Microsoft 365,
+        cybersecurity, cloud, infrastructure, continuity and responsible AI
+        adoption.
+      </p>
+    </div>
+
+    <!-- Approved production illustration; decorative, since the adjacent copy communicates the section meaning. -->
+    <div class="about-perspective__visual">
+      <img
+        class="about-perspective__image"
+        src="/images/about/business-technical-perspective.webp"
+        width="1448"
+        height="1086"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the white Our Purpose section above. */
+  .about-perspective {
+    background-color: var(--color-soft-azure);
+  }
+
+  .about-perspective__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @media (min-width: 640px) {
+    .about-perspective__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .about-perspective__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 48px;
+    }
+  }
+
+  .about-perspective__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .about-perspective__content {
+      max-width: none;
+    }
+  }
+
+  .about-perspective__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-perspective__heading {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .about-perspective__heading {
+      font-size: var(--font-size-h2);
+    }
+  }
+
+  .about-perspective__paragraph {
+    margin: 0 0 18px;
+    max-width: 48ch;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .about-perspective__paragraph:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-perspective__visual {
+    width: 100%;
+  }
+
+  /* Illustration already has its own pale-azure background; contain rather than crop, restrained rounding only. */
+  .about-perspective__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-card);
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .about-perspective__visual {
+      max-width: 500px;
+      margin-inline: auto;
+    }
+  }
+</style>

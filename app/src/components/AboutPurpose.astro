@@ -1,0 +1,174 @@
+---
+// Reused existing homepage icons (no new assets): app/public/images/homepage/icons/
+const principles = [
+  {
+    title: "Understand the Business",
+    description: "Start with your goals, challenges and the way your team works.",
+    iconSrc: "/images/homepage/icons/process-assess.svg",
+  },
+  {
+    title: "Keep It Practical",
+    description: "Recommend what is useful, manageable and appropriate for your organization.",
+    iconSrc: "/images/homepage/icons/built-for-smbs.svg",
+  },
+  {
+    title: "Stay Accountable",
+    description: "Communicate clearly and remain responsible for the work we deliver.",
+    iconSrc: "/images/homepage/icons/accountable-partner.svg",
+  },
+];
+---
+
+<section class="about-purpose" aria-labelledby="about-purpose-heading">
+  <div class="about-purpose__inner">
+    <div class="about-purpose__header">
+      <p class="about-purpose__eyebrow">OUR PURPOSE</p>
+      <h2 id="about-purpose-heading" class="about-purpose__heading">
+        Technology should support your business&mdash;not complicate it.
+      </h2>
+      <p class="about-purpose__lead">
+        We help organizations make confident technology decisions,
+        strengthen their foundations and create environments that are
+        easier to manage, secure and grow.
+      </p>
+    </div>
+
+    <ul class="about-purpose__items">
+      {
+        principles.map((principle) => (
+          <li class="about-purpose__item">
+            <img
+              class="about-purpose__icon"
+              src={principle.iconSrc}
+              width="36"
+              height="36"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="about-purpose__item-title">{principle.title}</h3>
+            <p class="about-purpose__item-description">{principle.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Blink Navy Hero above. */
+  .about-purpose {
+    background-color: var(--color-white);
+  }
+
+  .about-purpose__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+  }
+
+  @media (min-width: 640px) {
+    .about-purpose__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .about-purpose__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .about-purpose__header {
+    max-width: 62ch;
+    margin: 0 0 32px;
+  }
+
+  @media (min-width: 960px) {
+    .about-purpose__header {
+      max-width: none;
+      margin: 0;
+    }
+  }
+
+  .about-purpose__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-purpose__heading {
+    margin: 0 0 16px;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .about-purpose__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .about-purpose__lead {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .about-purpose__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  @media (min-width: 640px) {
+    .about-purpose__items {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  .about-purpose__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .about-purpose__icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 14px;
+  }
+
+  .about-purpose__item-title {
+    margin: 0 0 6px;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .about-purpose__item-description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+</style>

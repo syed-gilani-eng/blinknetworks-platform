@@ -1,0 +1,176 @@
+---
+// Reused existing homepage icons (no new assets): app/public/images/homepage/icons/
+const values = [
+  {
+    title: "Business First",
+    description: "Technology choices should serve a clear operational purpose.",
+    iconSrc: "/images/homepage/icons/business-first.svg",
+  },
+  {
+    title: "Clear Communication",
+    description: "Straightforward guidance helps everyone understand priorities and next steps.",
+    iconSrc: "/images/homepage/icons/productivity-collaboration.svg",
+  },
+  {
+    title: "Security-Minded",
+    description: "Risk and data protection are considered in every recommendation.",
+    iconSrc: "/images/homepage/icons/cybersecurity.svg",
+  },
+  {
+    title: "Built to Evolve",
+    description: "Solutions should work today and remain adaptable as the organization grows.",
+    iconSrc: "/images/homepage/icons/growing-organizations.svg",
+  },
+];
+---
+
+<section class="about-values" aria-labelledby="about-values-heading">
+  <div class="about-values__inner">
+    <div class="about-values__content">
+      <p class="about-values__eyebrow">WHAT GUIDES US</p>
+      <h2 id="about-values-heading" class="about-values__heading">
+        A straightforward way of working.
+      </h2>
+    </div>
+
+    <ul class="about-values__items">
+      {
+        values.map((value) => (
+          <li class="about-values__item">
+            <img
+              class="about-values__icon"
+              src={value.iconSrc}
+              width="36"
+              height="36"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="about-values__item-title">{value.title}</h3>
+            <p class="about-values__item-description">{value.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Soft Azure Perspective section above. */
+  .about-values {
+    background-color: var(--color-white);
+  }
+
+  .about-values__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  @media (min-width: 640px) {
+    .about-values__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .about-values__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .about-values__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .about-values__content {
+      max-width: none;
+    }
+  }
+
+  .about-values__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-values__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .about-values__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .about-values__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  @media (min-width: 640px) and (max-width: 959px) {
+    .about-values__items {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 24px;
+      row-gap: 28px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .about-values__items {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  .about-values__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-values__icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 14px;
+  }
+
+  .about-values__item-title {
+    margin: 0 0 6px;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .about-values__item-description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+</style>

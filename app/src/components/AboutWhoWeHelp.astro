@@ -1,0 +1,176 @@
+---
+// Reused existing homepage icons (no new assets): app/public/images/homepage/icons/
+const audiences = [
+  {
+    title: "Growing Businesses",
+    description: "Organizations that need dependable technology without unnecessary complexity.",
+    iconSrc: "/images/homepage/icons/businesses-without-it.svg",
+  },
+  {
+    title: "Internal IT Teams",
+    description: "Teams that need added capability, project support or specialized guidance.",
+    iconSrc: "/images/homepage/icons/small-it-teams.svg",
+  },
+  {
+    title: "Organizations Modernizing",
+    description: "Businesses improving Microsoft 365, cloud, security, infrastructure or AI adoption.",
+    iconSrc: "/images/homepage/icons/virtualization-operations.svg",
+  },
+];
+---
+
+<section class="about-who-we-help" aria-labelledby="about-who-we-help-heading">
+  <div class="about-who-we-help__inner">
+    <header class="about-who-we-help__header">
+      <p class="about-who-we-help__eyebrow">WHO WE HELP</p>
+      <h2 id="about-who-we-help-heading" class="about-who-we-help__heading">
+        Built for growing organizations.
+      </h2>
+    </header>
+
+    <ul class="about-who-we-help__cards">
+      {
+        audiences.map((audience) => (
+          <li class="about-who-we-help__card">
+            <img
+              class="about-who-we-help__icon"
+              src={audience.iconSrc}
+              width="28"
+              height="28"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="about-who-we-help__card-title">{audience.title}</h3>
+            <p class="about-who-we-help__card-description">{audience.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the white Local Understanding section above. */
+  .about-who-we-help {
+    background-color: var(--color-cloud-bg);
+  }
+
+  .about-who-we-help__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+  }
+
+  @media (min-width: 640px) {
+    .about-who-we-help__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .about-who-we-help__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+    }
+  }
+
+  .about-who-we-help__header {
+    margin: 0 0 24px;
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .about-who-we-help__header {
+      max-width: none;
+    }
+  }
+
+  .about-who-we-help__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-secondary-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-who-we-help__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .about-who-we-help__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .about-who-we-help__cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 640px) {
+    .about-who-we-help__cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 20px;
+    }
+
+    .about-who-we-help__card {
+      height: 100%;
+    }
+  }
+
+  /* Lightweight bordered card, matching the established Who We Help / How It Works card language. */
+  .about-who-we-help__card {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 8px;
+    align-items: center;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    padding: 18px 16px;
+  }
+
+  .about-who-we-help__icon {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+    width: 28px;
+    height: 28px;
+  }
+
+  .about-who-we-help__card-title {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.25;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .about-who-we-help__card-description {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--color-text-secondary);
+  }
+</style>
