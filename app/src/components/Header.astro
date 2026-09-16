@@ -18,6 +18,11 @@ const navItems = [
   { label: "About", href: "/about/" },
   { label: "Contact", href: "/contact/" },
 ];
+
+// Astro.url reflects the current page's request URL even from within a shared component,
+// so active-state works automatically for this and every future route without further changes.
+const withTrailingSlash = (path: string) => (path.endsWith("/") ? path : `${path}/`);
+const currentPath = withTrailingSlash(Astro.url.pathname);
 ---
 
 <header class="site-header" data-nav-enhanced="false" data-variant={variant}>
@@ -56,11 +61,16 @@ const navItems = [
     >
       <ul class="site-nav__list">
         {
-          navItems.map((item) => (
-            <li>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))
+          navItems.map((item) => {
+            const isActive = withTrailingSlash(item.href) === currentPath;
+            return (
+              <li>
+                <a href={item.href} aria-current={isActive ? "page" : undefined}>
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
         }
       </ul>
       <a class="site-nav__cta" href="/contact/">Book a Consultation</a>
@@ -192,6 +202,12 @@ const navItems = [
     color: var(--color-secondary-navy);
   }
 
+  /* Current-page indicator: reuses the same hover/focus accent rather than a new color. */
+  .site-nav__list a[aria-current="page"] {
+    color: var(--color-secondary-navy);
+    font-weight: 700;
+  }
+
   .site-nav__cta {
     display: inline-flex;
     align-items: center;
@@ -278,6 +294,11 @@ const navItems = [
   .site-header[data-variant="dark"] .site-nav__list a:hover,
   .site-header[data-variant="dark"] .site-nav__list a:focus-visible {
     color: var(--color-network-cyan);
+  }
+
+  .site-header[data-variant="dark"] .site-nav__list a[aria-current="page"] {
+    color: var(--color-network-cyan);
+    font-weight: 700;
   }
 
   /* Blink Blue fails AA for normal-size text/backgrounds; Network Cyan + navy text passes. */

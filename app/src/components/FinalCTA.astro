@@ -1,23 +1,39 @@
 ---
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  lead?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  caption?: string;
+}
+
+// Defaults reproduce the homepage's original copy exactly, so existing callers are unaffected.
+const {
+  eyebrow = "LET'S TALK",
+  heading = "Not sure what your business needs?",
+  lead = "Get expert advice, a clearer roadmap, and no pressure.",
+  ctaLabel = "Book a Free Consultation",
+  ctaHref = "/contact/",
+  caption = "A smarter, simpler way to move your business forward.",
+}: Props = Astro.props;
 ---
 
 <section class="final-cta" aria-labelledby="final-cta-heading">
   <div class="final-cta__inner">
     <div class="final-cta__content">
-      <p class="final-cta__eyebrow">LET'S TALK</p>
+      <p class="final-cta__eyebrow">{eyebrow}</p>
       <h2 id="final-cta-heading" class="final-cta__heading">
-        Not sure what your business needs?
+        {heading}
       </h2>
       <p class="final-cta__lead">
-        Get expert advice, a clearer roadmap, and no pressure.
+        {lead}
       </p>
     </div>
 
     <div class="final-cta__action">
-      <a class="final-cta__cta" href="/contact/">Book a Free Consultation</a>
-      <p class="final-cta__caption">
-        A smarter, simpler way to move your business forward.
-      </p>
+      <a class="final-cta__cta" href={ctaHref}>{ctaLabel}</a>
+      {caption && <p class="final-cta__caption">{caption}</p>}
     </div>
   </div>
 </section>

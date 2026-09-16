@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="process-plan-stroke" x1="6" y1="5" x2="32" y2="35" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+  </defs>
+  <rect x="9" y="8" width="22" height="27" rx="3" stroke="url(#process-plan-stroke)" stroke-width="2" />
+  <path d="M15 8V6.5C15 5.672 15.672 5 16.5 5H23.5C24.328 5 25 5.672 25 6.5V8" stroke="url(#process-plan-stroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M14.5 18H25.5M14.5 24H25.5M14.5 30H21" stroke="url(#process-plan-stroke)" stroke-width="2" stroke-linecap="round" />
+</svg>

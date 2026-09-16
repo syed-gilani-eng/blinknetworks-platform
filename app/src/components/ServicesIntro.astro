@@ -1,0 +1,173 @@
+---
+// Reused existing homepage icons (no new assets): app/public/images/homepage/icons/
+const themes = [
+  {
+    title: "Responsive Support",
+    description: "Fast, dependable help whenever you need it.",
+    iconSrc: "/images/homepage/icons/managed-it-support.svg",
+  },
+  {
+    title: "Security First",
+    description: "Every decision is made with security in mind.",
+    iconSrc: "/images/homepage/icons/cybersecurity.svg",
+  },
+  {
+    title: "Ready to Scale",
+    description: "Solutions that grow with your business.",
+    iconSrc: "/images/homepage/icons/growing-organizations.svg",
+  },
+];
+---
+
+<section class="services-intro" aria-labelledby="services-intro-heading">
+  <div class="services-intro__inner">
+    <div class="services-intro__header">
+      <h2 id="services-intro-heading" class="services-intro__heading">
+        Practical IT support. Built around your business.
+      </h2>
+      <p class="services-intro__lead">
+        Blink Networks provides practical managed IT, cybersecurity, cloud
+        and infrastructure support tailored to your organization&rsquo;s
+        needs&mdash;so your technology supports the way you work, not the
+        other way around.
+      </p>
+    </div>
+
+    <ul class="services-intro__themes">
+      {
+        themes.map((theme) => (
+          <li class="services-intro__theme">
+            <img
+              class="services-intro__icon"
+              src={theme.iconSrc}
+              width="36"
+              height="36"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="services-intro__theme-title">{theme.title}</h3>
+            <p class="services-intro__theme-description">{theme.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Background change alone marks the boundary with the Blink Navy Services Hero above. */
+  .services-intro {
+    background-color: var(--color-white);
+  }
+
+  .services-intro__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+  }
+
+  @media (min-width: 640px) {
+    .services-intro__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .services-intro__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .services-intro__header {
+    max-width: 62ch;
+    margin: 0 0 32px;
+  }
+
+  @media (min-width: 960px) {
+    .services-intro__header {
+      max-width: none;
+      margin: 0;
+    }
+  }
+
+  .services-intro__heading {
+    margin: 0 0 16px;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .services-intro__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .services-intro__lead {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .services-intro__themes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  @media (min-width: 640px) {
+    .services-intro__themes {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  /* Deliberately lightweight, matching the homepage's Why BlinkNetworks/Automation & AI pattern: no card background, border, or shadow. */
+  .services-intro__theme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .services-intro__icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 14px;
+  }
+
+  @media (min-width: 960px) {
+    .services-intro__icon {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  .services-intro__theme-title {
+    margin: 0 0 6px;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .services-intro__theme-description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+</style>

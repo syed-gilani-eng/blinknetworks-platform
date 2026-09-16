@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ServicesHero from "../../components/ServicesHero.astro";
+import ServicesIntro from "../../components/ServicesIntro.astro";
+import ServicesList from "../../components/ServicesList.astro";
+import ServicesProcess from "../../components/ServicesProcess.astro";
+import ServicesWhyBlink from "../../components/ServicesWhyBlink.astro";
+import FinalCTA from "../../components/FinalCTA.astro";
+---
+
+<BaseLayout
+	title="Services | BlinkNetworks"
+	description="Managed IT, Microsoft 365, cybersecurity, cloud, network and backup services for growing businesses across Toronto and the GTA."
+	headerVariant="dark"
+>
+	<ServicesHero />
+	<ServicesIntro />
+	<ServicesList />
+	<ServicesProcess />
+	<ServicesWhyBlink />
+	<FinalCTA
+		heading="Let's make your technology work better"
+		lead="Let's talk about your current technology environment and priorities—no pressure, just practical advice."
+		ctaLabel="Book a Consultation"
+		ctaHref="/contact/"
+		caption=""
+	/>
+</BaseLayout>
