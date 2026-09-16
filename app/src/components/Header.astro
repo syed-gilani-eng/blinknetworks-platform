@@ -13,7 +13,7 @@ const logoSrc =
 const navItems = [
   { label: "Services", href: "/services/" },
   { label: "Solutions", href: "/solutions/" },
-  { label: "Why BlinkNetworks", href: "/why-blinknetworks/" },
+  { label: "Why BlinkNetworks", href: "/#why-blinknetworks" },
   { label: "Insights", href: "/insights/" },
   { label: "About", href: "/about/" },
   { label: "Contact", href: "/contact/" },
@@ -27,6 +27,11 @@ const currentPath = withTrailingSlash(Astro.url.pathname);
 // Exact match for "/" (a prefix match would incorrectly activate Home on every route);
 // prefix match elsewhere so a section nav item stays active on its own nested routes.
 const isNavItemActive = (href: string) => {
+  // Hash-anchor items target a section on another page; the server can't know the
+  // browser's fragment, so these are never marked active.
+  if (href.includes("#")) {
+    return false;
+  }
   const normalizedHref = withTrailingSlash(href);
   return normalizedHref === "/"
     ? currentPath === "/"
