@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SolutionsHero from "../../components/SolutionsHero.astro";
+import SolutionsIntro from "../../components/SolutionsIntro.astro";
+import SolutionsList from "../../components/SolutionsList.astro";
+import SolutionsAIFeature from "../../components/SolutionsAIFeature.astro";
+import SolutionsProcess from "../../components/SolutionsProcess.astro";
+import SolutionsWhyBlink from "../../components/SolutionsWhyBlink.astro";
+import SolutionsCallout from "../../components/SolutionsCallout.astro";
+import FinalCTA from "../../components/FinalCTA.astro";
+---
+
+<BaseLayout
+	title="Solutions | BlinkNetworks"
+	description="Practical technology solutions for growing businesses across Toronto and the GTA, including secure hybrid work, Microsoft 365, cybersecurity, cloud, infrastructure, business continuity and responsible AI adoption."
+	headerVariant="dark"
+>
+	<SolutionsHero />
+	<SolutionsIntro />
+	<SolutionsList />
+	<SolutionsAIFeature />
+	<SolutionsProcess />
+	<SolutionsWhyBlink />
+	<SolutionsCallout />
+	<FinalCTA
+		heading="Let's build a better technology foundation."
+		lead="Tell us where you want to go, and we'll help you plan the next step."
+		ctaLabel="Book a Consultation"
+		ctaHref="/contact/"
+		caption=""
+	/>
+</BaseLayout>

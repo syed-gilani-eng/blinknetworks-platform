@@ -1,0 +1,169 @@
+---
+---
+
+<section class="solutions-hero" aria-labelledby="solutions-hero-heading">
+  <div class="solutions-hero__inner">
+    <div class="solutions-hero__content">
+      <p class="solutions-hero__eyebrow">BUSINESS SOLUTIONS</p>
+      <h1 id="solutions-hero-heading" class="solutions-hero__heading">
+        Technology solutions built around your business
+      </h1>
+      <p class="solutions-hero__lead">
+        Practical, secure technology solutions that help growing businesses
+        work better, reduce risk and prepare for what&rsquo;s next.
+      </p>
+      <div class="solutions-hero__actions">
+        <a class="solutions-hero__cta solutions-hero__cta--primary" href="/contact/">Book a Consultation</a>
+        <a class="solutions-hero__cta solutions-hero__cta--secondary" href="#solutions-list">Explore Solutions</a>
+      </div>
+    </div>
+
+    <!-- Approved production illustration; decorative, since the adjacent copy communicates the page meaning. -->
+    <div class="solutions-hero__visual">
+      <img
+        class="solutions-hero__image"
+        src="/images/solutions/solutions-hero.webp"
+        width="1672"
+        height="941"
+        alt=""
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .solutions-hero {
+    background-color: var(--color-blink-navy);
+    color: var(--color-white);
+    overflow: hidden;
+  }
+
+  .solutions-hero__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  @media (min-width: 640px) {
+    .solutions-hero__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 40px 48px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .solutions-hero__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 56px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .solutions-hero__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .solutions-hero__content {
+      max-width: none;
+    }
+  }
+
+  .solutions-hero__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-network-cyan);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .solutions-hero__heading {
+    margin: 0 0 20px;
+    font-size: 2.25rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  @media (min-width: 960px) {
+    .solutions-hero__heading {
+      font-size: 2.75rem;
+    }
+  }
+
+  .solutions-hero__lead {
+    margin: 0 0 28px;
+    max-width: 46ch;
+    color: var(--color-soft-azure);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .solutions-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .solutions-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 20px;
+    border-radius: var(--radius-button);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease, border-color var(--duration-fast) ease;
+  }
+
+  .solutions-hero__cta--primary {
+    background-color: var(--color-network-cyan);
+    color: var(--color-blink-navy);
+  }
+
+  .solutions-hero__cta--primary:hover,
+  .solutions-hero__cta--primary:focus-visible {
+    background-color: var(--color-soft-azure);
+  }
+
+  .solutions-hero__cta--secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 1px solid var(--color-soft-azure);
+  }
+
+  .solutions-hero__cta--secondary:hover,
+  .solutions-hero__cta--secondary:focus-visible {
+    border-color: var(--color-network-cyan);
+    color: var(--color-network-cyan);
+  }
+
+  /* No background panel: the source asset's transparent background blends directly into the navy hero. */
+  .solutions-hero__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .solutions-hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .solutions-hero :focus-visible {
+    outline-color: var(--color-network-cyan);
+  }
+</style>

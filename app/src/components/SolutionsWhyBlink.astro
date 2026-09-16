@@ -1,0 +1,169 @@
+---
+// Reused existing homepage icons (no new assets): app/public/images/homepage/icons/
+const values = [
+  {
+    title: "Clear Recommendations",
+    description: "Straightforward advice based on your goals, not unnecessary complexity.",
+    iconSrc: "/images/homepage/icons/accountable-partner.svg",
+  },
+  {
+    title: "Security-Minded Decisions",
+    description: "Every solution is designed with your business risk and data security in mind.",
+    iconSrc: "/images/homepage/icons/proactive-design.svg",
+  },
+  {
+    title: "Solutions That Scale",
+    description: "Practical technology that grows with your organization and adapts to what's next.",
+    iconSrc: "/images/homepage/icons/built-for-smbs.svg",
+  },
+];
+---
+
+<section class="solutions-why-blink" aria-labelledby="solutions-why-blink-heading">
+  <div class="solutions-why-blink__inner">
+    <div class="solutions-why-blink__content">
+      <p class="solutions-why-blink__eyebrow">WHY BLINKNETWORKS</p>
+      <h2 id="solutions-why-blink-heading" class="solutions-why-blink__heading">
+        Practical guidance. Measurable improvement.
+      </h2>
+    </div>
+
+    <ul class="solutions-why-blink__items">
+      {
+        values.map((item) => (
+          <li class="solutions-why-blink__item">
+            <img
+              class="solutions-why-blink__icon"
+              src={item.iconSrc}
+              width="36"
+              height="36"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="solutions-why-blink__item-title">{item.title}</h3>
+            <p class="solutions-why-blink__item-description">{item.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Navy value-band: distinguishes this section from the white How We Solve section above. */
+  .solutions-why-blink {
+    background-color: var(--color-blink-navy);
+    color: var(--color-white);
+  }
+
+  .solutions-why-blink__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  @media (min-width: 640px) {
+    .solutions-why-blink__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 36px 40px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .solutions-why-blink__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px 44px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .solutions-why-blink__content {
+    max-width: 46ch;
+  }
+
+  @media (min-width: 960px) {
+    .solutions-why-blink__content {
+      max-width: none;
+    }
+  }
+
+  .solutions-why-blink__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-network-cyan);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .solutions-why-blink__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  @media (min-width: 960px) {
+    .solutions-why-blink__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .solutions-why-blink__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  @media (min-width: 640px) {
+    .solutions-why-blink__items {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 24px;
+      row-gap: 28px;
+    }
+  }
+
+  .solutions-why-blink__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .solutions-why-blink__icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 14px;
+  }
+
+  .solutions-why-blink__item-title {
+    margin: 0 0 6px;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  .solutions-why-blink__item-description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-soft-azure);
+  }
+
+  .solutions-why-blink :focus-visible {
+    outline-color: var(--color-network-cyan);
+  }
+</style>
