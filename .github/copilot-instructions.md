@@ -11,7 +11,10 @@ documentation.
 
 ## Current Project Phase
 
-The project is currently in LOCAL DEVELOPMENT ONLY.
+The project is in a controlled deployment phase for the live static website.
+Production deployment is managed through GitHub Actions against the verified
+hosting document root, using the GitHub `production` environment and the
+approved SSH/SFTP workflow.
 
 Do not create or configure:
 
@@ -19,12 +22,13 @@ Do not create or configure:
 - cloud infrastructure
 - Terraform infrastructure
 - Ansible deployment configuration
-- production deployment workflows
-- production secrets
-- cloud credentials
+- production deployment workflows outside the approved GitHub Actions process
+- production secrets in repository files
+- cloud credentials outside the GitHub environment and approved deployment settings
 
-These concerns are intentionally deferred until the website has been developed
-and tested locally.
+Production deployment requires explicit human approval before a live push is
+performed, and agents must never expose secrets or trigger deployment without
+that approval.
 
 ## Development Approach
 

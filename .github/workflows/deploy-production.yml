@@ -1,0 +1,170 @@
+name: Deploy production
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: blinknetworks-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy Astro static site to production
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout repository
+        # actions/checkout v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Set up Node.js
+        # actions/setup-node v4
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
+        with:
+          node-version: 22.12.0
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install app dependencies
+        working-directory: app
+        run: npm ci
+
+      - name: Build Astro site
+        working-directory: app
+        run: npm run build
+
+      - name: Verify build artifact exists
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f "$GITHUB_WORKSPACE/app/dist/index.html"
+
+      - name: Upload build artifact for troubleshooting
+        # actions/upload-artifact v4
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a4db9f0b8
+        with:
+          name: blinknetworks-production-dist
+          path: app/dist
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload static site to SFTP destination
+        shell: bash
+        env:
+          BLINK_SFTP_HOST: ${{ vars.BLINK_SFTP_HOST }}
+          BLINK_SFTP_PORT: ${{ vars.BLINK_SFTP_PORT }}
+          BLINK_SFTP_USERNAME: ${{ secrets.BLINK_SFTP_USERNAME }}
+          BLINK_SFTP_PRIVATE_KEY: ${{ secrets.BLINK_SFTP_PRIVATE_KEY }}
+          BLINK_SFTP_REMOTE_PATH: ${{ vars.BLINK_SFTP_REMOTE_PATH }}
+          BLINK_SSH_KNOWN_HOSTS: ${{ vars.BLINK_SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+
+          : "${BLINK_SFTP_HOST:?BLINK_SFTP_HOST is required}"
+          : "${BLINK_SFTP_PORT:?BLINK_SFTP_PORT is required}"
+          : "${BLINK_SFTP_USERNAME:?BLINK_SFTP_USERNAME is required}"
+          : "${BLINK_SFTP_PRIVATE_KEY:?BLINK_SFTP_PRIVATE_KEY is required}"
+          : "${BLINK_SFTP_REMOTE_PATH:?BLINK_SFTP_REMOTE_PATH is required}"
+          : "${BLINK_SSH_KNOWN_HOSTS:?BLINK_SSH_KNOWN_HOSTS is required}"
+
+          if [[ "$BLINK_SFTP_REMOTE_PATH" != "/home/blinknetworks/public_html" ]]; then
+            echo "BLINK_SFTP_REMOTE_PATH must be /home/blinknetworks/public_html for this transitional deployment."
+            exit 1
+          fi
+
+          SSH_KEY_FILE="$RUNNER_TEMP/blinknetworks_sftp_key"
+          KNOWN_HOSTS_FILE="$RUNNER_TEMP/blinknetworks_known_hosts"
+          SFTP_BATCH_FILE="$RUNNER_TEMP/blinknetworks_sftp_batch"
+
+          cleanup() {
+            rm -f "$SSH_KEY_FILE" "$KNOWN_HOSTS_FILE" "$SFTP_BATCH_FILE"
+          }
+          trap cleanup EXIT
+
+          printf '%s\n' "$BLINK_SFTP_PRIVATE_KEY" > "$SSH_KEY_FILE"
+          chmod 600 "$SSH_KEY_FILE"
+          printf '%s\n' "$BLINK_SSH_KNOWN_HOSTS" > "$KNOWN_HOSTS_FILE"
+
+          cat > "$SFTP_BATCH_FILE" <<EOF
+          mkdir -p "$BLINK_SFTP_REMOTE_PATH"
+          cd "$BLINK_SFTP_REMOTE_PATH"
+          put -r "$GITHUB_WORKSPACE/app/dist/." .
+          EOF
+
+          sftp \
+            -i "$SSH_KEY_FILE" \
+            -o Port="$BLINK_SFTP_PORT" \
+            -o IdentitiesOnly=yes \
+            -o UserKnownHostsFile="$KNOWN_HOSTS_FILE" \
+            -o StrictHostKeyChecking=yes \
+            -o PasswordAuthentication=no \
+            -o Ciphers=aes256-ctr \
+            -o MACs=hmac-sha2-256 \
+            -o Compression=no \
+            -b "$SFTP_BATCH_FILE" \
+            "$BLINK_SFTP_USERNAME@$BLINK_SFTP_HOST"
+
+      - name: Remove temporary SSH private key
+        if: always()
+        shell: bash
+        run: rm -f "$RUNNER_TEMP/blinknetworks_sftp_key" "$RUNNER_TEMP/blinknetworks_known_hosts" "$RUNNER_TEMP/blinknetworks_sftp_batch"
+
+      - name: Verify production routes
+        shell: bash
+        env:
+          BASE_URL: https://blinknetworks.com
+        run: |
+          set -euo pipefail
+
+          verify_route() {
+            local path="$1"
+            local marker="$2"
+            local tmp_file
+            tmp_file="$(mktemp)"
+
+            curl --location \
+              --fail \
+              --silent \
+              --show-error \
+              --retry 5 \
+              --retry-delay 2 \
+              --retry-connrefused \
+              --connect-timeout 15 \
+              --max-time 30 \
+              -o "$tmp_file" \
+              -w '%{http_code}\n' \
+              "$BASE_URL${path}" > /tmp/route_status.txt
+
+            local status
+            status="$(cat /tmp/route_status.txt)"
+            if [[ "$status" -lt 200 || "$status" -ge 400 ]]; then
+              echo "Route verification failed for $path: HTTP $status"
+              cat "$tmp_file"
+              rm -f "$tmp_file" /tmp/route_status.txt
+              exit 1
+            fi
+
+            if ! grep -F "$marker" "$tmp_file" >/dev/null; then
+              echo "Route verification failed for $path: expected marker not found: $marker"
+              echo "Response snippet:"
+              head -n 40 "$tmp_file"
+              rm -f "$tmp_file" /tmp/route_status.txt
+              exit 1
+            fi
+
+            rm -f "$tmp_file" /tmp/route_status.txt
+          }
+
+          verify_route "/" "<title>BlinkNetworks</title>"
+          verify_route "/services/" "<title>Services | BlinkNetworks</title>"
+          verify_route "/solutions/" "<title>Solutions | BlinkNetworks</title>"
+          verify_route "/about/" "<title>About BlinkNetworks | BlinkNetworks</title>"
+          verify_route "/contact/" "<title>Contact | BlinkNetworks</title>"
+          verify_route "/insights/" "<title>Insights | BlinkNetworks</title>"
+
+          echo "All route checks passed."
