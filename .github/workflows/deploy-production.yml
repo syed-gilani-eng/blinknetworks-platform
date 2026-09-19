@@ -91,7 +91,6 @@ jobs:
           printf '%s\n' "$BLINK_SSH_KNOWN_HOSTS" > "$KNOWN_HOSTS_FILE"
 
           cat > "$SFTP_BATCH_FILE" <<EOF
-          mkdir -p "$BLINK_SFTP_REMOTE_PATH"
           cd "$BLINK_SFTP_REMOTE_PATH"
           put -r "$GITHUB_WORKSPACE/app/dist/." .
           EOF
