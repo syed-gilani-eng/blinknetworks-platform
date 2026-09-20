@@ -9,6 +9,7 @@ interface Props {
   imageAlt: string;
   publishedDate: Date;
   updatedDate?: Date;
+  breadcrumbs?: Array<{ name: string; path?: string }>;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   imageAlt,
   publishedDate,
   updatedDate,
+  breadcrumbs = [],
 } = Astro.props;
 
 const canonicalURL = new URL(canonicalPath, Astro.site);
@@ -67,6 +69,7 @@ const serializedJsonLd = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
   ogType="article"
   publishedTime={publishedDate}
   modifiedTime={updatedDate}
+  breadcrumbs={breadcrumbs}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={serializedJsonLd} />

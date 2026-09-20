@@ -15,8 +15,15 @@ interface SeoProps {
   noindex?: boolean;
 }
 
+interface BreadcrumbItem {
+  name: string;
+  path?: string;
+}
+
 interface Props extends SeoProps {
   headerVariant?: "light" | "dark";
+  includeWebSiteSchema?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const {
@@ -30,6 +37,8 @@ const {
   modifiedTime,
   noindex = false,
   headerVariant = "light",
+  includeWebSiteSchema = false,
+  breadcrumbs = [],
 } = Astro.props;
 
 const productionOrigin = "https://blinknetworks.com";
@@ -110,6 +119,113 @@ const publishedISO = serializeDate(publishedTime);
 const modifiedISO = serializeDate(modifiedTime);
 const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
 const twitterCard = hasSocialImage ? "summary_large_image" : "summary";
+
+const normalizeBreadcrumbPath = (value: string, label: string) => {
+  const trimmed = value.trim();
+
+  if (!trimmed.startsWith("/") || trimmed.startsWith("//")) {
+    throw new Error(`${label} must be a site-relative path that begins with a single /.`);
+  }
+
+  if (trimmed.includes(":")) {
+    throw new Error(`${label} must not include a URI scheme or colon.`);
+  }
+
+  return trimmed === "/" ? "/" : trimmed.replace(/\/+$/, "") || "/";
+};
+
+const validatedBreadcrumbs = breadcrumbs.map((item, index) => {
+  const name = item.name.trim();
+
+  if (!name) {
+    throw new Error(`Breadcrumb item ${index + 1} must have a non-empty name.`);
+  }
+
+  const isFinalItem = index === breadcrumbs.length - 1;
+
+  if (!item.path && !isFinalItem) {
+    throw new Error(`Breadcrumb item ${index + 1} requires a path unless it is the final breadcrumb.`);
+  }
+
+  const path = item.path ? normalizeBreadcrumbPath(item.path, `breadcrumbs[${index}].path`) : undefined;
+
+  return {
+    name,
+    ...(path ? { path } : {}),
+  };
+});
+
+const organizationSchema = {
+  "@type": "Organization",
+  "@id": "https://blinknetworks.com/#organization",
+  name: "BlinkNetworks",
+  url: "https://blinknetworks.com/",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://blinknetworks.com/brand/blinknetworks-logo-light-background.png",
+  },
+  description:
+    "Managed IT, Microsoft 365, cybersecurity, cloud and infrastructure services for growing businesses across Toronto and the GTA.",
+  email: "hello@blinknetworks.com",
+  telephone: "+1-905-703-7895",
+  sameAs: ["https://www.linkedin.com/company/blinknetworks/"],
+};
+
+const websiteSchema = includeWebSiteSchema
+  ? {
+      "@type": "WebSite",
+      "@id": "https://blinknetworks.com/#website",
+      url: "https://blinknetworks.com/",
+      name: "BlinkNetworks",
+      publisher: { "@id": "https://blinknetworks.com/#organization" },
+    }
+  : null;
+
+const webPageSchema = {
+  "@type": "WebPage",
+  "@id": canonicalURL.toString(),
+  url: canonicalURL.toString(),
+  name: title,
+  description,
+  isPartOf: { "@id": "https://blinknetworks.com/#website" },
+  about: { "@id": "https://blinknetworks.com/#organization" },
+  ...(validatedBreadcrumbs.length > 0
+    ? { breadcrumb: { "@id": `${canonicalURL.toString()}#breadcrumb` } }
+    : {}),
+};
+
+const breadcrumbListSchema =
+  validatedBreadcrumbs.length > 0
+    ? {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalURL.toString()}#breadcrumb`,
+        itemListElement: validatedBreadcrumbs.map((item, index) => {
+          const listItem: Record<string, unknown> = {
+            "@type": "ListItem",
+            position: index + 1,
+            name: item.name,
+          };
+
+          if (item.path) {
+            listItem.item = new URL(item.path, resolvedSiteURL).toString();
+          }
+
+          return listItem;
+        }),
+      }
+    : null;
+
+const graph = [
+  organizationSchema,
+  ...(websiteSchema ? [websiteSchema] : []),
+  webPageSchema,
+  ...(breadcrumbListSchema ? [breadcrumbListSchema] : []),
+];
+
+const jsonLdScriptValue = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": graph,
+}).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -172,6 +288,9 @@ const twitterCard = hasSocialImage ? "summary_large_image" : "summary";
         )
     }
     <title>{title}</title>
+    <Fragment slot="head">
+      <script type="application/ld+json" set:html={jsonLdScriptValue} />
+    </Fragment>
     <slot name="head" />
   </head>
   <body>
