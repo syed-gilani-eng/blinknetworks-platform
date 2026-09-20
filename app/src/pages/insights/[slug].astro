@@ -16,6 +16,12 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
+const articleBreadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Insights", path: "/insights/" },
+  { name: entry.data.title },
+];
+
 // UTC avoids the visible date shifting a day earlier in timezones behind UTC.
 const dateFormatter = new Intl.DateTimeFormat("en-CA", {
   year: "numeric",
@@ -33,8 +39,9 @@ const dateFormatter = new Intl.DateTimeFormat("en-CA", {
   imageAlt={entry.data.imageAlt}
   publishedDate={entry.data.publishedDate}
   updatedDate={entry.data.updatedDate}
+  breadcrumbs={articleBreadcrumbs}
 >
-  <ArticleBreadcrumb />
+  <ArticleBreadcrumb currentTitle={entry.data.title} />
 
   <article class="article">
     <header class="article__header">

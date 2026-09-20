@@ -1,8 +1,23 @@
 ---
+interface Props {
+  currentTitle: string;
+}
+
+const { currentTitle } = Astro.props;
 ---
 
 <nav class="article-breadcrumb" aria-label="Breadcrumb">
-  <a href="/insights/">&larr; Back to Insights</a>
+  <ol class="article-breadcrumb__list">
+    <li class="article-breadcrumb__item">
+      <a href="/">Home</a>
+    </li>
+    <li class="article-breadcrumb__item">
+      <a href="/insights/">Insights</a>
+    </li>
+    <li class="article-breadcrumb__item">
+      <span aria-current="page">{currentTitle}</span>
+    </li>
+  </ol>
 </nav>
 
 <style>
@@ -25,17 +40,55 @@
     }
   }
 
+  .article-breadcrumb__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    line-height: 1.4;
+    column-gap: 8px;
+    row-gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: var(--color-text-secondary);
+  }
+
+  .article-breadcrumb__item {
+    display: inline-flex;
+    align-items: center;
+    min-width: 0;
+    font-size: 0.9375rem;
+  }
+
+  .article-breadcrumb__item + .article-breadcrumb__item::before {
+    content: ">";
+    margin-right: 8px;
+    color: var(--color-text-secondary);
+  }
+
   .article-breadcrumb a {
     display: inline-flex;
     align-items: center;
-    min-height: 44px;
     font-weight: 600;
     color: var(--color-secondary-navy);
     text-decoration: none;
   }
 
+  @media (min-width: 640px) {
+    .article-breadcrumb__item,
+    .article-breadcrumb a {
+      min-height: 44px;
+    }
+  }
+
   .article-breadcrumb a:hover,
   .article-breadcrumb a:focus-visible {
     text-decoration: underline;
+  }
+
+  .article-breadcrumb [aria-current="page"] {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    overflow-wrap: anywhere;
   }
 </style>
