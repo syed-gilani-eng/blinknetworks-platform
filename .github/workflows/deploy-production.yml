@@ -159,11 +159,11 @@ jobs:
             rm -f "$tmp_file" /tmp/route_status.txt
           }
 
-          verify_route "/" "<title>Managed IT Services Toronto and GTA | BlinkNetworks</title>"
-          verify_route "/services/" "<title>Services | BlinkNetworks</title>"
-          verify_route "/solutions/" "<title>Solutions | BlinkNetworks</title>"
-          verify_route "/about/" "<title>About BlinkNetworks | BlinkNetworks</title>"
-          verify_route "/contact/" "<title>Contact | BlinkNetworks</title>"
-          verify_route "/insights/" "<title>Insights | BlinkNetworks</title>"
+          verify_route "/" "<link rel=\"canonical\" href=\"$BASE_URL/\">"
+          verify_route "/services/" "<link rel=\"canonical\" href=\"$BASE_URL/services/\">"
+          verify_route "/solutions/" "<link rel=\"canonical\" href=\"$BASE_URL/solutions/\">"
+          verify_route "/about/" "<link rel=\"canonical\" href=\"$BASE_URL/about/\">"
+          verify_route "/contact/" "<link rel=\"canonical\" href=\"$BASE_URL/contact/\">"
+          verify_route "/insights/" "<link rel=\"canonical\" href=\"$BASE_URL/insights/\">"
 
           echo "All route checks passed."
