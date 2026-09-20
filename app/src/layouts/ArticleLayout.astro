@@ -58,27 +58,17 @@ const jsonLd = {
 const serializedJsonLd = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
 ---
 
-<BaseLayout title={`${title} | BlinkNetworks`} description={description}>
+<BaseLayout
+  title={`${title} | BlinkNetworks`}
+  description={description}
+  canonicalPath={canonicalPath}
+  socialImage={image}
+  socialImageAlt={imageAlt}
+  ogType="article"
+  publishedTime={publishedDate}
+  modifiedTime={updatedDate}
+>
   <Fragment slot="head">
-    <link rel="canonical" href={canonicalURL} />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={imageURL} />
-    <meta property="og:image:alt" content={imageAlt} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta
-      property="article:published_time"
-      content={publishedDate.toISOString()}
-    />
-    {
-      updatedDate && (
-        <meta
-          property="article:modified_time"
-          content={updatedDate.toISOString()}
-        />
-      )
-    }
     <script type="application/ld+json" set:html={serializedJsonLd} />
   </Fragment>
   <slot />
