@@ -26,7 +26,7 @@ jobs:
         # actions/setup-node v4
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
         with:
-          node-version: 22.12.0
+          node-version: 22.19.0
           cache: npm
           cache-dependency-path: app/package-lock.json
 
@@ -159,7 +159,7 @@ jobs:
             rm -f "$tmp_file" /tmp/route_status.txt
           }
 
-          verify_route "/" "<title>BlinkNetworks</title>"
+          verify_route "/" "<title>Managed IT Services Toronto and GTA | BlinkNetworks</title>"
           verify_route "/services/" "<title>Services | BlinkNetworks</title>"
           verify_route "/solutions/" "<title>Solutions | BlinkNetworks</title>"
           verify_route "/about/" "<title>About BlinkNetworks | BlinkNetworks</title>"
