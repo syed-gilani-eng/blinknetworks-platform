@@ -1,0 +1,373 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface BreadcrumbItem {
+  name: string;
+  path?: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  h1: string;
+  positioning: string;
+  explanation: string;
+  challenges: string[];
+  outcomes: string[];
+  capabilities: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  imageSrc: string;
+  imageAlt: string;
+  breadcrumbs: BreadcrumbItem[];
+  schemaName: string;
+  serviceType: string;
+  schemaDescription: string;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  h1,
+  positioning,
+  explanation,
+  challenges,
+  outcomes,
+  capabilities,
+  ctaLabel,
+  ctaHref,
+  imageSrc,
+  imageAlt,
+  breadcrumbs,
+  schemaName,
+  serviceType,
+  schemaDescription,
+}: Props = Astro.props;
+
+const canonicalURL = new URL(canonicalPath, Astro.site);
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${canonicalURL.toString()}#service`,
+  name: schemaName,
+  serviceType,
+  description: schemaDescription,
+  url: canonicalURL.toString(),
+  provider: {
+    "@id": "https://blinknetworks.com/#organization",
+  },
+  areaServed: "Toronto and the Greater Toronto Area",
+  mainEntityOfPage: {
+    "@id": canonicalURL.toString(),
+  },
+};
+
+const serializedServiceJsonLd = JSON.stringify(serviceJsonLd).replace(/</g, "\\u003c");
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  headerVariant="dark"
+  breadcrumbs={breadcrumbs}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={serializedServiceJsonLd} />
+  </Fragment>
+
+  <section class="service-page">
+    <div class="service-page__inner">
+      <nav class="service-breadcrumb" aria-label="Breadcrumb">
+        <ol class="service-breadcrumb__list">
+          {
+            breadcrumbs.map((item, index) => {
+              const isCurrent = index === breadcrumbs.length - 1;
+              return (
+                <li class="service-breadcrumb__item">
+                  {isCurrent ? (
+                    <span aria-current="page">{item.name}</span>
+                  ) : (
+                    <a href={item.path}>{item.name}</a>
+                  )}
+                  {!isCurrent && <span aria-hidden="true"> / </span>}
+                </li>
+              );
+            })
+          }
+        </ol>
+      </nav>
+
+      <header class="service-page__header">
+        <div class="service-page__content">
+          <p class="service-page__eyebrow">SERVICE</p>
+          <h1 class="service-page__heading">{h1}</h1>
+          <p class="service-page__positioning">{positioning}</p>
+          <p class="service-page__explanation">{explanation}</p>
+          <a class="service-page__cta" href={ctaHref}>{ctaLabel}</a>
+        </div>
+
+        <div class="service-page__visual">
+          <img
+            class="service-page__image"
+            src={imageSrc}
+            width="1400"
+            height="920"
+            alt={imageAlt}
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+      </header>
+
+      <section class="service-page__section" aria-labelledby="service-challenges-heading">
+        <h2 id="service-challenges-heading" class="service-page__section-heading">
+          Common challenges
+        </h2>
+        <ul class="service-page__list">
+          {challenges.map((challenge) => <li>{challenge}</li>)}
+        </ul>
+      </section>
+
+      <section class="service-page__section" aria-labelledby="service-outcomes-heading">
+        <h2 id="service-outcomes-heading" class="service-page__section-heading">
+          Intended business outcomes
+        </h2>
+        <ul class="service-page__list">
+          {outcomes.map((outcome) => <li>{outcome}</li>)}
+        </ul>
+      </section>
+
+      <section class="service-page__section" aria-labelledby="service-capabilities-heading">
+        <h2 id="service-capabilities-heading" class="service-page__section-heading">
+          What BlinkNetworks can help with
+        </h2>
+        <ul class="service-page__list">
+          {capabilities.map((capability) => <li>{capability}</li>)}
+        </ul>
+      </section>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .service-page {
+    background: var(--color-cloud-bg);
+    color: var(--color-text-primary);
+  }
+
+  .service-page__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 20px 64px;
+  }
+
+  @media (min-width: 640px) {
+    .service-page__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 24px 72px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .service-page__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 28px 80px;
+    }
+  }
+
+  .service-breadcrumb {
+    margin: 0 0 24px;
+  }
+
+  .service-breadcrumb__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .service-breadcrumb__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .service-breadcrumb a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+
+  .service-breadcrumb a:hover,
+  .service-breadcrumb a:focus-visible {
+    text-decoration: underline;
+  }
+
+  .service-breadcrumb [aria-current="page"] {
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+
+  .service-page__header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: center;
+    background: var(--color-white);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid rgba(17, 28, 39, 0.08);
+  }
+
+  @media (min-width: 960px) {
+    .service-page__header {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+      gap: 0;
+    }
+  }
+
+  .service-page__content {
+    padding: 24px 20px;
+  }
+
+  @media (min-width: 640px) {
+    .service-page__content {
+      padding: 28px 32px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .service-page__content {
+      padding: 40px 44px;
+    }
+  }
+
+  .service-page__eyebrow {
+    margin: 0 0 12px;
+    color: var(--color-network-cyan);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .service-page__heading {
+    margin: 0 0 16px;
+    color: var(--color-text-primary);
+    font-size: clamp(2.1rem, 4vw, 3.25rem);
+    line-height: 1.08;
+    font-weight: 700;
+  }
+
+  .service-page__positioning {
+    margin: 0 0 16px;
+    color: var(--color-text-primary);
+    font-size: 1.125rem;
+    line-height: 1.55;
+    font-weight: 600;
+  }
+
+  .service-page__explanation {
+    margin: 0 0 24px;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    max-width: 62ch;
+  }
+
+  .service-page__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 20px;
+    border-radius: var(--radius-button);
+    background: var(--color-network-cyan);
+    border: 1px solid var(--color-network-cyan);
+    color: var(--color-blink-navy);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease;
+  }
+
+  .service-page__cta:hover,
+  .service-page__cta:focus-visible {
+    background: var(--color-soft-azure);
+  }
+
+  .service-page__visual {
+    position: relative;
+    min-height: 280px;
+    background: linear-gradient(180deg, rgba(9, 28, 49, 0.02), rgba(9, 28, 49, 0.08));
+  }
+
+  .service-page__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-page__section {
+    margin-top: 32px;
+    background: var(--color-white);
+    border: 1px solid rgba(17, 28, 39, 0.08);
+    border-radius: var(--radius-card);
+    padding: 24px 20px;
+  }
+
+  @media (min-width: 640px) {
+    .service-page__section {
+      padding: 28px 32px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .service-page__section {
+      padding: 32px 40px;
+    }
+  }
+
+  .service-page__section-heading {
+    margin: 0 0 16px;
+    color: var(--color-text-primary);
+    font-size: clamp(1.45rem, 2vw, 2rem);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .service-page__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+
+  .service-page__list li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .service-page__list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-network-cyan);
+    font-weight: 700;
+  }
+</style>

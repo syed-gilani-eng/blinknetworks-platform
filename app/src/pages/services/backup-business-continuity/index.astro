@@ -1,0 +1,44 @@
+---
+import ServiceLandingPage from "../../../components/ServiceLandingPage.astro";
+
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services/" },
+  { name: "Backup & Business Continuity" },
+];
+---
+
+<ServiceLandingPage
+  title="Backup & Business Continuity Services for GTA Businesses | BlinkNetworks"
+  description="Build a more resilient business with practical backup and continuity planning for Toronto and GTA organizations."
+  canonicalPath="/services/backup-business-continuity/"
+  h1="Backup and continuity planning that reduces disruption"
+  positioning="BlinkNetworks helps organizations prepare for disruption with practical backup, recovery, and continuity planning built around real business needs."
+  explanation="We help identify what matters most, protect critical data, and create a clearer plan for how your team responds when unexpected issues arise."
+  challenges={[
+    "Critical data is not clearly prioritized for protection.",
+    "Business continuity planning is informal or incomplete.",
+    "Disruption scenarios are not well understood by the team.",
+    "Recovery expectations are unclear when systems are affected.",
+  ]}
+  outcomes={[
+    "Stronger preparation for disruption across the organization.",
+    "Clearer prioritization of critical business data.",
+    "More confidence in recovery planning.",
+    "A clearer continuity process for unexpected events.",
+  ]}
+  capabilities={[
+    "Backup strategy and planning",
+    "Business continuity review",
+    "Critical systems prioritization",
+    "Recovery readiness guidance",
+  ]}
+  ctaLabel="Discuss Your Continuity Plan"
+  ctaHref="/contact/"
+  imageSrc="/images/services/backup-business-continuity.webp"
+  imageAlt="Illustration of secure backups, recovery, and business continuity planning"
+  breadcrumbs={breadcrumbs}
+  schemaName="Backup & Business Continuity"
+  serviceType="Backup and business continuity services"
+  schemaDescription="Backup and business continuity services that help growing organizations prepare for disruption and keep essential operations resilient."
+/>

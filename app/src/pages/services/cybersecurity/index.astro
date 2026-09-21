@@ -1,0 +1,44 @@
+---
+import ServiceLandingPage from "../../../components/ServiceLandingPage.astro";
+
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services/" },
+  { name: "Cybersecurity" },
+];
+---
+
+<ServiceLandingPage
+  title="Cybersecurity Services for Growing Toronto Businesses | BlinkNetworks"
+  description="Practical cybersecurity support for small and mid-sized businesses in Toronto and the GTA, focused on reducing risk and improving readiness."
+  canonicalPath="/services/cybersecurity/"
+  h1="Cybersecurity support built around real business risk"
+  positioning="BlinkNetworks helps growing organizations reduce exposure with practical security controls, clearer priorities, and better day-to-day decision-making."
+  explanation="We focus on the protections and habits that matter most, from access control and endpoint security to user awareness and practical risk reduction."
+  challenges={[
+    "Security responsibilities are spread across staff without a clear plan.",
+    "Critical accounts and devices are not consistently protected.",
+    "Employees are unsure which security steps matter most.",
+    "Business risk is increasing faster than the organization’s security process.",
+  ]}
+  outcomes={[
+    "Clearer security priorities across the business.",
+    "Stronger baseline protection for devices and accounts.",
+    "Better employee awareness and day-to-day security habits.",
+    "A more manageable path to reducing risk over time.",
+  ]}
+  capabilities={[
+    "Endpoint and email protection",
+    "Identity and access protection",
+    "Security awareness guidance",
+    "Risk reduction planning",
+  ]}
+  ctaLabel="Discuss Your Security Priorities"
+  ctaHref="/contact/"
+  imageSrc="/images/services/cybersecurity.webp"
+  imageAlt="Illustration of security controls, devices, and digital risk protection"
+  breadcrumbs={breadcrumbs}
+  schemaName="Cybersecurity"
+  serviceType="Cybersecurity support"
+  schemaDescription="Practical cybersecurity support for growing businesses in Toronto and the GTA, with a focus on clearer priorities, stronger protections, and smarter risk reduction."
+/>

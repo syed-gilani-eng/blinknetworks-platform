@@ -1,0 +1,44 @@
+---
+import ServiceLandingPage from "../../../components/ServiceLandingPage.astro";
+
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services/" },
+  { name: "Managed IT & Help Desk" },
+];
+---
+
+<ServiceLandingPage
+  title="Managed IT Support for Toronto Businesses | BlinkNetworks"
+  description="Reliable managed IT support for growing businesses across Toronto and the GTA. Get practical help with day-to-day IT issues, device coordination, and technology planning."
+  canonicalPath="/services/managed-it-support/"
+  h1="Managed IT support that keeps your business moving"
+  positioning="BlinkNetworks helps growing organizations replace reactive break-fix support with a more dependable, practical IT partnership."
+  explanation="We help with the day-to-day technology issues that slow teams down, from user support and device setup to coordination across systems, vendors, and routine maintenance work."
+  challenges={[
+    "Staff are blocked by recurring device and application issues.",
+    "IT problems are handled reactively instead of with a clear plan.",
+    "Technology tasks are spread across busy internal teams.",
+    "Business growth is creating more complexity than the current support model can manage.",
+  ]}
+  outcomes={[
+    "More consistent day-to-day support for employees and teams.",
+    "Less friction when people need access to essential business tools.",
+    "Clearer ownership of technology issues across the organization.",
+    "A more predictable support model as the business grows.",
+  ]}
+  capabilities={[
+    "Help desk and user support",
+    "Device and endpoint coordination",
+    "Routine maintenance planning",
+    "Vendor and system coordination",
+  ]}
+  ctaLabel="Book a Consultation"
+  ctaHref="/contact/"
+  imageSrc="/images/services/managed-it-help-desk.webp"
+  imageAlt="Illustration of a managed IT support workflow with devices, cloud tools, and support coordination"
+  breadcrumbs={breadcrumbs}
+  schemaName="Managed IT & Help Desk"
+  serviceType="Managed IT support"
+  schemaDescription="Practical managed IT support for growing businesses across Toronto and the GTA, with a focus on reliable day-to-day technology support and process clarity."
+/>

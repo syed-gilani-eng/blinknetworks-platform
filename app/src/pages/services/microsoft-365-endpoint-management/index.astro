@@ -1,0 +1,44 @@
+---
+import ServiceLandingPage from "../../../components/ServiceLandingPage.astro";
+
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services/" },
+  { name: "Microsoft 365 & Endpoint Management" },
+];
+---
+
+<ServiceLandingPage
+  title="Microsoft 365 & Endpoint Management for GTA Teams | BlinkNetworks"
+  description="Improve productivity, consistency, and security with managed Microsoft 365 and endpoint support for growing organizations across Toronto and the GTA."
+  canonicalPath="/services/microsoft-365-endpoint-management/"
+  h1="A more secure, better-managed Microsoft 365 environment"
+  positioning="BlinkNetworks helps businesses bring structure to Microsoft 365 and device management so teams can work more consistently and with less friction."
+  explanation="We help organize Microsoft 365, user access, and device management in a way that supports everyday work without creating unnecessary complexity."
+  challenges={[
+    "Microsoft 365 is spread across teams without a consistent process.",
+    "Device setup, access, and updates are inconsistent across the organization.",
+    "User productivity is slowed by unclear configuration or limited governance.",
+    "Security gaps appear because updates and access rules are not managed consistently.",
+  ]}
+  outcomes={[
+    "More consistent Microsoft 365 administration across the organization.",
+    "Better control over user access and device configuration.",
+    "A stronger collaboration and productivity experience for teams.",
+    "Clearer governance for access, updates, and everyday tool use.",
+  ]}
+  capabilities={[
+    "Microsoft 365 administration",
+    "Endpoint and device management",
+    "Identity and access configuration",
+    "Collaboration and productivity support",
+  ]}
+  ctaLabel="Discuss Your Microsoft 365 Needs"
+  ctaHref="/contact/"
+  imageSrc="/images/services/microsoft-365-endpoint-management.webp"
+  imageAlt="Illustration of Microsoft 365 productivity, device management, and secure access workflows"
+  breadcrumbs={breadcrumbs}
+  schemaName="Microsoft 365 & Endpoint Management"
+  serviceType="Microsoft 365 and endpoint management"
+  schemaDescription="Microsoft 365 and endpoint management for growing businesses to improve security, consistency, and day-to-day productivity."
+/>
