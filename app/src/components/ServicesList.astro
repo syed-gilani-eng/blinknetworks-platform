@@ -7,6 +7,9 @@ const services = [
     title: "Managed IT & Help Desk",
     href: "/services/managed-it-support/",
     description: "Reliable, responsive support that keeps your team productive.",
+    relatedInsightTitle:
+      "The practical guide to managed IT services for growing businesses",
+    relatedInsightHref: "/insights/managed-it-services-guide/",
     iconSrc: "/images/homepage/icons/managed-it-support.svg",
     imageSrc: "/images/services/managed-it-help-desk.webp",
     imageWidth: 1518,
@@ -22,6 +25,9 @@ const services = [
     title: "Microsoft 365 & Endpoint Management",
     href: "/services/microsoft-365-endpoint-management/",
     description: "Secure, well-managed Microsoft 365 and devices for how your team works.",
+    relatedInsightTitle:
+      "Microsoft 365 security basics every growing business should review",
+    relatedInsightHref: "/insights/microsoft-365-security-basics/",
     iconSrc: "/images/homepage/icons/productivity-collaboration.svg",
     imageSrc: "/images/services/microsoft-365-endpoint-management.webp",
     imageWidth: 1514,
@@ -37,6 +43,8 @@ const services = [
     title: "Cybersecurity",
     href: "/services/cybersecurity/",
     description: "Layered protection to reduce risk and keep your business secure.",
+    relatedInsightTitle: "The Small Business Cybersecurity Checklist",
+    relatedInsightHref: "/insights/small-business-cybersecurity-checklist/",
     iconSrc: "/images/homepage/icons/cybersecurity.svg",
     imageSrc: "/images/services/cybersecurity.webp",
     imageWidth: 1514,
@@ -52,6 +60,9 @@ const services = [
     title: "Cloud & Infrastructure",
     href: "/services/cloud-infrastructure/",
     description: "Modern, scalable infrastructure that supports how your business grows.",
+    relatedInsightTitle:
+      "When should a small business move workloads to the cloud?",
+    relatedInsightHref: "/insights/when-to-move-to-the-cloud/",
     iconSrc: "/images/homepage/icons/cloud-infrastructure.svg",
     imageSrc: "/images/services/cloud-infrastructure.webp",
     imageWidth: 1536,
@@ -82,6 +93,8 @@ const services = [
     title: "Backup & Business Continuity",
     href: "/services/backup-business-continuity/",
     description: "Keep your business running and your data protected.",
+    relatedInsightTitle: "What a business continuity plan should cover",
+    relatedInsightHref: "/insights/business-continuity-plan/",
     iconSrc: "/images/homepage/icons/business-continuity.svg",
     imageSrc: "/images/services/backup-business-continuity.webp",
     imageWidth: 1514,
@@ -144,6 +157,16 @@ const services = [
                 </h3>
               </div>
               <p class="services-list__description">{service.description}</p>
+              {
+                service.relatedInsightTitle && service.relatedInsightHref && (
+                  <p class="services-list__description">
+                    Related insight:{" "}
+                    <a href={service.relatedInsightHref}>
+                      {service.relatedInsightTitle}
+                    </a>
+                  </p>
+                )
+              }
               <ul class="services-list__capabilities">
                 {service.capabilities.map((capability) => (
                   <li>{capability}</li>

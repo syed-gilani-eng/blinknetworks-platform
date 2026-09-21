@@ -26,7 +26,7 @@ For your review, start with five systems you would need tomorrow morning. Beside
 
 Multifactor authentication, or MFA, requires more than a password to prove who is signing in. Microsoft Entra supports several methods, including authenticator apps and passkeys. [Microsoft MFA overview](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-howitworks)
 
-Ask your provider to show which important accounts are covered by the intended policy, not just which users have registered a phone. Include administrators and remote access. Review exceptions and account recovery arrangements so a lost phone does not leave the business improvising access.
+Ask your provider to show which important accounts are covered by the intended policy, and compare your setup with these [Microsoft 365 security basics](/insights/microsoft-365-security-basics/), not just which users have registered a phone. Include administrators and remote access. Review exceptions and account recovery arrangements so a lost phone does not leave the business improvising access.
 
 ## 3. Improve how passwords are managed
 
@@ -76,4 +76,4 @@ Choose three improvements based on business impact and exposure. Assign an owner
 
 Avoid treating a total number of checked boxes as a security score. One serious gap can matter more than several completed housekeeping tasks. The purpose is to make responsibility and follow-through visible.
 
-BlinkNetworks provides cybersecurity and managed IT services for growing businesses across Toronto and the GTA. Contact BlinkNetworks to discuss the gaps this review identifies and which improvements to prioritise.
+BlinkNetworks provides [cybersecurity](/services/cybersecurity/) and managed IT services for growing businesses across Toronto and the GTA. Contact BlinkNetworks to discuss the gaps this review identifies and which improvements to prioritise.

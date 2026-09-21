@@ -18,7 +18,7 @@ These three terms are often used interchangeably, but they describe different th
 - **Disaster recovery** is the process of restoring systems and data after a disruption, using those backups (and other measures) to get technology running again.
 - **Business continuity** is broader still: it covers how the entire business keeps operating—people, processes, and communication included—while systems are being recovered.
 
-A business can have backups without a real continuity plan, and that gap is often only discovered during an actual disruption.
+A business can have [backups without a real continuity plan](/insights/does-microsoft-365-back-up-everything/), and that gap is often only discovered during an actual disruption.
 
 ## Start by identifying what's critical
 
@@ -53,7 +53,7 @@ Continuity planning has traditionally focused on physical disruptions, but cyber
 
 ## Communication and roles during a disruption
 
-A continuity plan should clearly state who is responsible for what during a disruption: who makes decisions, who communicates with staff, and who communicates with customers or partners if needed. Without this clarity, even a technically sound recovery can be slowed down by confusion about who is authorized to act.
+A [continuity plan](/services/backup-business-continuity/) should clearly state who is responsible for what during a disruption: who makes decisions, who communicates with staff, and who communicates with customers or partners if needed. Without this clarity, even a technically sound recovery can be slowed down by confusion about who is authorized to act.
 
 ## Testing and reviewing the plan
 

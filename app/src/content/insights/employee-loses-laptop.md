@@ -32,7 +32,7 @@ Start a timeline with the loss, discovery and report times. Record what is known
 
 ## Restrict exposed access
 
-Authorised IT staff should assess whether to block the device, restrict affected accounts, revoke sessions and change exposed credentials. Include business applications outside Microsoft 365 and any remote-access credentials on the laptop.
+Authorised IT staff should assess whether to block the device, and apply [Microsoft 365 account security controls](/insights/microsoft-365-security-basics/) to restrict affected accounts, revoke sessions and change exposed credentials. Include business applications outside Microsoft 365 and any remote-access credentials on the laptop.
 
 Changing a password is not a universal way to end every active session. Microsoft notes that access revocation can take time and that some applications control their own session tokens. Responders must account for those differences and verify the result. [Microsoft emergency access revocation](https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access)
 
@@ -66,6 +66,6 @@ Provide a configured replacement device and restore approved access and business
 
 If the laptop is recovered, have IT inspect it before reconnecting it to business systems. Preserve relevant evidence and follow the incident owner's direction.
 
-Finally, review what slowed the response. Could you identify the device, verify protection and reach the right people? Were any important files stored only locally? Use those answers to improve the device inventory, onboarding and incident process.
+Finally, run a [small-business cybersecurity checklist](/insights/small-business-cybersecurity-checklist/) review to identify what slowed the response. Could you identify the device, verify protection and reach the right people? Were any important files stored only locally? Use those answers to improve the device inventory, onboarding and incident process.
 
-BlinkNetworks helps businesses across Toronto and the GTA plan endpoint management and practical IT processes. Contact BlinkNetworks to review how your organisation would handle a lost work device before it happens.
+BlinkNetworks helps businesses across Toronto and the GTA plan [endpoint management](/services/microsoft-365-endpoint-management/) and practical IT processes. Contact BlinkNetworks to review how your organisation would handle a lost work device before it happens.

@@ -61,7 +61,7 @@ Ask each provider the same questions:
 - Where is the data stored, and what happens when the service ends?
 - What charges apply to storage, recovery, support and retained historical data?
 
-There is no need to assume every business requires the same product. Choose against your recovery requirements, contractual commitments and budget. Where Canadian data residency matters, request written details for the specific service and configuration.
+There is no need to assume every business requires the same product. Choose against your [business continuity planning requirements](/insights/business-continuity-plan/), contractual commitments and budget. Where Canadian data residency matters, request written details for the specific service and configuration.
 
 ## Test a recovery before you rely on it
 
@@ -71,4 +71,4 @@ Then discuss a larger scenario: several people need an earlier version of a shar
 
 A useful outcome is a short recovery record showing what was tested, what worked, what failed and who owns the improvements. Repeat tests after significant changes and on an agreed schedule.
 
-BlinkNetworks helps growing GTA businesses review Microsoft 365 and business continuity needs. Contact BlinkNetworks to discuss your coverage and the recovery questions your business should be able to answer.
+BlinkNetworks helps growing GTA businesses review Microsoft 365 and [business continuity needs](/services/backup-business-continuity/). Contact BlinkNetworks to discuss your coverage and the recovery questions your business should be able to answer.

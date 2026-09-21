@@ -32,7 +32,7 @@ Email remains one of the most common ways attackers attempt to gain access to a 
 - Links and attachments in email are scanned before a user can open them.
 - Staff have a simple, known way to report suspicious emails.
 
-No email filter catches everything, so pairing these protections with basic staff awareness remains important.
+No email filter catches everything, so pairing these protections with a [small-business cybersecurity checklist](/insights/small-business-cybersecurity-checklist/) and basic staff awareness remains important.
 
 ## Control sharing and permissions in SharePoint, OneDrive and Teams
 
@@ -46,7 +46,7 @@ These settings are usually adjustable at the organization level, rather than nee
 
 ## Manage the devices that connect to Microsoft 365
 
-Microsoft 365 security is only as strong as the devices accessing it. Devices that are unmanaged—not enrolled in any endpoint management policy—make it harder to enforce consistent security standards like encryption, screen locks, or minimum operating system versions. Growing businesses should have a clear picture of which devices, managed or not, are connecting to company data.
+Microsoft 365 security is only as strong as the devices accessing it. Devices that are unmanaged—not enrolled in any [endpoint management policy](/services/microsoft-365-endpoint-management/)—make it harder to enforce consistent security standards like encryption, screen locks, or minimum operating system versions. Growing businesses should have a clear picture of which devices, managed or not, are connecting to company data, and a plan for [what should happen when an employee loses a laptop](/insights/employee-loses-laptop/).
 
 ## A practical Microsoft 365 security checklist
 

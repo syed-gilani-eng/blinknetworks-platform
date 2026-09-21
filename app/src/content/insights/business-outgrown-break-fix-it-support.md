@@ -60,10 +60,10 @@ Look ahead three months. Are you hiring, opening another location or replacing a
 
 ## Choose the level of support your business needs
 
-Break-fix support can remain appropriate when interruptions have limited consequences and someone already owns maintenance and planning. Another business may benefit from scheduled maintenance alongside ad hoc support. Managed IT may fit when ongoing oversight, user support and coordination need to sit with one provider.
+Break-fix support can remain appropriate when interruptions have limited consequences and someone already owns maintenance and planning. Another business may benefit from scheduled maintenance alongside ad hoc support. [Managed IT](/insights/managed-it-services-guide/) may fit when ongoing oversight, user support and coordination need to sit with one provider.
 
 Before signing an agreement, ask about support hours, response targets, exclusions, security responsibilities and the exit process. A response target means someone acknowledges or starts work on an issue; it is not necessarily a promise to resolve it within that time. Confirm that your business retains ownership and appropriate access to its accounts, documentation and data.
 
 Start with one practical exercise: list your three most disruptive technology problems and the person accountable for improving each. If that list is difficult to complete, clarifying ownership is your first step.
 
-BlinkNetworks provides managed IT services for growing businesses across Toronto and the GTA. Contact BlinkNetworks to discuss whether your current support arrangement still fits the way your business works.
+BlinkNetworks provides [managed IT services](/services/managed-it-support/) for growing businesses across Toronto and the GTA. Contact BlinkNetworks to discuss whether your current support arrangement still fits the way your business works.
