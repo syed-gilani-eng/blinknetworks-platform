@@ -26,7 +26,7 @@ There is no fixed employee count or revenue figure that determines when a busine
 - Security updates, patching, and backups happen inconsistently or are not tracked at all.
 - Leadership does not have a clear picture of what technology the business depends on or how it is protected.
 
-If several of these sound familiar, it may be worth evaluating managed IT support as a way to reduce risk and free up internal time.
+If several of these sound familiar, it may be worth reviewing [five signs your business has outgrown break-fix IT support](/insights/business-outgrown-break-fix-it-support/) and evaluating managed IT support as a way to reduce risk and free up internal time.
 
 ## What a managed IT partner typically handles
 
@@ -72,7 +72,7 @@ Clear, specific answers to these questions are a better indicator of fit than ge
 
 ## A practical next step
 
-If your organization is unsure whether managed IT services make sense right now, a useful first step is simply documenting your current environment: what systems you rely on, who supports them today, and where the gaps are. That picture makes it much easier to have a focused conversation with any potential provider about what support actually makes sense for your business.
+If your organization is unsure whether [managed IT services](/services/managed-it-support/) make sense right now, a useful first step is simply documenting your current environment: what systems you rely on, who supports them today, and where the gaps are. That picture makes it much easier to have a focused conversation with any potential provider about what support actually makes sense for your business.
 
 ## Sources and further reading
 

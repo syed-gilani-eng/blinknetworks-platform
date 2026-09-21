@@ -58,7 +58,7 @@ Cloud costs are usually structured differently from on-premises costs—operatin
 
 ## Planning a phased move
 
-Rather than moving everything at once, a phased approach—starting with lower-risk or higher-benefit systems—allows a business to build confidence and adjust its approach based on real experience before tackling more critical or complex workloads.
+Rather than moving everything at once, a phased approach—starting with lower-risk or higher-benefit systems—allows a business to build confidence and adjust its approach based on real experience before tackling more critical or complex workloads, often with support from [cloud infrastructure services](/services/cloud-infrastructure/).
 
 ## Sources and further reading
 
