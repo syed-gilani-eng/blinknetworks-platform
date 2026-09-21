@@ -5,9 +5,9 @@ category: "Managed IT & Help Desk"
 publishedDate: 2026-09-16
 image: "/images/insights/featured-managed-it-guide.webp"
 imageAlt: "Illustration of a laptop connected to cloud, server and security icons, representing managed IT services"
-featured: true
+featured: false
 draft: false
-order: 1
+order: 5
 ---
 
 ## What "managed IT services" actually means

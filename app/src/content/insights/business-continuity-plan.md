@@ -7,7 +7,7 @@ image: "/images/insights/article-business-continuity.webp"
 imageAlt: "Illustration of stacked servers with a circular restore arrow, representing backup and business continuity"
 featured: false
 draft: false
-order: 3
+order: 7
 ---
 
 ## Business continuity, disaster recovery and backup: clarifying the terms

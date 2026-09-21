@@ -7,7 +7,7 @@ image: "/images/insights/article-microsoft-365-security.webp"
 imageAlt: "Illustration of a laptop displaying a Microsoft 365 icon alongside a security shield"
 featured: false
 draft: false
-order: 2
+order: 6
 ---
 
 ## Why default settings aren't enough
