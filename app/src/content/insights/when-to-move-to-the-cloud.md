@@ -7,7 +7,7 @@ image: "/images/insights/article-cloud-migration.webp"
 imageAlt: "Illustration of servers with an upward arrow moving toward a cloud icon, representing cloud migration"
 featured: false
 draft: false
-order: 4
+order: 8
 ---
 
 ## What "moving to the cloud" actually means
