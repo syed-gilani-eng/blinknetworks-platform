@@ -1,0 +1,44 @@
+---
+import ServiceLandingPage from "../../../components/ServiceLandingPage.astro";
+
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services/" },
+  { name: "Network Services" },
+];
+---
+
+<ServiceLandingPage
+  title="Network Services for Growing GTA Businesses | BlinkNetworks"
+  description="Reliable network design and support for businesses in Toronto and the GTA that need stronger connectivity and a more stable foundation for daily operations."
+  canonicalPath="/services/network-services/"
+  h1="Network support that keeps your business connected"
+  positioning="BlinkNetworks helps organizations build and maintain the network foundation that supports productivity, collaboration, and business continuity."
+  explanation="We look at networking as a business foundation, helping organizations improve connectivity, simplify changes, and make technical decisions that support daily operations."
+  challenges={[
+    "Connectivity issues interrupt day-to-day work.",
+    "Network changes are difficult to manage without a clear strategy.",
+    "Performance issues appear across devices or locations.",
+    "Infrastructure complexity makes future growth harder to plan.",
+  ]}
+  outcomes={[
+    "Stronger connectivity for day-to-day operations.",
+    "More consistent network performance across the organization.",
+    "Clearer planning for change and growth.",
+    "A more stable technology foundation for business tools.",
+  ]}
+  capabilities={[
+    "Network assessment and design",
+    "Connectivity and performance support",
+    "Wireless and switching configuration",
+    "Infrastructure reliability planning",
+  ]}
+  ctaLabel="Talk About Your Network"
+  ctaHref="/contact/"
+  imageSrc="/images/services/network-services.webp"
+  imageAlt="Illustration of modern network connectivity and infrastructure"
+  breadcrumbs={breadcrumbs}
+  schemaName="Network Services"
+  serviceType="Network services"
+  schemaDescription="Network services for growing businesses that need a stronger connectivity foundation and more predictable technology operations."
+/>

@@ -1,0 +1,44 @@
+---
+import ServiceLandingPage from "../../../components/ServiceLandingPage.astro";
+
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services/" },
+  { name: "Cloud & Infrastructure" },
+];
+---
+
+<ServiceLandingPage
+  title="Cloud & Infrastructure Services for Toronto Businesses | BlinkNetworks"
+  description="Support for cloud strategy, infrastructure stability, and scalable systems for growing businesses across Toronto and the GTA."
+  canonicalPath="/services/cloud-infrastructure/"
+  h1="Cloud and infrastructure support designed for growth"
+  positioning="BlinkNetworks helps organizations modernize and stabilize the technology foundations that support everyday operations and longer-term growth."
+  explanation="We help businesses plan and manage the systems behind everyday operations, from cloud workloads and infrastructure choices to the technical foundation that supports scaling."
+  challenges={[
+    "Current infrastructure is difficult to expand without disruption.",
+    "Cloud decisions are unclear or not aligned to business needs.",
+    "System complexity is growing faster than internal planning can manage.",
+    "Business operations rely on technology that lacks a clear roadmap.",
+  ]}
+  outcomes={[
+    "Simpler infrastructure decisions for growing teams.",
+    "A more scalable technical foundation for day-to-day operations.",
+    "Clearer cloud planning aligned to business priorities.",
+    "Better alignment between growth and the technology behind it.",
+  ]}
+  capabilities={[
+    "Cloud strategy and workload planning",
+    "Infrastructure modernization",
+    "Server and platform support",
+    "Resilient architecture guidance",
+  ]}
+  ctaLabel="Plan Your Cloud Roadmap"
+  ctaHref="/contact/"
+  imageSrc="/images/services/cloud-infrastructure.webp"
+  imageAlt="Illustration of cloud infrastructure, servers, and scalable technology architecture"
+  breadcrumbs={breadcrumbs}
+  schemaName="Cloud & Infrastructure"
+  serviceType="Cloud and infrastructure services"
+  schemaDescription="Cloud and infrastructure services designed to help growing businesses build a more stable and scalable technology foundation."
+/>
