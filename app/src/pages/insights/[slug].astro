@@ -29,6 +29,14 @@ const dateFormatter = new Intl.DateTimeFormat("en-CA", {
   day: "numeric",
   timeZone: "UTC",
 });
+
+const publishedDateLabel = dateFormatter.format(entry.data.publishedDate);
+const updatedDateLabel = entry.data.updatedDate
+  ? dateFormatter.format(entry.data.updatedDate)
+  : undefined;
+const showUpdatedDate = Boolean(
+  updatedDateLabel && updatedDateLabel !== publishedDateLabel
+);
 ---
 
 <ArticleLayout
@@ -53,8 +61,18 @@ const dateFormatter = new Intl.DateTimeFormat("en-CA", {
         <span class="article__byline">BlinkNetworks</span>
         <span aria-hidden="true">&middot;</span>
         <time datetime={entry.data.publishedDate.toISOString()}>
-          {dateFormatter.format(entry.data.publishedDate)}
+          {publishedDateLabel}
         </time>
+        {
+          showUpdatedDate && entry.data.updatedDate && updatedDateLabel && (
+            <>
+              <span aria-hidden="true">&middot;</span>
+              <time datetime={entry.data.updatedDate.toISOString()}>
+                Updated {updatedDateLabel}
+              </time>
+            </>
+          )
+        }
       </p>
     </header>
 

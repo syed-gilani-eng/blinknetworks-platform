@@ -20,17 +20,22 @@ page reuses.
 | `/insights/when-to-move-to-the-cloud/` | `app/src/pages/insights/[slug].astro` |
 
 No category-archive routes, search, filtering, pagination, RSS, or sitemap
-exist. `[slug].astro` is one reusable dynamic route driven by
+search UI exist. Sitemap generation is enabled via `@astrojs/sitemap`, and
+the workpack mockup remains reference direction only rather than a
+superseding source of truth. `[slug].astro` is one reusable dynamic route driven by
 `getStaticPaths()`; every article page is statically generated at build
 time (`output: "static"`, unchanged from ADR-0001).
 
 ## Hub Section Order
 
 1. `InsightsHero.astro` — the page's only `<h1>`.
-2. `FeaturedInsight.astro` — the one article with `featured: true`.
+2. `FeaturedInsight.astro` — rendered only when exactly one published,
+   non-draft article has `featured: true`.
 3. `InsightsTopics.astro` — six informational, non-linking cards matching
    the exact Services taxonomy.
-4. `LatestInsights.astro` — the three most recent non-featured articles.
+4. `LatestInsights.astro` — the three most recent non-featured articles
+  when a featured article exists, otherwise the normal listing of all
+  published articles.
 5. Shared `FinalCTA.astro` (page-specific copy).
 6. Shared `Footer.astro` (unchanged).
 
@@ -83,17 +88,17 @@ from `astro/zod`, `glob` from `astro/loaders`) over Markdown files in
 | `updatedDate` | `date`, optional | Not set at launch |
 | `image` | `string` | Path under `app/public/images/insights/` |
 | `imageAlt` | `string` | Meaningful alt text for the article lead image |
-| `featured` | `boolean`, default `false` | Exactly one `true` (`managed-it-services-guide`) |
+| `featured` | `boolean`, default `false` | Zero or one published non-draft entry may be `true`; the current featured article is `managed-it-services-guide` |
 | `draft` | `boolean`, default `false` | Excluded from the hub and from `getStaticPaths()` |
 | `order` | positive integer, required | Deterministic "latest" ordering (1–4) |
 
 ## Build-Time Safeguard
 
 `app/src/pages/insights/index.astro` filters non-draft entries and throws
-a build-failing `Error` unless exactly one is `featured`. This runs on
-every `astro build`/`astro dev` render of the hub, so an invalid content
-state (zero or multiple featured articles) fails the build rather than
-silently rendering incorrectly.
+a build-failing `Error` when more than one published entry is `featured`.
+Zero featured entries now build successfully: the featured section is
+omitted and the normal listing renders the published articles instead.
+This safeguard runs on every `astro build`/`astro dev` render of the hub.
 
 ## Asset Mapping
 
@@ -213,10 +218,9 @@ concepts are paraphrased rather than copied from vendor documentation.
 
 ## Deferred: Sitemap and RSS
 
-Neither a sitemap nor an RSS feed was added. `astro.config.mjs` now has a
-`site` value, which is a prerequisite for either, but the project remains
-in the local-development-only phase per the repository's project
-instructions; both are deferred to a future, explicitly-scoped task.
+Sitemap generation is enabled via `@astrojs/sitemap`. RSS, search,
+category filtering UI, reading-time metadata, and related-content UI are
+still deferred to future, explicitly scoped work.
 
 ## Framework and Dependency Confirmation
 
