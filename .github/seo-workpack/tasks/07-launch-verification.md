@@ -1,39 +1,58 @@
-# Phase 7 — Launch verification and indexing setup
+# Phase 7 — Launch Verification, Analytics, and Indexing Setup
 
 ## Outcome
 
-The production deployment is crawlable, measurable, and ready for indexing requests.
+The final production deployment is crawlable, measurable, technically sound, and ready for search-engine indexing requests.
 
-## Agent prompt
+Google Analytics 4 is installed once across the production site, page views are being received by the correct GA4 property, and the site’s privacy disclosure accurately describes its use of analytics.
 
-```text
-Act as the launch verifier for BlinkNetworks SEO. Do not broaden production code unless a failing check requires a small, separately reviewed fix.
+## Agent Prompt
 
-From the final merged commit, run the full install, build, type/lint/test suite, and inspect generated output. After an authorized deployment, verify production HTTP status, redirects, canonical tags, titles, descriptions, robots directives, robots.txt, sitemap files, structured data, Open Graph images, mobile rendering, and key internal links for all primary, service, and article routes.
+Act as the launch verifier for BlinkNetworks SEO.
 
-Check that HTTP redirects to HTTPS, the preferred hostname is consistent, only one trailing-slash form resolves as canonical, and no staging/localhost URLs or legacy strings appear. Run Lighthouse or PageSpeed checks for representative home, service, and article pages and record results as a baseline, not a ranking guarantee.
+This phase is primarily a verification and reporting pass. Do not broaden production code unless a failing check requires a small, separately reviewed fix.
 
-Produce a launch report with pass/fail evidence and a short owner checklist for:
-- Google Search Console domain verification
-- Sitemap submission
-- URL inspection for the homepage, one service page, and one article
-- Bing Webmaster Tools setup/import
-- Google Business Profile review using consistent public business details
-- A 30-day review of indexing, queries, page experience, and crawl issues
+The approved exception is the minimal implementation required to install and validate Google Analytics 4 as described below.
 
-Never request indexing for placeholder, duplicate, draft, or broken pages.
-```
+Work only from the final merged commit on the `main` branch. Do not deploy, submit indexing requests, or change external business accounts unless explicitly authorized by the business owner.
 
-## Production checklist
+### 1. Repository and Build Verification
 
-- [ ] Current pages return expected 200 responses.
-- [ ] Legacy URLs either serve current content or redirect intentionally.
-- [ ] HTTP and non-preferred-host variants redirect once to the canonical host.
-- [ ] `robots.txt` is accessible and references the live sitemap.
-- [ ] Sitemap contains canonical, indexable URLs only.
-- [ ] No draft article URLs are public.
-- [ ] JSON-LD parses and matches visible content.
-- [ ] Social images resolve with absolute HTTPS URLs.
-- [ ] Search Console and Bing ownership are verified by the business owner.
-- [ ] Baseline metrics and the review date are recorded.
+Before testing production:
 
+1. Confirm the current branch and commit.
+2. Confirm the working tree is clean.
+3. Install dependencies using the repository’s lockfile and approved package-manager command.
+4. Run the complete:
+   - Production build
+   - Type checking
+   - Linting
+   - Automated test suite
+5. Inspect the generated production output.
+6. Record the tested commit SHA and all commands and results in the launch report.
+
+Do not silently repair unrelated warnings or failures. Record them and determine whether they block launch.
+
+### 2. Google Analytics 4 Implementation
+
+Install Google Analytics 4 across all production pages using measurement ID:
+
+`G-8MCPFCT1D0`
+
+Google provided the following tag:
+
+```html
+<!-- Google tag (gtag.js) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-8MCPFCT1D0"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-8MCPFCT1D0');
+</script>
