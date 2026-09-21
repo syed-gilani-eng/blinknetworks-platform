@@ -25,7 +25,7 @@ props, markup, or shared styles were modified beyond the Footer's new
 itself is a single `.privacy` component with two inner blocks:
 
 - `.privacy__header` — eyebrow "LEGAL", the page's only `<h1>`
-  ("Privacy Policy"), and a "Last updated: September 16, 2026" line.
+  ("Privacy Policy"), and a "Last updated: September 21, 2026" line.
 - `.privacy__content` — sequential `<h2>` sections, matching the article
   content pattern used by `app/src/pages/insights/[slug].astro` (70ch
   reading width, 1.7 line-height, underlined links).
@@ -65,9 +65,10 @@ itself is a single `.privacy` component with two inner blocks:
   "reasonable administrative, technical and organizational safeguards,"
   and the page explicitly states no transmission or storage method can be
   guaranteed completely secure.
-- Cookies/analytics section states narrowly that BlinkNetworks does not
-  currently use advertising or analytics cookies — it does not claim the
-  hosting infrastructure or Formspree collect no technical information.
+- Cookies/analytics section states that BlinkNetworks uses Google
+  Analytics 4 for aggregate traffic measurement and does not use it for
+  advertising personalization; it does not claim the hosting
+  infrastructure or Formspree collect no technical information.
 - Formspree is explicitly described as an independent third-party
   processor, not owned or controlled by BlinkNetworks; the Formspree
   Privacy Policy is linked with `target="_blank"` and

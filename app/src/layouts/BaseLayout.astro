@@ -251,6 +251,20 @@ const jsonLdScriptValue = JSON.stringify({
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8MCPFCT1D0"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-8MCPFCT1D0");
+    </script>
     <meta name="robots" content={robotsContent} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL.toString()} />
