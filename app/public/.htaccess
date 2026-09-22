@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Enforce canonical origin: https://blinknetworks.com
+RewriteCond %{HTTP_HOST} !^blinknetworks\.com$ [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://blinknetworks.com%{REQUEST_URI} [R=301,L,NE]
