@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: "light" | "dark";
+  variant?: "light" | "dark" | "careers";
 }
 
 const { variant = "light" }: Props = Astro.props;
@@ -16,6 +16,7 @@ const navItems = [
   { label: "Why BlinkNetworks", href: "/#why-blinknetworks" },
   { label: "Insights", href: "/insights/" },
   { label: "About", href: "/about/" },
+  { label: "Careers", href: "/careers/" },
   { label: "Contact", href: "/contact/" },
 ];
 
@@ -242,7 +243,7 @@ const isNavItemActive = (href: string) => {
   }
 
   /* Only once JS has enhanced the header does the nav collapse behind the toggle. */
-  @media (max-width: 959px) {
+  @media (max-width: 1149px) {
     .site-header[data-nav-enhanced="true"] .site-nav {
       display: none;
       position: absolute;
@@ -258,7 +259,8 @@ const isNavItemActive = (href: string) => {
     }
   }
 
-  @media (min-width: 960px) {
+  /* The full inline nav's min-content width doesn't fit below ~1040px; collapse to the toggle with margin to spare. */
+  @media (min-width: 1150px) {
     .site-header__toggle {
       display: none;
     }
@@ -329,11 +331,36 @@ const isNavItemActive = (href: string) => {
     outline-color: var(--color-network-cyan);
   }
 
-  @media (max-width: 959px) {
+  @media (max-width: 1149px) {
     .site-header[data-variant="dark"][data-nav-enhanced="true"] .site-nav {
       background-color: var(--color-blink-navy);
       border-bottom-color: var(--color-secondary-navy);
     }
+  }
+
+  /* Careers-only variant: same light layout as the default header, with the brand-blue CTA and active state from the approved mockup. */
+  .site-header[data-variant="careers"] .site-nav__list a[aria-current="page"] {
+    position: relative;
+    color: var(--color-blink-blue);
+  }
+
+  .site-header[data-variant="careers"] .site-nav__list a[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--color-blink-blue);
+  }
+
+  .site-header[data-variant="careers"] .site-nav__cta {
+    background-color: var(--color-blink-blue);
+  }
+
+  .site-header[data-variant="careers"] .site-nav__cta:hover {
+    background-color: var(--color-secondary-navy);
   }
 </style>
 

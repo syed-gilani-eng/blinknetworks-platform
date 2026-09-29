@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CareersHero from "../../components/CareersHero.astro";
+import CareersValuesStrip from "../../components/CareersValuesStrip.astro";
+import CareersWhyBlink from "../../components/CareersWhyBlink.astro";
+import CareersOpportunities from "../../components/CareersOpportunities.astro";
+import CareersProcess from "../../components/CareersProcess.astro";
+import CareersFinalCTA from "../../components/CareersFinalCTA.astro";
+---
+
+<BaseLayout
+	title="Careers at BlinkNetworks | Toronto Managed IT Jobs"
+	description="Explore careers at BlinkNetworks, a Canadian-owned IT partner supporting Toronto and GTA businesses. See our values, hiring process, and how to reach our team."
+	canonicalPath="/careers/"
+	headerVariant="careers"
+	footerVariant="dark"
+>
+	<CareersHero />
+	<CareersValuesStrip />
+	<CareersWhyBlink />
+	<CareersOpportunities />
+	<CareersProcess />
+	<CareersFinalCTA />
+</BaseLayout>

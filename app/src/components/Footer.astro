@@ -1,4 +1,15 @@
 ---
+interface Props {
+  variant?: "light" | "dark";
+}
+
+const { variant = "light" }: Props = Astro.props;
+
+const logoSrc =
+  variant === "dark"
+    ? "/brand/blinknetworks-logo-dark-background.png"
+    : "/brand/blinknetworks-logo-light-background.png";
+
 const currentYear = new Date().getFullYear();
 
 const serviceLinks = [
@@ -12,6 +23,7 @@ const serviceLinks = [
 
 const companyLinks = [
   { label: "About", href: "/about/" },
+  { label: "Careers", href: "/careers/" },
   { label: "Why BlinkNetworks", href: "/#why-blinknetworks" },
   { label: "Solutions", href: "/solutions/" },
   { label: "Insights", href: "/insights/" },
@@ -23,13 +35,13 @@ const contactPhone = "(905) 703-7895";
 const contactEmail = "hello@blinknetworks.com";
 ---
 
-<footer class="site-footer">
+<footer class="site-footer" data-variant={variant}>
   <div class="site-footer__inner">
     <div class="site-footer__grid">
       <div class="site-footer__brand">
         <a class="site-footer__logo" href="/">
           <img
-            src="/brand/blinknetworks-logo-light-background.png"
+            src={logoSrc}
             width="2016"
             height="422"
             alt="BlinkNetworks"
@@ -144,7 +156,7 @@ const contactEmail = "hello@blinknetworks.com";
     gap: 32px;
   }
 
-  @media (min-width: 640px) and (max-width: 959px) {
+  @media (min-width: 640px) and (max-width: 1149px) {
     .site-footer__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 32px 24px;
@@ -155,7 +167,8 @@ const contactEmail = "hello@blinknetworks.com";
     }
   }
 
-  @media (min-width: 960px) {
+  /* The 5-column grid's minmax() floors need ~1080px; below that the 2-column layout above applies instead. */
+  @media (min-width: 1150px) {
     .site-footer__grid {
       grid-template-columns:
         minmax(280px, 1.5fr)
@@ -278,5 +291,41 @@ const contactEmail = "hello@blinknetworks.com";
     margin: 0;
     font-size: 0.875rem;
     color: var(--color-text-secondary);
+  }
+
+  /* Careers-only dark variant: navy background with light/reversed logo and muted azure body text. */
+  .site-footer[data-variant="dark"] {
+    background-color: var(--color-blink-navy);
+    color: var(--color-white);
+  }
+
+  .site-footer[data-variant="dark"] .site-footer__heading {
+    color: var(--color-white);
+  }
+
+  .site-footer[data-variant="dark"] .site-footer__description,
+  .site-footer[data-variant="dark"] .site-footer__group a,
+  .site-footer[data-variant="dark"] .site-footer__contact-list span,
+  .site-footer[data-variant="dark"] .site-footer__contact-list a,
+  .site-footer[data-variant="dark"] .site-footer__social-link,
+  .site-footer[data-variant="dark"] .site-footer__copyright {
+    color: var(--color-soft-azure);
+  }
+
+  .site-footer[data-variant="dark"] .site-footer__group a:hover,
+  .site-footer[data-variant="dark"] .site-footer__group a:focus-visible,
+  .site-footer[data-variant="dark"] .site-footer__contact-list a:hover,
+  .site-footer[data-variant="dark"] .site-footer__contact-list a:focus-visible,
+  .site-footer[data-variant="dark"] .site-footer__social-link:hover,
+  .site-footer[data-variant="dark"] .site-footer__social-link:focus-visible {
+    color: var(--color-network-cyan);
+  }
+
+  .site-footer[data-variant="dark"] .site-footer__bottom {
+    border-top-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .site-footer[data-variant="dark"] :focus-visible {
+    outline-color: var(--color-network-cyan);
   }
 </style>

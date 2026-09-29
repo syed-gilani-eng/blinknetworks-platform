@@ -1,0 +1,191 @@
+---
+---
+
+<section class="careers-final-cta" aria-labelledby="careers-final-cta-heading">
+  <div class="careers-final-cta__inner">
+    <div class="careers-final-cta__content">
+      <p class="careers-final-cta__eyebrow">Join our team</p>
+      <h2 id="careers-final-cta-heading" class="careers-final-cta__heading">
+        Interested in building with us?
+      </h2>
+      <p class="careers-final-cta__lead">
+        We&rsquo;re always happy to meet thoughtful IT professionals who
+        share our values. Send us a note and tell us a bit about yourself.
+      </p>
+      <a class="careers-final-cta__cta" href="mailto:careers@blinknetworks.com">Introduce yourself</a>
+    </div>
+
+    <div class="careers-final-cta__visual">
+      <!-- Decorative seam accent; hidden on mobile so it never overlaps the stacked copy. -->
+      <svg
+        class="careers-final-cta__curve"
+        viewBox="0 0 120 400"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M100 0C50 90 50 310 100 400" fill="none" stroke="var(--color-soft-azure)" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+        <path d="M85 0C40 100 40 300 85 400" fill="none" stroke="var(--color-network-cyan)" stroke-width="2" stroke-linecap="round" opacity="0.45" />
+        <path d="M70 0C25 110 25 290 70 400" fill="none" stroke="var(--color-blink-blue)" stroke-width="2" stroke-linecap="round" opacity="0.35" />
+      </svg>
+
+      <!-- Approved production photo; decorative, since the adjacent copy communicates the page meaning. -->
+      <img
+        class="careers-final-cta__image"
+        src="/images/careers/toronto-skyline.webp"
+        width="2103"
+        height="748"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .careers-final-cta {
+    background-color: var(--color-soft-azure);
+    color: var(--color-text-primary);
+    overflow: hidden;
+  }
+
+  .careers-final-cta__inner {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 960px) {
+    .careers-final-cta__inner {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      align-items: stretch;
+      min-height: 420px;
+    }
+  }
+
+  .careers-final-cta__content {
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .careers-final-cta__content {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 44px 36px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .careers-final-cta__content {
+      padding-block: 0;
+      padding-inline-start: var(--container-padding-desktop);
+      padding-inline-end: 40px;
+    }
+  }
+
+  .careers-final-cta__eyebrow {
+    margin: 0 0 12px;
+    color: var(--color-blink-blue);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .careers-final-cta__heading {
+    margin: 0 0 12px;
+    font-size: 2rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .careers-final-cta__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .careers-final-cta__lead {
+    margin: 0 0 24px;
+    max-width: 54ch;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .careers-final-cta__cta {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 28px;
+    border-radius: var(--radius-button);
+    background: var(--color-accent-gradient);
+    color: var(--color-white);
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(25, 118, 233, 0.22);
+    transition: filter var(--duration-fast) ease;
+  }
+
+  .careers-final-cta__cta:hover {
+    filter: brightness(1.08);
+  }
+
+  .careers-final-cta__visual {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .careers-final-cta__image {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    /* CN Tower and skyscrapers sit right-of-centre; bias the crop right to keep the skyline recognizable. */
+    object-position: 72% center;
+  }
+
+  @media (min-width: 640px) {
+    .careers-final-cta__image {
+      height: 240px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .careers-final-cta__visual {
+      height: auto;
+    }
+
+    .careers-final-cta__image {
+      height: 100%;
+      min-height: 420px;
+    }
+  }
+
+  .careers-final-cta__curve {
+    display: none;
+  }
+
+  @media (min-width: 960px) {
+    .careers-final-cta__curve {
+      display: block;
+      position: absolute;
+      left: -40px;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+</style>
