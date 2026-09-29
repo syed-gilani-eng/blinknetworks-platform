@@ -1,0 +1,142 @@
+---
+// Reused existing homepage icons plus one new gradient icon following the same
+// visual convention (viewBox 0 0 40 40, blue-to-cyan gradient stroke).
+// Assets: app/public/images/homepage/icons/
+const values = [
+  {
+    title: "Own the outcome",
+    description: "We take responsibility and deliver.",
+    iconSrc: "/images/homepage/icons/business-first.svg",
+  },
+  {
+    title: "Keep learning",
+    description: "We stay curious and grow together.",
+    iconSrc: "/images/homepage/icons/growing-organizations.svg",
+  },
+  {
+    title: "Help people",
+    description: "We make a real difference for our clients.",
+    iconSrc: "/images/homepage/icons/help-people.svg",
+  },
+];
+---
+
+<section class="careers-values-strip" aria-labelledby="careers-values-strip-heading">
+  <h2 id="careers-values-strip-heading" class="visually-hidden">
+    Our values
+  </h2>
+  <div class="careers-values-strip__inner">
+    <ul class="careers-values-strip__list">
+      {
+        values.map((value) => (
+          <li class="careers-values-strip__item">
+            <img
+              class="careers-values-strip__icon"
+              src={value.iconSrc}
+              width="32"
+              height="32"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="careers-values-strip__item-title">{value.title}</p>
+            <p class="careers-values-strip__item-description">{value.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Darker navy band directly under the Hero: background change alone marks the section boundary. */
+  .careers-values-strip {
+    background-color: var(--color-secondary-navy);
+    color: var(--color-white);
+  }
+
+  .careers-values-strip__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 32px;
+  }
+
+  @media (min-width: 640px) {
+    .careers-values-strip__inner {
+      padding-inline: var(--container-padding-tablet);
+    }
+  }
+
+  @media (min-width: 960px) {
+    .careers-values-strip__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 40px;
+    }
+  }
+
+  .careers-values-strip__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  @media (min-width: 640px) {
+    .careers-values-strip__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 32px;
+    }
+  }
+
+  .careers-values-strip__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Thin column separators on desktop only; a stacked mobile list has no vertical rule to break. */
+  @media (min-width: 640px) {
+    .careers-values-strip__item:not(:first-child) {
+      padding-inline-start: 32px;
+      border-left: 1px solid rgba(255, 255, 255, 0.16);
+    }
+  }
+
+  .careers-values-strip__icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+  }
+
+  .careers-values-strip__item-title {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  .careers-values-strip__item-description {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-soft-azure);
+  }
+</style>

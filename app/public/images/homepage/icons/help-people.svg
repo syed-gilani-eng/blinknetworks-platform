@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="help-people-stroke" x1="6" y1="6" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1976E9" />
+      <stop offset="1" stop-color="#2AC5E8" />
+    </linearGradient>
+  </defs>
+  <path d="M20 33C20 33 6 24.7 6 15.6C6 10.6 9.6 7 14.1 7C16.6 7 18.9 8.3 20 10.4C21.1 8.3 23.4 7 25.9 7C30.4 7 34 10.6 34 15.6C34 24.7 20 33 20 33Z" stroke="url(#help-people-stroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

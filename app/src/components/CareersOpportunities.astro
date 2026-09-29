@@ -1,0 +1,140 @@
+---
+const careersEmail = "careers@blinknetworks.com";
+---
+
+<section id="opportunities" class="careers-opportunities" aria-labelledby="careers-opportunities-heading">
+  <div class="careers-opportunities__inner">
+    <img
+      class="careers-opportunities__illustration"
+      src="/images/careers/careers-envelope.svg"
+      alt=""
+      width="320"
+      height="220"
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+    />
+
+    <div class="careers-opportunities__content">
+      <p class="careers-opportunities__eyebrow">Open opportunities</p>
+      <h2 id="careers-opportunities-heading" class="careers-opportunities__heading">
+        No open roles right now.
+      </h2>
+      <p class="careers-opportunities__lead">
+        We are always glad to meet thoughtful IT professionals.
+      </p>
+      <a class="careers-opportunities__cta" href={`mailto:${careersEmail}`}>
+        Email {careersEmail}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Anchor target for the Hero's "Explore opportunities" CTA. */
+  .careers-opportunities {
+    background-color: var(--color-cloud-bg);
+    scroll-margin-top: 96px;
+  }
+
+  .careers-opportunities__inner {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  @media (min-width: 640px) {
+    .careers-opportunities__inner {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 44px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .careers-opportunities__inner {
+      padding-inline: var(--container-padding-desktop);
+      padding-block: 56px;
+      flex-direction: row;
+      text-align: left;
+      justify-content: center;
+      gap: 56px;
+    }
+  }
+
+  .careers-opportunities__illustration {
+    flex-shrink: 0;
+    width: 200px;
+    height: auto;
+  }
+
+  @media (min-width: 640px) {
+    .careers-opportunities__illustration {
+      width: 240px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .careers-opportunities__illustration {
+      width: 280px;
+    }
+  }
+
+  .careers-opportunities__content {
+    max-width: 52ch;
+  }
+
+  .careers-opportunities__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-blink-blue);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .careers-opportunities__heading {
+    margin: 0 0 12px;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 960px) {
+    .careers-opportunities__heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  .careers-opportunities__lead {
+    margin: 0 0 24px;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .careers-opportunities__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 24px;
+    border-radius: var(--radius-button);
+    background: var(--color-accent-gradient);
+    color: var(--color-white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: filter var(--duration-fast) ease;
+  }
+
+  .careers-opportunities__cta:hover,
+  .careers-opportunities__cta:focus-visible {
+    filter: brightness(1.08);
+  }
+</style>

@@ -1,0 +1,218 @@
+---
+---
+
+<section class="careers-hero" aria-labelledby="careers-hero-heading">
+  <div class="careers-hero__inner">
+    <div class="careers-hero__content">
+      <p class="careers-hero__eyebrow">Careers at BlinkNetworks</p>
+      <h1 id="careers-hero-heading" class="careers-hero__heading">
+        Build technology that helps businesses <span class="careers-hero__heading-accent">thrive.</span>
+      </h1>
+      <p class="careers-hero__lead">
+        Join a practical, people-first team supporting businesses across
+        Toronto and the GTA.
+      </p>
+      <div class="careers-hero__actions">
+        <a class="careers-hero__cta careers-hero__cta--primary" href="#opportunities">Explore opportunities</a>
+        <a class="careers-hero__cta careers-hero__cta--secondary" href="/about/">
+          Get to know us
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="careers-hero__visual">
+      <!-- Decorative seam accent; hidden on mobile so it never overlaps the stacked copy. -->
+      <svg
+        class="careers-hero__curve"
+        viewBox="0 0 120 400"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M100 0C50 90 50 310 100 400" fill="none" stroke="var(--color-soft-azure)" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+        <path d="M85 0C40 100 40 300 85 400" fill="none" stroke="var(--color-network-cyan)" stroke-width="2" stroke-linecap="round" opacity="0.45" />
+        <path d="M70 0C25 110 25 290 70 400" fill="none" stroke="var(--color-blink-blue)" stroke-width="2" stroke-linecap="round" opacity="0.35" />
+      </svg>
+
+      <!-- Approved production photo; decorative, since the adjacent copy communicates the page meaning. -->
+      <img
+        class="careers-hero__image"
+        src="/images/careers/careers-team-hero.webp"
+        width="1959"
+        height="803"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .careers-hero {
+    background-color: var(--color-white);
+    color: var(--color-text-primary);
+    overflow: hidden;
+  }
+
+  .careers-hero__inner {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 960px) {
+    .careers-hero__inner {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      align-items: stretch;
+      min-height: 560px;
+    }
+  }
+
+  .careers-hero__content {
+    padding-inline: var(--container-padding-mobile);
+    padding-block: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .careers-hero__content {
+      padding-inline: var(--container-padding-tablet);
+      padding-block: 44px 36px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .careers-hero__content {
+      padding-block: 0;
+      padding-inline-start: var(--container-padding-desktop);
+      padding-inline-end: 40px;
+    }
+  }
+
+  .careers-hero__eyebrow {
+    margin: 0 0 16px;
+    color: var(--color-blink-blue);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .careers-hero__heading {
+    margin: 0 0 20px;
+    /* Scales smoothly from the mobile size up to a desktop ceiling instead of jumping at one breakpoint. */
+    font-size: clamp(2.25rem, 1.6rem + 2vw, 2.75rem);
+    line-height: 1.15;
+    font-weight: 700;
+  }
+
+  .careers-hero__heading-accent {
+    color: var(--color-blink-blue);
+  }
+
+  .careers-hero__lead {
+    margin: 0 0 32px;
+    max-width: 46ch;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .careers-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Vivid blue-to-cyan treatment; scoped to this hero only, not a global button style. */
+  .careers-hero__cta--primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 28px;
+    border-radius: var(--radius-button);
+    background: var(--color-accent-gradient);
+    color: var(--color-white);
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(25, 118, 233, 0.22);
+    transition: filter var(--duration-fast) ease;
+  }
+
+  .careers-hero__cta--primary:hover {
+    filter: brightness(1.08);
+  }
+
+  .careers-hero__cta--secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    color: var(--color-blink-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .careers-hero__cta--secondary:hover {
+    color: var(--color-secondary-navy);
+  }
+
+  .careers-hero__visual {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .careers-hero__image {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    /* Team members sit right-of-centre in the source photo; bias the crop right to avoid cutting faces. */
+    object-position: 75% center;
+  }
+
+  @media (min-width: 640px) {
+    .careers-hero__image {
+      height: 320px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .careers-hero__visual {
+      height: auto;
+    }
+
+    .careers-hero__image {
+      height: 100%;
+      min-height: 560px;
+    }
+  }
+
+  .careers-hero__curve {
+    display: none;
+  }
+
+  @media (min-width: 960px) {
+    .careers-hero__curve {
+      display: block;
+      position: absolute;
+      left: -40px;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+</style>

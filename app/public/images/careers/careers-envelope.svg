@@ -1,0 +1,41 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="320"
+  height="220"
+  viewBox="0 0 320 220"
+  fill="none"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <linearGradient id="envelope-stroke" x1="79" y1="75" x2="245" y2="174" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#168BFF" />
+      <stop offset="1" stop-color="#0066E6" />
+    </linearGradient>
+    <linearGradient id="envelope-wash" x1="49" y1="35" x2="263" y2="196" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8F5FF" />
+      <stop offset="1" stop-color="#D8ECFF" />
+    </linearGradient>
+    <filter id="soft-shadow" x="54" y="65" width="212" height="130" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#005FC7" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <path
+    d="M43 111C49 73 75 40 112 29C148 18 177 40 203 48C230 56 267 52 282 78C297 104 278 133 261 154C242 178 216 195 184 197C151 199 131 181 101 176C73 171 43 174 31 151C25 139 40 126 43 111Z"
+    fill="url(#envelope-wash)"
+  />
+
+  <g stroke="#168BFF" stroke-width="7" stroke-linecap="round">
+    <path d="M218 31L224 14" />
+    <path d="M240 45L255 34" />
+    <path d="M247 68L266 66" />
+  </g>
+
+  <g filter="url(#soft-shadow)" stroke="url(#envelope-stroke)" stroke-width="5" stroke-linejoin="round">
+    <rect x="72" y="82" width="176" height="96" rx="9" fill="#FFFFFF" />
+    <path d="M77 89L151 142C156 146 164 146 169 142L243 89" />
+    <path d="M77 171L132 124" />
+    <path d="M243 171L188 124" />
+  </g>
+</svg>

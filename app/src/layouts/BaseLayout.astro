@@ -21,7 +21,8 @@ interface BreadcrumbItem {
 }
 
 interface Props extends SeoProps {
-  headerVariant?: "light" | "dark";
+  headerVariant?: "light" | "dark" | "careers";
+  footerVariant?: "light" | "dark";
   includeWebSiteSchema?: boolean;
   breadcrumbs?: BreadcrumbItem[];
 }
@@ -37,6 +38,7 @@ const {
   modifiedTime,
   noindex = false,
   headerVariant = "light",
+  footerVariant = "light",
   includeWebSiteSchema = false,
   breadcrumbs = [],
 } = Astro.props;
@@ -312,6 +314,6 @@ const jsonLdScriptValue = JSON.stringify({
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer variant={footerVariant} />
   </body>
 </html>
